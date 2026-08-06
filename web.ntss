@@ -1,0 +1,63 @@
+---------------------------------------------------- WEB DEVELOPMENT ---------------------------------------------------------
+
+Introduction to Web Development
+ Web Development is the process of creating and maintaining websits and web pages
+
+Types of Web development:
+
+1.Frontend development
+  Creates the user interface (UI)
+  Everything the user can see and interact with
+
+ Technologies:
+ HTML
+ CSS
+ JavaScript
+
+2.Backend Development
+ Handles server-side logic
+ Manages databases, authentication, and APIs
+
+ Technoligies:
+ Node.Js
+ Python
+ Java
+ PHP
+ MySQL
+ MongoDB
+
+3.Full Stack Development
+ Works on both Frontend and Backend
+
+What is a Web Browser?
+ A web browser is software used to access and display websites.
+Examples:
+ Google Chrome
+ Microsoft Edge
+ Mozilla Firefox
+ Safari
+
+What is a Web Server?
+A web server stores website files and sends them to users when requested.
+Examples:
+ Apache
+ Nginx
+
+Website:
+ A collection of interconnected web pages
+
+Webpage:
+ A single page of a website
+
+URL (Uniform Resource Locator):
+ The address of a webpage
+
+HTTP (HyperText Transfer Protocol):
+ The protocol used for communication between the browser and the web server
+
+HTTPS:
+ A secure version of HTTP
+
+
+
+
