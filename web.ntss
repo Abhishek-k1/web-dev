@@ -58,6 +58,43 @@ HTTP (HyperText Transfer Protocol):
 HTTPS:
  A secure version of HTTP
 
+HTML (HyperText Markup Languages)
+ HTML is the standard markup languages used to create the structure of pages
+ HTML is not a programming languages
+ It tells the browser how to display content on a webpages
 
+What can HTML create?
+ Headings
+ Paragraphs
+ Images
+ Links
+ Tables
+ Lists
+ Forms
+ Buttons
+ Videos
+ Audio
 
+HTML File Extension:
+ HTML files are saved with the .html extension
+
+Examples:
+ index.html
+ about.html
+ contact.html
+ 
+Example:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> My website </title>
+</head>
+
+<body>
+     
+     hii
+
+</body>
+</html>
 
