@@ -18,8 +18,8 @@ Types of Web development:
  Handles server-side logic
  Manages databases, authentication, and APIs
 
- Technoligies:
- Node.Js
+ Technologies:
+ Node.js
  Python
  Java
  PHP
@@ -58,8 +58,8 @@ HTTP (HyperText Transfer Protocol):
 HTTPS:
  A secure version of HTTP
 
-HTML (HyperText Markup Languages)
- HTML is the standard markup languages used to create the structure of pages
+HTML (HyperText Markup Language)
+ HTML is the standard markup language used to create the structure of web pages
  HTML is not a programming languages
  It tells the browser how to display content on a webpages
 
@@ -83,18 +83,86 @@ Examples:
  about.html
  contact.html
  
-Example:
+Basic HTML structur:
+ Every HTML document follows a basic structure
+Syntax:
+
+ <!DOCTYPE html>
+ <html>
+ <head>
+     <title> My website </title>
+ </head>
+
+ <body>
+     
+      hii
+
+ </body>
+ </html>
 
 <!DOCTYPE html>
+ Declares that the document is an HTML document
+ It helps the browser render the webpage correctly
+
 <html>
+ The root element of an HTML document
+ All HTML code is written inside this tag
+
 <head>
-    <title> My website </title>
-</head>
+ Contains information about the webpage
+ This information is not displayed on the webpages
+
+Examples:
+ Title
+ Meta tags
+ CSS files
+ JavaScript files
+
+<title>
+ Define the title of the webpage
+ The title appears on the browser Tab
+
+Example:
+ <title> My website </title>
 
 <body>
-     
-     hii
+ Contains all the visible content of the webpage
 
-</body>
-</html>
+Examples:
+ Headings
+ Paragraphs
+ Images
+ Links
+ Tables
+ Forms
+ Lists
+
+HTML tags
+ HTML uses tags to define elements
+
+ Most tags have:
+ Opening tag
+ <tag>
+ closing tag
+ </tag>
+
+Example:
+ <p>Hello World</p>
+
+Nested tags
+ HTML tags can be placed inside other tags
+Example:
+    <html>
+        <body>
+            <h1>welcome</h1>
+        </body>
+    </html>
+
+
+
+
+
+
+
+
 
