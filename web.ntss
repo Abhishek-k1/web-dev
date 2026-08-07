@@ -214,6 +214,110 @@ HTML Comments
 Syntax:
  <!-- This is a comment -->
 
+Image in HTML:
+ The <img> tag is used to display an image on a webpage
+
+Syntax:
+ <img src ="image.jpg" alt="Image Description">
+
+Attributes:
+->arc(Source)
+ Specifies the path of the image
+  
+->alt (Alternative Text)
+ Displays text if the image cannot be loaded
+ Improves accessibility
+
+Examples:
+ <img src="hello.jpg" alt="hello">
+
+Image Width and Height:
+ The width and height attributes are used to set the image size
+
+Example:
+ <img src="cat.jpg" a;t="cat" width="300" height="200">
+
+Lists in HTML:
+ HTML provides three types of Lists
+
+1.Ordered List (<ol>)
+  Display items in numbered Order
+
+Example:
+   <ol>
+       <li>web</li>
+       <li>banana</li> 
+       <li>development</li>
+    </ol>
+
+2.Unordered List(<ul>)
+  Display items using bullets
+
+Example:
+    <ul>
+       <li>web</li>
+       <li>mango</li>
+       <li>development</li>
+     </ul>
+
+3.Description List(<dl>)
+ Used to display terms and their descriptions
+
+Tags Used:
+ <dl> -> Description List
+ <dt> -> Description term
+ <dd> -> Description Definition
+
+Example:
+ <dl>
+    <dt>HTML</dt>
+    <dd>HyperText Markup Language</dd>
+
+    <dt>CSS</dt>
+    <dd>Cascading Style Sheets</dd>
+  </dl>
+
+Tables in HTML:
+ The <Table> tag is used to create Tables
+
+Structure:
+  <table>
+       <tr>
+           <th>Name</th>
+           <th>Age</th>
+        </tr>
+
+        <tr>
+            <td>Abhishek</td>
+            <td>20</td>
+        </tr>
+    </table>
+
+Table Tags:
+
+<Table> -> Define a table
+
+<tr> -> Defines a table row
+
+<th> -> Defines a table heading
+
+<td> -> Defines table data (cell)
+
+Colspan Attribute
+ The colspan attribute allows a cell to span multiple columns
+
+Example:
+   <td colspan="2">Student Details</td>
+
+rowspan Attribute
+ The rowspan attribute allows a cell to span multiple rowspan
+
+Example:
+    <td rowspan="2">Abhishek</td>
+    
+
+
+
 
 
 
