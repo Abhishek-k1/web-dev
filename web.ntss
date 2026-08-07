@@ -149,7 +149,7 @@ HTML tags
 Example:
  <p>Hello World</p>
 
-Nested tags
+Nested tags:
  HTML tags can be placed inside other tags
 Example:
     <html>
@@ -157,6 +157,64 @@ Example:
             <h1>welcome</h1>
         </body>
     </html>
+
+HTML tags:
+ HTML provides 6 levels of heading to define titles and subtitles on a webpage
+
+Syntax
+ <h1>Heading 1</h1>   -> Largest and most important heading
+ <h2>Heading 2</h2>   -> Second largest heading  
+ <h3>Heading 3</h3>   -> Third largest heading
+ <h4>Heading 4</h4>   -> Fourth largest heading
+ <h5>Heading 5</h5>   -> Fifth largest  heading
+ <h6>Heading 6</H6>   -> Smallest heading
+
+Paragraph:
+ The <p> tag is used to create a paragraph
+
+Syntax:
+ <p> paragraph </p>
+
+Anchor Tag(Links):
+ The <a> tag is used to create hyperlinks
+
+Syntax:
+ <a href="URL">Link Name</a>
+ 
+href Attribute:
+ The href attribute specifies the destination (URL) of the Link
+
+Opening a Link in a New Tab:
+ Use the target="_blank" attribute
+
+Examples:
+ <a href="https://www.google.com" target="_blank">Google</a>
+
+HTML Attributes
+ Attributes provide additional information about HTML elements
+
+Syntax:
+ <tag attribute="value">Content</tag>
+
+Example:
+ <a href="https://www.google.com">Google</a>
+
+ href -> Attribute
+ "https://www.google.com" -> Value
+
+Line Break:
+ The <br> tag moves the content to the next Line
+
+Horizontal Line:
+ The <hr> tag inserts a horizontal Line
+
+HTML Comments
+ Comments are not displayed on the webpages
+
+Syntax:
+ <!-- This is a comment -->
+
+
 
 
 
