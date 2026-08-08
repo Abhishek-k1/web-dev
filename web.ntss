@@ -314,6 +314,64 @@ rowspan Attribute
 
 Example:
     <td rowspan="2">Abhishek</td>
+
+SEO:
+ SEO stands for Search Engine Optimization
+
+ SEO is the process of improving a website so that it can rank better in search engine results
+
+Why is SEO important?
+ Improve website visibility
+ Helps search engines understand the website
+ Increases organic traffic
+ Helps users find relevant content
+
+Important SEO Practices
+1.Title:
+ The <title> tag defines the title of a webpage
+
+2.Meta Description 
+ Meta description provides a short description of the webpage
+
+Example:
+ <meta name="description" content="This is my personal website">
+
+3.Headings
+ HTML provides heading from <h1> to <h6>
+
+ <h1>Main Heading</h1>
+ <h2>Sub Heading</h2>
+ <h3>Another Heading</h3>
+
+ Headings should be used in a proper hierarchy
+
+4.Semantic HTML
+ Semantic HTML uses meaningful tags that describe the purpose of the content
+
+Examples:
+ <header>
+ <nav>
+ <main>
+ <section>
+ <article>
+ <footer>
+
+Coree Web Vitals:
+ Core web vitals are metrics used to measure  important asppects of a webpage's user experience
+
+There are three main Core Web Vitals:
+1.LCP -> Largest Contentful Paint
+ Measure how quickly the largest visible content loads
+ Focus -> Loading Performance
+
+2.INP ->Interaction to Next Paint
+ Measures how quickly a webpage responds to user Interaction
+ Focus -> Responsiveness
+
+3.CLS -> Cumulative Layout Shift
+ Meaasures unexpected movement of elements on a webpage while Loading 
+ Focus -> Visual Stability
+
     
 
 
