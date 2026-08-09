@@ -372,6 +372,123 @@ There are three main Core Web Vitals:
  Meaasures unexpected movement of elements on a webpage while Loading 
  Focus -> Visual Stability
 
+HTML Forms
+ AA form  is used to collect input and information from users
+
+Examples:
+ Login Form
+ Refistration Form
+ Search Form
+ Feedback Form
+
+ The <form> tag is used to create a form
+
+Basic Syntax:
+ <form action="backend.php">
+
+ </form> -> Action specifies where the form data should be sent for processing
+
+Input Tag:
+ The <input>  tag is used to create interactive input fields in a form
+
+Syntax:
+ <input type="text">
+
+The type attribute specifies the type of input
+
+Common Input Type:
+ text
+ email
+ password
+ number
+ date 
+ radio
+ checkbox
+ submit
+
+Examples:
+ <input type="text">
+ <input type="email">
+ <input type="password">
+ <input type="number">
+ <input type="date">
+
+Name Attribute:
+ The name attribute is used to identify the input field when the form data is submitted
+
+Example:
+ <input type="text" name="username">
+
+GET:
+ Sends data through the URL
+ Data can be visible in the URL
+ Suitable for non-sensitive data
+
+Example:
+ <form action="backend.php" method="get">
+
+POST:
+ Sends data in the request body
+ Data is not displayed in the URL
+ Commonly used for submitting sensitive or large amounts of data
+
+Example:
+ <form action="backend.php" method="post">
+
+Label Tag:
+ The <label> tag defines a label for an input field
+
+Example:
+ <label for="name">Name:</label>
+ <input type="text" id="name" name="name">
+
+ The for attribute of <label> should match the id of the input
+
+Textarea:
+ The <textarea> tag is used to create a multi-line text input field
+
+Example:
+ <textarea name="message" rows="5" cols="30">
+ </textarea>
+
+it is usedful for:
+ Comments
+ Feedback
+ Messages
+ Addresses
+
+Submit Buttom
+ The submit input is used to submit the form
+
+Example:
+ <input type="submit" value="Submit">
+
+Example:
+ <form action="backend.php" method="post">
+    
+     <label for="name">Name:</label>
+     <input type="text" id="name" name="name">
+
+     <br><br>
+
+     <label for="email">Email:</label>
+     <input type="email" id="email" name="email">
+
+     <br><br>
+
+     label for="message">Message:</label>
+     <textarea id="message" name="message"></textarea>
+
+     <br><br>
+
+     <input type="submit" value="Submit">
+
+ </form>
+
+
+
+
+
     
 
 
