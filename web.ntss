@@ -550,6 +550,69 @@ Inline Elements (Most Commonly Used First)
  <data>: Machine-readable translation of content.
  <acronym>: Acronym (Not supported in HTML5). 
 
+IDS and Classes in HTML:
+
+ID: An ID is a unique identifier used to identify one specific HTML element
+
+Syntax:
+ <p id="intro">Hello World</p>
+ Here,intro is the ID of the paragraph
+
+-> An id should be unique within a webpage
+-> The same id should not be used for multiple Elements
+-> An ID is useful when we want to identify a specific elements
+
+Class: A class is used to group multiple HTML elements that share the same characteristics or purpose
+
+Syntax:
+ <p class="red">Hello</p>
+ <p class="red">Welcome</p>
+ Both paragraphs belong to the same class
+
+-> The same class can be used on multiple elements
+-> An element can have multiple Classes
+
+Example:
+ <p class="red bold">Hello</p>
+ Here the paragraph has two classes:
+ red
+ bold
+
+Using ID and Class Together:
+ An HTML element can have both an ID and a class
+
+ <p id="first" class="text">
+     Hello World
+ </p>
+
+Here:
+ id -> first
+ classs -> text
+
+Multiple Classes:
+ An element can have more than one class
+ <p class="text red bold">
+    Hello World
+ </p>
+ The classes are seeperated by spaces
+ text
+ red
+ bold
+
+Why are IDs and Classes Used:
+ IDs and classes are mainly used to:
+ Identify HTML elements
+ Group HTML elements
+ Apply CSS styles
+ Select elements using JavaScript
+
+Example:
+ <h1 id="title" class="heading">
+     My website
+ </h1>
+
+ id -> uniquely identifies the heading
+ class -> identifies the group/category of the element
 
 
 
