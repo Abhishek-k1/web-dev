@@ -614,6 +614,108 @@ Example:
  id -> uniquely identifies the heading
  class -> identifies the group/category of the element
 
+Video Audio and Media in HTML:
+HTML  allows us to add different types of media to a webpage, such as:
+ Images
+ Audio
+ Video
+ Embedded Content
+
+1.Video in HTML
+ The <video> tag is used to add a video to a webpage
+
+Syntax:
+ <video src="video.mp4" controls></video>
+
+controls
+ The controls attribute displays video controls such as:
+ Play/Pause
+ Volume
+ FullSCREEN
+ progress bar 
+
+2.Video Attributes 
+ Some commonly used attributes of the <video> tag are:
+
+controls
+ Display video controls
+ <video src="video.mp4" controls></video>
+
+autoplay
+ automatically starts the video
+ <video src="video.mp4" autoplay></video>
+
+loop
+ Plays the video repeatedly
+ <video src="video.mp4" loop></video>
+
+muted
+ Starts the video without sound
+ <video src="video.mp4" muted></video>
+
+poster
+ Displays an image before the video starts
+ <video src="video.mp4" poster="thumbnail.jpg controls></video>
+
+3.Width and Height
+ We can specify the size of a video using width and height
+
+Syntax:
+ <video src="video.mp4"
+        width="500"
+        height="300"
+        controls></video>
+        
+4.Audio in HTML
+ The <audio> tag is used to add audio to a webpage
+
+syntax:
+ <audio src="song.mp3" controls></audio>
+ The controls attribute provides audio controls such as:
+ play/Pause
+ Volume
+ progress bar
+
+5.Audio Attributes
+controls
+ Display src="song.mp3" controls></audio>
+
+autoplay
+ Automatically starts the audio
+ <audio src="song.mp3" autoplay></audio>
+
+loop 
+ Repeats the audio continuously
+ <audio src="song.mp3" loop></audio>
+
+muted
+ Starts the audio without sound
+ <audio src="song.mp3" muted></audio>
+
+6.Souce Tag
+ The <souce> tag is used to specify media files inside <video> or <audio>
+ 
+Example:
+  <video controls>
+         <source src="video.mp4" type="video/mp4">
+  </video>
+
+Audio:
+ <audio controls>
+        <source src="song.mp3" type="audio/mpeg">
+ </audio>
+ using <source> can allow us to provide different media formats
+
+7.Iframe
+ The <iframe> tag is used to embed another webpage or external content inside our webpage
+
+Example:
+ <iframe src="https://example.com"></iframe>
+ youtube Videos
+ Maps
+ Other webpages
+
+
 
 
     
