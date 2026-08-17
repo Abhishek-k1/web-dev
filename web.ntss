@@ -715,9 +715,141 @@ Example:
  Maps
  Other webpages
 
+Semantic Tags in HTML:
+ Semantic tags are HTML tags that clearly describe the meaning and purpose of their content
+
+They make the structure of a webpage easier to understand for:
+ Developers
+ Browsers
+ Search engines
+ Screen readers
+
+Example:
+ <header>
+      <h1>My Website</h1>
+ </header>
+ Here, <header> clearly tells us that the content is the header section of the Webpage
+
+Why use Semantic Tags?
+ Makes HTML cade easier to read and unserstand
+ Gives meaning to different sections of a webpage
+ Improves accessibility
+ Helps search engines understand the webpage structure
+ Makes website structure more organized
+
+Important Semantic Tags:
+1.<header>
+ Represents the introductory/header section of a webpage or section
+
+Example:
+ <header>
+      <h1>My Website</h1>
+ </header>
+
+2.<nav>
+ Represents navigation links
+
+Example:
+ <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+ </nav>
 
 
+3.<main>
+ Represents the main content of the webpage
 
+Example:
+ <main>
+    <h1>Welcome to My Website</h1>
+    <p>This is the main content.</p>
+ </main>
+ A page should generally have one main <main> element
+
+4.<section>
+ Represent a separate section of related content
+
+Example:
+ <section>
+    <h2>About Me</h2>
+    <p>I am a web developer.</p>
+ </section>
+
+5.<article>
+ Represents independent, self-Contained content
+
+Example:
+ Blog post
+ News article
+ Forum post
+ Product/article content
+
+Example:
+ <article>
+    <h2>My First Blog</h2>
+    <p>This is my first blog post</p>
+ </article>
+
+6.<aside>
+ Represents content related to the main content to the main content but not part of the main flow
+
+Examples:
+ Sidebar
+ Related links
+ Additional information
+
+Example:
+ <aside>
+    <h3>Related Links</h3>
+    <a href='#'>HTML Tutorial</a>
+ </aside>
+
+7.<footer>
+ Represents  the footer section of a webpage or section
+ Usually contains:
+ Copyright information
+ Contact information
+ Links
+ Other additional information
+
+Example:
+ <footer>
+   <p>Copyright 2026 My website</p>
+ </footer>
+
+Semantic Structure:
+ A webpage can be organized like this
+
+ +-------------------------+
+ |         HEADER          |
+ +-------------------------+
+ |          NAV            |
+ +-------------------------+
+ |                         |
+ |          MAIN           |
+ |   +-----------------+   |
+ |   |    SECTION      |   |
+ |   +-----------------+   |
+ |                         |
+ |   +-----------------+   |
+ |   |    ARTICLE      |   |
+ |   +-----------------+   |
+ |                         |
+ +-------------------------+
+ |         ASIDE           |
+ +-------------------------+
+ |         FOOTER          |
+ +-------------------------+
+
+Non-Semantic Tags
+ Do not clearly describe the meaning of their content
+
+Example:
+ <div>
+ <span>
+
+ 
     
 
 
