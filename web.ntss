@@ -849,7 +849,110 @@ Example:
  <div>
  <span>
 
+Entities and Code Tag in HTML
+1.HTML Entities
+ HTML entities are special codes used to display reserved characters and special symbols in HTML
+  Some characters have a special meaning in HTML.
+
+Example:
+ <p>5 < 10</p>
+ The < character can be interpreted as the beginning of an HTML tag.
+ So we use an entity:
+ <p>5 &lt; 10</p>
+ Output:
+ 5 < 10
+
+Common HTML Entities
+ Entity Character	Meaning
+ &lt;	   <	      Less than
+ &gt;	   >	      Greater than
+ &amp;	&	      Ampersand
+ &quot;	"	      Double quotation mark
+ &apos;	'	      Apostrophe
+ &copy;	©	      Copyright
+ &nbsp;	Space	   Non-breaking space
+
+2.Non-Breaking Space
+ &nbsp; represents a non-breaking space
+ Normally, multiple spaces written in HTML are collapsed into a single visible space
+
+Example:
+ <p>Hello   world</p>
+ The browser does not preserve all those spaces
+Using:
+ <p>Hello%nbsp;&nbsp;&nbsp;world</p>
+ creates visible spacing between the words
+
+3.HTML Quotation Tags
+ HTML provides tags for displaying quotations
+
+<blockquote>
+ Used for a longer quotation from another source
+Example:
+ <blockquote>
+     Learning never stops
+ </blockquote>
+
+<q>
+ Used for a short inline quotation
+Example:
+ <p> He said <q> Hello World</q>.</p>
+
+4.<code> Tag
+ The <code> tag is used to represent a piece of computer code
+Example:
+ <p> Use <code>cout</code> to print output in c++.</p>
+ it is useful when displaying programming code on a webpage
+
+5.<pre> Tag
+ The <pre> tag displays preformatted text
+ It preserves:
+ Spaces
+ Line breaks
+ Formatting
+Example:
+ <pre>
+ Hello
+   World
+     HTML
+ </pre>
+ The spacing and line breaks are preserved
  
+6.<code> with <pre>
+ For displaying multiple lines of code, <code> can be used inside <pre>
+Example:
+ <Pre>
+ <code>
+ #include &It;iostream&gt;
+ using namespace std;
+
+ int main()
+ {
+    cout &It;&It; "Hello";
+ }
+ </code>
+ </pre>
+ This is useful for displaying code on a webpage
+
+7.Prism.js
+ Prism.js is a javaScript library used for syntax highlighting of code
+ Syntax highlighting makes different parts of code appear in different styles/colors, making code easier to read
+ It is commonly used when displaying programming code on websites
+
+8.Obsolete HTML Tags
+ Some older HTML tags are obsolete/deprecated and should generally not be used in modern HTML
+Example include:
+ <center>
+ <font>
+ <big>
+ Modern websites generally use CSS for styling instead
+ For example, instead of using:
+ <center>Hello</center>
+ CSS should be used to control alignment
+
+
+ */
+
     
 
 
