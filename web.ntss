@@ -863,14 +863,14 @@ Example:
  5 < 10
 
 Common HTML Entities
- Entity Character	Meaning
+ Entity Character	  Meaning
  &lt;	   <	      Less than
  &gt;	   >	      Greater than
- &amp;	&	      Ampersand
- &quot;	"	      Double quotation mark
- &apos;	'	      Apostrophe
- &copy;	©	      Copyright
- &nbsp;	Space	   Non-breaking space
+ &amp;	   &	      Ampersand
+ &quot;	   "	      Double quotation mark
+ &apos;	   '	      Apostrophe
+ &copy;	   ©	      Copyright
+ &nbsp;	 Space	      Non-breaking space
 
 2.Non-Breaking Space
  &nbsp; represents a non-breaking space
@@ -950,6 +950,110 @@ Example include:
  <center>Hello</center>
  CSS should be used to control alignment
 
+Introduction to CSS:
+ CSS stands for Cascading Style Sheets
+ Css  is used to style and design HTML webpages
+ Styling of webpage
+
+CSS is used to:
+ Change text color
+ Change background color
+ Change font size
+ Change fonts
+ Add borders
+ Add spacing
+ Change element size
+ Position elements
+ Create attractive webpages
+
+CSS Syntax:
+ Basic CSS syntax:
+ selector {
+       property: value;   
+ }
+
+Example:
+ h1 {
+   color: blue;
+ }
+
+ Here:
+ h1 -> Selector
+ color -> Property
+ blue -> value
+
+Three Ways to Add CSS:
+1.Inline CSS
+2.Internal CSS
+3.External CSS
+
+1.Inline CSS
+ CSS is written inside the HTML element using the style attribute
+
+Example:
+ <h1 style="color: red;">Hello worls</h1>
+
+Adavantage:
+ Easy to apply styling to a single element
+
+Disadvantage:
+ Not suitable for styling many elements because it makes HTML code lengthy
+
+2.Internal CSS
+ CSS is written inside the <style> tag, usually inside the <head> section
+
+Example:
+ <!DOCTYPE html>
+ <html>
+
+ <head>
+
+   <style>
+       h1 {
+            color: blue;
+       }
+
+       p {
+         color: green;
+       }
+
+   </style>
+ </head>
+ <body>
+     <h1>Hello world</h1>
+     <p>This is a paragraph.</p>
+ </body>
+ </html>
+ Internal CSS can style multiple elements on the same webpage
+
+3.External CSS
+ CSS is written in a seprate .css file
+
+Example:
+HTML file
+ <!DOCTYPE html>
+ <html>
+
+ <head>
+  
+    <link rel="stylesheet" href="style.css">
+
+ </head>
+
+ <body>
+   <h1>Hello world</h1>
+ </body>
+ </html>
+
+CSS file
+ h1{
+     color: blue;S
+ }
+
+Terms:
+Selector -> Selects the HTML element that we want to style
+Property -> Specifies what we want to change
+Value -> Specifies the value of the property
 
  */
 
