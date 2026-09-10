@@ -1055,6 +1055,234 @@ Selector -> Selects the HTML element that we want to style
 Property -> Specifies what we want to change
 Value -> Specifies the value of the property
 
+CSS Selectors
+ CSS Selectors are used to select HTML elements so that CSS styles can be applied to them
+
+Example:
+ p {
+     color: red;
+ }
+
+Here:
+ p -> Selector
+ color -> Property
+ red -> Value
+
+Element Selector
+ The Element Selector selects all HTML elements of a particular type
+
+Example:
+ div {
+     background-color: red;
+ }
+ This selects all <div> elements
+
+Example:
+ <div>Hello</div>
+ <div>Hello Again</div>
+
+ Both <div> elements will get the same styling 
+
+-> The drawback is that if there are multiple elements of the same type, the style is applied to all of them
+
+Class Selector
+ A Class Selector is Used to select elements having a particular class
+ It is represented usinng: .
+
+Example:
+ HTML:
+ <div class="red">
+    Hello
+    </div>
+
+ .red {
+    background-color: red;
+ }
+
+ Only elements with:
+ class="red"
+ will receive this style
+
+Multiple elements can use the same class:
+ <div class="red">One</div>
+ <p class="red">Two</p>
+
+Both can be styled using:
+ .red{
+   color: red;
+ }
+
+ID Selector
+ An ID Selector selects an element using its id
+ It is represented using:
+ #
+Example:
+HTML:
+ <div id="green">
+      Hello
+      </div>
+
+CSS:
+ #green {
+     background-color: green;
+ }
+
+ The element with:
+ id="green"
+ will receive the style
+
+ Class -> .
+ ID    -> #
+
+Example:
+ .red { }
+ #green { }
+
+Child Selector 
+ The Child Selector selects an element that is direct child of another element
+ It uses:
+ >
+
+Example:
+ div > p {
+    color: blue;
+ }
+
+ This means:
+   Select <p> elements that are direct children of <div>
+
+Example:
+ <div>
+    <p>Hello</p>
+  </div>
+
+ Here <p> is a direct child of <div>, so the style applies
+
+Important Difference
+Consider:
+ <div>
+    <article>
+       <p>Hello</p>
+     </article>
+
+  </div>
+
+Here <p> is not a direct child of <div>
+
+Therefore:
+ div > p {
+   color: blue;
+ }
+ will not select this <p>
+
+Descendant Selector
+ The Descendant Selector selects an element that exists anywhere inside another element
+ It uses a space
+
+Syntax:
+ parent child {
+    property: value;
+ }
+
+Example:
+ div p {
+    color: blue;
+ }
+
+ This selects <p> elements inside <div>, even if they are nested deeper 
+
+Example:
+ <div>
+     <article>
+         <p>Hello</p>
+     </article>
+ </div>
+
+Here <p> is a descendant of <div>
+
+Therefore:
+ div p {
+   color: blue;
+ }
+ will apply the style
+
+Child vs Descendant Selector
+ Child Selector
+ div > p
+
+Means:
+ div
+  ↓
+  p
+Only direct child
+
+Descendant Selector
+ div p
+Means:
+ div
+  ↓ 
+ article 
+  ↓ 
+  p
+
+  Can select a child, grandchild, or deeper descendant
+
+  >     -> Direct child
+  space -> Any descendant
+
+Universal Selector 
+ The Universal Selector selects all HTML elements
+ It is represented by:
+ *
+Example:
+ * {
+    margin: 0;
+    padding: 0;
+ }
+ This applies the style to all elements
+ It is commonly used for basic CSS resets 
+
+Pseudo-Class Selector
+ A Pseudo-Class Selector selects an elementy based on a particular state or condition
+ It uses:
+ :
+Example:
+ a:hover {
+    color: red;
+ }
+ When the mouse pointer moves over the link, the color changes to red
+
+Common Pseudo-Classes
+:hover
+ Applies when the mouse is placed over an element
+ a:hover {
+    color: red;
+ }
+
+:visited
+ Applies to a link that has already been visited
+ a:visited {
+   color: purple;
+ }
+
+:link 
+ Selects an unvisited link
+ a:link {
+   color: blue;
+ }
+
+:actice 
+ Applies while the link is being activated/clicked
+ a:active {
+     color: green;
+ }
+
+:first-child 
+ Selects an element if it is first child of its parent
+Example:
+ p:first-child {
+     color: red;
+ }
  */
 
     
