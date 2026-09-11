@@ -1283,6 +1283,309 @@ Example:
  p:first-child {
      color: red;
  }
+
+CSS Box Model
+ The CSS Box Model describes how every HTML element is represented as a rectangular Box
+ It consists of four main parts:
+
+        ┌─────────────────────────────┐
+        │           Margin            │
+        │  ┌───────────────────────┐  │
+        │  │        Border         │  │
+        │  │  ┌─────────────────┐  │  │
+        │  │  │     Padding     │  │  │
+        │  │  │  ┌───────────┐  │  │  │
+        │  │  │  │  Content  │  │  │  │
+        │  │  │  └───────────┘  │  │  │
+        │  │  └─────────────────┘  │  │
+        │  └───────────────────────┘  │
+        └─────────────────────────────┘
+
+The four parts are:
+ Content
+ Padding
+ Border
+ Margin
+
+Content
+ Content is the actual data inside an element
+ It can be:
+ Text
+ Image
+ Video
+ Other HTML content
+ The width and height  properties normally control the content area's dimensions
+Example:
+ .box {
+    width: 300px;
+    height: 100px;
+ }
+
+Padding
+ Padding is the space between the content and the border
+Example:
+ .box {
+   padding: 20 px;
+ }
+
+Meaning:
+  Border
+        ↓ 
+ ┌─────────────────┐ 
+ │ Padding         │ 
+ │ ┌───────────┐   │ 
+ │ │ Content   │   │ 
+ │ └───────────┘   │ 
+ └─────────────────┘
+
+ Padding creates internal space inside the element 
+
+Margin  
+ Margin is the space outside the border
+ It creates space between an element and other elements
+Example:
+  .box {
+    margin: 20px;
+  }
+
+         Margin
+            ↓ 
+      ┌─────────────┐ 
+      │    Border   │ 
+      │   Content   │ 
+      └─────────────┘ 
+            ↑ 
+        Outside 
+
+ padding -> Space inside the border
+ Margin -> Space outside the border
+
+Border
+ A border surrounds the content and padding
+
+Example:
+  .box {
+     border: 2px solid red;
+  }
+
+ A border can have:
+ Border width
+ Border Style
+ Border color
+
+Separate properties
+ .box {
+     border-width: 2px;
+     border-style: solid;
+     border-color: red;
+ }
+
+Shorthand
+ Instead of writing all three:
+ border: 2px Solid red;
+
+Border Radius
+ border-radius is used to make the corners of a box rounded
+
+Example:
+ .box {
+    border: 2px solid black;
+    border-radius: 10px;
+ }
+ Large valuess create more rounded corners
+
+Margin values
+ Margin can be applied to all four sides
+ .box {
+   margin: 20px;
+ }
+
+ This applies:
+ Top    -> 20px
+ Right  -> 20px 
+ Bottom -> 20px
+ Left   -> 20px
+
+Margin With Four values
+ .box {
+    margin: 10px 20px 30px 40px;
+ }
+ The order is:
+ Top -> Right -> Bottom -> Left
+
+Margin With Two values
+ .box {
+    margin: 10px 20px;
+ }
+ 
+Meaning:
+ Top + Bottom -> 10px
+ Left + Right -> 20px
+
+Individual Margin properties
+ You can set each side separately:
+ .box {
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+ }
+
+Padding Shorthand
+ Padding works similarly to margin 
+
+One value 
+ padding: 20px;
+
+All four sides:
+ Top    -> 20px
+ Right  -> 20px
+ Bottom -> 20px
+ Left   -> 20px
+
+Two values
+ Padding: 10px 20px;
+
+ Top + Bottom -> 10px
+ Left + right -> 20px
+
+Four values
+ Padding: 10px 20px 30px 40px;
+
+Order:
+ Top -> Right -> Bottom -> Left
+
+Total width and Height
+ The actual space occupied by an element can be larger than  its declared width and height
+
+Total Width
+ Total width =
+ Content Width 
+ + Left Padding 
+ + Right Padding 
+ + Left Border 
+ + Right Border 
+ + Left Margin 
+ + Right Margin
+
+Total Height
+ Total Height =
+ Content Height
+ + Top Padding 
+ + Bottom Padding 
+ + Top Border 
+ + Bottom Border 
+ + Top Margin 
+ + Bottom Margin
+
+Example of Box Model Calculation
+ Suppose:
+    .box {
+      width: 200px;
+      padding: 15px;
+      border: 10px solid red;
+      margin: 5px;
+    }
+
+Total Width:
+ 200
+ + 15 + 15
+ + 10 + 10
+ + 5 + 5
+ = 260px
+
+ So the total horizontal space is:
+ 260px
+
+Margin collapse
+ Margin Collapse occurs when vertical margins of certain-level elements overlap
+ When two vertical margins collapse, the resulting margin is generally the larger of the two margins, rather than their sum 
+
+Example:
+ .box1 {
+     margin-bottom: 30px;
+ }
+
+ .box2 {
+     margin-top: 20px;
+ }
+
+You might expect:
+ 30px + 20px = 50px
+
+ But when these vertical margins collapse:
+ Maximum(30px, 20px)
+ = 30px
+
+ So the effective gap is generally:
+ 30px
+
+Important Point About Margin Collapse
+ Margin collapse mainly applies to vertical margins of block-level elements
+ It does not mean that every pair of margins always collapses
+ For example, horizontal margins do not collapse in the same Way
+
+Important Difference
+ Property	          Meaning
+ content	          Actual content
+ padding	          Space between content and border
+ border	            Surrounds content and padding
+ margin	            Space outside the border
+
+Complete Example:
+ <!DOCTYPE html>
+ <html>
+ <head>
+
+ <style>
+
+ .box
+ {
+   width: 20px;
+   height: 100px;
+
+   padding: 20px;
+
+   border: 5px solid black;
+
+   margin: 30px;
+
+   border-radius: 10px;
+ }
+ </style>
+ </head>
+ <body>
+ <div class="box">
+     Hello World
+ </div>
+
+ </body>
+ </html>
+
+ Here:
+
+ width         -> Content width
+ Height        -> content height
+ padding       -> space inside
+ border        -> Boundary
+ margin        -> Space outside
+ border-radius -> Rounded corners
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  */
 
     
