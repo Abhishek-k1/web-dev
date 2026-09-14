@@ -1571,20 +1571,318 @@ Complete Example:
  margin        -> Space outside
  border-radius -> Rounded corners
 
+Font Family
+ The font-family property is used to change the typeface of text
 
+Example:
+ h1 {
+   font-family: Arial;
+ }
 
+You can provide multiple fonta as fallbacks:
+ h1 {
+   font-family: Arial, sans-serif;
+ }
+ If Arial is unavailable, the browser uses sans-serif
 
+Common geneeric families:
+ serif
+ sans-serif
+ monospace
+ cursive
+ fantasy
 
+Font size
+ The font-size property changes the size of text
+Example:
+ p {
+  font-size: 20px;
+ }
 
+Commonly used units include:
+ px
+ em
+ rem
+ %
+ For now, px is the simplest unit to understand 
 
+Font Style
+ The font-style property controls whether text is normal, italic, etc 
 
+Example:
+ p {
+  font-style: italic;
+ }
 
+Common values:
+ normal
+ italic
+ oblique
 
+Font Weight
+ The font-weight property controls the thickness of text
+Example:
+ p {
+  font-weight: bold;
+ }
 
+Common values:
+ normal
+ bold
+ lighter
+ bolder
 
+ Numeric values can also be used:
+ p {
+  font-weight: 700;
+ }
 
+Generally:
+ 400 -> normal
+ 700 -> bold 
+ 
+Google Fonts
+ Google Fonts can be used to add additional fonts to a website
+ You can select a font from google Fonts and include it in your HTML/CSS
+ One Common method is using a <link> in the <head>:
 
+ <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
+ Then use it in CSS:
+ body {
+   font-family: "Poppins", sans-serif;
+ }    
+
+Another method is using @import inside CSS:
+ @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');)
+Then:
+ body {
+   font-family: "Poppins", sans-serif;
+ }
+
+Line Height
+ The Line-height property controls the vertical space between lines of text
+Example:
+ p {
+     line-height: 1.5;
+ }
+
+It can also be given using a unit:
+ p {
+   line-height: 30px;
+ }
+ Increasing line-height can make patragraphs easier to read 
+
+Letter spacing
+ The letter-spacing property controls the space between individual characters
+Example:
+  h1 {
+      letter-spacing: 2px;
+  }
+
+Negative values can also be used:
+ h1 {
+   letter-spacing: -1px;
+ }
+
+Text alignment
+ The text-align property controls the horizontal alignment to text
+Example:
+ h1 {
+   text-align: center;
+ }
+
+Common values:
+ left
+ right
+ center
+ justify
+
+Example:
+ p {
+   tect-align:  justify;
+ }
+
+Text Transformation
+ The text-transform property changes the capitalization of text
+Uppercase
+ p {
+   text-transform: uppercase;
+ }
+
+Example:
+ hello world
+
+Becomes:
+ HELLO World
+
+Lowercase
+ p {
+   text-transform: lowercase;
+ }
+
+Capitalize
+ p {
+   text-transform: capitalize;
+ } 
+ The capitalizes the first letter of each word
+
+Text Decoration
+ The text-decoration property adds decorations to text
+Example:
+ p {
+   text-decoration: underline;
+ }
+
+Common values:
+ underline
+ overline
+ line-through
+ none
+
+Example:
+ p {
+   text-decoration: line-through;
+ }
+
+Text Decoration color
+ The color of a text decoration can be changed separately
+
+Example:
+ p {
+   text-decoration: underline;
+   text-decoration-style: dotted;
+ }
+
+Common styles include:
+ solid
+ double
+ dotted
+ dashed
+ wavy
+
+Text Decoration thickness
+ The thickness of the text decoration can be controlled using:
+ text-decoration-thickness
+Example:
+ p {
+   text-decoration: underline;
+   text-decoration-thickness: 2px;
+ }
+
+Colors in CSS
+ The color property changes the color of text
+
+Example:
+ p {
+   color: red;
+ }
+ Background color can be changed using:
+ background-color: yellow;
+
+Color Keywords
+ CSS provides predefined color name
+Example:
+ p {
+   color: red;
+ }
+
+Other examples:
+ blue
+ green
+ orange 
+ purple 
+ black 
+ white 
+ yellow
+There are many predifined CSS color notation
+
+Hexadecimal Colors
+ Colors can be represented using hexadecimal notation
+Example:
+ p {
+   color: #ff0000;
+ }
+
+Here:
+ #ff0000 -> red
+
+A common six-digit hex color follows:
+ #RRGGBB
+where:
+ RR -> red
+ GG -> green
+ BB -> Blue 
+ Each pair represents the intesity of that color component
+
+Example:
+ #000000 -> black
+ #ffffff -> white
+ #ff0000 -> red
+ #00ff00 -> green
+ #0000ff -> Blue
+
+RGB Colors
+RGB stands for:
+ red
+ green
+ blue
+
+Syntax:
+ color: rgb(255, 0, 0);
+
+ This represents red
+
+Each component generally ranges from:
+ 0 -> 255
+
+Example:
+ color: rgb(0, 255, 0);
+ Green
+
+RGBA Colors
+ RGBA adds an alpha channel to RGB
+ R → Red
+ G → Green
+ B → Blue
+ A → Alpha
+Example:
+ color: rgba(255, 0, 0, 0.5);
+ Here the last value controls transparency
+
+HSL Colors
+ HSL stands for:
+ H -> Hue
+ S -> Saturation
+ L -> Lightness
+
+Syntax:
+ color: hsl(0, 100%, 50%);
+ HSL provides another way to describe colors
+
+HSLA 
+ HSLA adds an alpha value to HSL
+ color: hsla(0, 100%, 50%, 0.5)
+Here:
+ H -> Hue
+ S -> Saturation
+ L -> Lightness
+ A -> Alpha
+
+Color Values Can Be Used in Other properties
+ The same color formats can be used for properties such as:
+ color
+ background-color
+ border-color
+ text-decoration-color
+
+Example:
+ .box {
+   color: white;
+   background-color: #000000;
+   border-color: red;
+ }
 
  */
 
