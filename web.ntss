@@ -2111,7 +2111,218 @@ Cascade
  Specificity
  Origin
  Importance
- 
+
+CSS units
+ CSS units are used to define the size, spacing, and dimensions of HTML elements
+Example:
+ .box {
+   width: 200px;
+   height: 100px;
+ }
+
+  CSS Units 
+       ↓ 
+ ┌───────────────┐ 
+ │               │
+ Absolute      Relative 
+ Units         Units
+
+Absolute Units
+ Absolute units represent fixed sizes
+Common absolute units:
+ cm 
+ mm 
+ in 
+ pt 
+ pc 
+ px
+ For web development, px (pixel) is the most commonly used absolute unit 
+
+Pixel-px
+ px stands a fixed CSS length
+
+Example:
+ .box {
+   width: 200px;
+   height: 100px;
+ }
+
+Here:
+ width -> 200 pixels
+ height -> 100 pixels
+
+Use of px
+ Useful when we need relatively precise sizes, such as:
+ border: 2px solid black;
+
+Relative Units
+ Relative units change their size based on another value, such as:
+ Parent element
+ Root element
+ Viewport
+ They are useful for creating responsive layouts
+
+Important relative units:
+ %
+ em
+ rem
+ Vw 
+ vh 
+ vmin 
+ vmax 
+
+Percentage- %
+ % is generally relative to the parent element's corresponding size
+Example:
+ .container {
+   width: 500px;
+ }
+
+ .box {
+   width: 50%;
+ }
+
+ The .box will be 50% of its containing block's width 
+
+So approximately:
+ Parent width = 500px
+ 50% = 250px 
+
+em
+ em is a relative unit based on the font size of the element's parent for font-size calculations
+Example:
+ .parent {
+   font-size: 20px;
+ }
+
+ .child {
+   font-size: 2em;
+ }
+
+Then:
+ 2em = 2 × 20px
+     = 40px 
+
+rem
+ rem stands for Root EM 
+ It is relative to the font size of the root element (html)
+Example:
+ html {
+   font-size: 16px;
+ }   
+
+ .box {
+   font-size: 2rem;
+ }
+
+Then:
+ 2rem = 2 × 16px 
+      = 32px
+
+vw
+ vw stands for viewport width
+ 1vw = 1% of viewport width
+
+Example:
+ .box {
+   width: 50vw;
+ }
+
+ This makes the width equal to 50% of the viewport width 
+ If viewport width is:
+ 1000px
+ then:
+ 50vw = 500px 
+
+vh
+ vh stands for viewport height 
+ 1vh = 1% of viewport height
+Example:
+ .box {
+   height: 50vh;
+ }
+ If viewport height is:
+ 800px
+ then:
+ 50vh = 400px
+
+vmin
+ vmin represents 1% of the smaller dimension of the viewport 
+ It uses whichever is smaller:
+ viewport width
+        OR 
+ viewport height
+Example:
+ .box {
+   width: 50vmin;
+ }
+
+If:
+ viewport width = 1000px
+ viewport height = 800px
+ Then the smaller dimension is:
+ 800px
+Therefore:
+ 1vmin = 8px 
+ 50vim = 400px 
+
+vmax
+ vmax represents 1% of the larger dimension of the viewport
+ It uses whichever is larger:
+ viewport width
+      OR 
+ viewport height
+
+Example:
+ .box {
+   width: 50vmax;
+ }
+
+If:
+ viewport width = 100px
+ viewport height = 800px 
+
+ The larger dimension is:
+ 1000px
+
+Therefore:
+ 1vmax = 10px
+ 50vmax = 500px 
+
+ex and ch 
+ These are less commonly used relative units
+ex
+ ex is related to the x-height of the current font
+ch
+ ch is based on the width of the 0 character in the current font 
+
+Example:
+ .box {
+   width: 40ch;
+ }
+ This can be useful when controlling text-related widths
+
+Other CSS Units
+ Some other CSS units include:
+
+ cm → Centimeters
+ mm → Millimeters
+ in → Inches
+ pt → Points
+ pc → Picas
+ ex → x-height
+ ch → width of "0"
+
+Absolute vs Relative
+ Absolute	Relative
+ px	          %
+ cm	          em
+ mm	          rem
+ in	          vw
+ pt	          vh
+ pc	          vmin
+
+	vmax
  */
 
     
