@@ -2322,7 +2322,167 @@ Absolute vs Relative
  pt	          vh
  pc	          vmin
 
-	vmax
+Display Property
+ The CSS display property controls how an HTML element is displayed and how it participates in the layout
+Syntax:
+ selector {
+  display: value;
+ }
+
+Example:
+ .box {
+   display: block;
+ } 
+
+Main Display Values
+ The most important values are:
+ display 
+   ↓ 
+ ├── block 
+ ├── inline 
+ ├── inline-block 
+ └── none
+
+Display: block 
+ A block-level element:
+ Starts on a new line
+ Usually takes the full available width
+ width and height can be applied 
+Example:
+ <div class="box">Hello</div>
+ <div class="box">world</div>
+
+ .box {
+  display: block;
+ }
+
+Output structure:
+ Hello
+ World
+Each element starts on a new line
+Common clock-level elements include:
+ <div>
+ <p>
+ <h1> to <h6>
+ <section>
+ <header>
+ <footer>
+
+Display: inline
+ An inline element:
+ Does not start on a new line
+ Takes only the space required by its content
+ width and height generally do not apply as they do for block-level elements
+
+Example:
+ <span>Hello</span>
+ <span>world</span>
+
+ span {
+     display: inline;
+ }
+
+Output Structure:
+ Hello World
+
+Common inline elements include:
+ <span>
+ <a>
+ <strong>
+ <em>
+
+Display: Inline-block
+ inline-block combines features of both inline and block
+ It:
+ Stays in the same line like an inline element
+ Allows width and height to be set like a block-level element
+ Allows padding and margins to be applied
+
+Example:
+.box {
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+}
+ 
+ Multiple boxes can appears in the same line:
+ ┌──────────┐ ┌──────────┐ 
+ │ Box 1    │ │ Box 2    │ 
+ └──────────┘ └──────────┘
+
+ inline       -> Same line
+ block        -> New line
+ inline-block -> Same line + width/height
+
+display: none
+ display: none removes the element from the layout
+Example:
+ .box {
+  display: none;
+ }
+
+The element:
+ Is not displayed
+ Does not occupy space in the layout
+
+Example:
+ <p>Hello</p>
+ <p class="hide">Hidden text</p>
+ <p>world</p>
+ .hide {
+  display: none;
+ }
+
+ The result behaves like:
+ Hello
+ World
+ The hidden element does not leave an empty space
+
+display: none vs visibility: hidden
+ These two are different
+display: none
+ display: none;
+ Element is hidden and its space is removed
+
+visibility: hidden
+ visibility: hidden;
+ Element is hidden, but its space remains reserved
+
+Example:
+ display: none:
+ Hello
+ World
+
+ visibility: hidden:
+
+ Hello
+ [empty space]
+ world
+
+Changing Display Type
+ CSS can change the default display behavior of an HTML element
+Example:
+ <span class="box">Hello</span>
+ Normally <span> is inline
+
+We can make it vlock:
+ .box {
+   display: block;
+ }
+
+Similarly, a block element can be made inline:
+ .box {
+  display: inline;
+ }
+
+Block vs Inline vs Inline-Block
+ Property	               Block	    Inline	                             Inline-block
+ New line	               Yes	      No	                                 No
+ Takes available width	 Usually	  No	                                 No
+ Width/Height	           Can set	  Generally not applied as for block   Can set
+ Same line	             No	        Yes	                                 Yes
+
+
  */
 
     
