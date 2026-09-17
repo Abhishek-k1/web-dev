@@ -2812,6 +2812,146 @@ Example:
  </nav>
 
  CSS can then remove the default list markers and arrange the items horizontally
+ 
+Overflow 
+ Overflow occurs when the content inside an element is larger than the available size of that element
+Example:
+ .box {
+    width: 200px;
+    height: 100px;
+ }
+ If the content is larger than this area, it can overflow outside the box
+ The CSS overflow property controls what happens to this extra content
+ 
+Syntax:
+ selector {
+    overflow: value;
+ }
+Example:
+ .box {
+    width: 200px;
+    height: 100px;
+    overflow: hidden;
+ }
+ 
+overflow: visible 
+ visible is the default value
+ The overflowing content remains visible outside the element
+Example:
+ .box {
+    width: 200px;
+    height: 100px;
+    overflow: visible;
+ }
+Concept:
+ ┌──────────────┐
+ │ Content      │
+ │ Content      │
+ └──────────────┘
+       ↓
+ Extra content can remain visible
+ outside the box
+
+overflow: scroll 
+ scroll adds scrollbars so that the overflowing content can be accessed
+Example:
+ .box {
+    width: 200px;
+    height: 100px;
+    overflow: scroll;
+ }
+
+Concept:
+ ┌──────────────┐
+ │ Content      │
+ │ Content      │
+ │ Content      │
+ │          ↕   │
+ └──────────────┘
+ The user can scroll to see the hidden content
+
+overflow: auto 
+ auto adds scrollbars when necessary 
+Example:
+ .box {
+    width: 200px;
+    height: 100px;
+    overflow: auto;
+ }
+ If the content fits:
+ No scrolling needed
+ If the content overflows:
+ Scrollbar appears
+
+visible → Show overflow 
+hidden → Hide overflow 
+scroll → Add scrolling 
+auto → Scroll only when needed
+
+overflow-X
+ overflow-x controls overflow in the horizontal direction.
+
+Example:
+ .box {
+     overflow-x: scroll;
+ }
+
+It controls the:
+ ← Horizontal →
+ overflow
+
+overflow-y 
+ overflow-y controls overflow in the vertical direction.
+
+Example:
+ .box {
+     overflow-y: scroll;
+ }
+
+It controls:
+ ↑
+ │
+ │ Vertical
+ │
+ ↓
+ overflow
+
+Overflow-x and overflow-y Together 
+ You can control both directions separately
+Example:
+ .box {
+     overflow-x: hidden;
+     overflow-y: auto;
+ }
+ 
+This means:
+ Horizontal → Hidden
+ Vertical   → Auto
+
+Overflow Shorthand 
+ The overflow property can control both horizontal and vertical overflow.
+Example:
+ .box {
+    overflow: hidden;
+}
+
+This applies to both:
+ overflow-x
+ overflow-y
+
+You can also provide two values:
+ .box {
+    overflow: hidden auto;
+ }
+
+Here:
+ First value  → overflow-x
+ Second value → overflow-y
+
+So:
+ overflow-x → hidden
+ overflow-y → auto
+
  */
 
     
