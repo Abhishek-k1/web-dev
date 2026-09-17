@@ -2647,7 +2647,171 @@ Example:
  }
  This makes the focused button visually identifiable 
 
+Styling Lists 
+ CSS Provides properties to customize the appearence of HTML lists 
+ The main property is:
+ list-style-type
+ It controls the marker/bullet style of list items
+
+list_style_type
+Unordered List
+ For <ul>, common values are:
+ disc → ● 
+ circle → ○ 
+ square → ■ 
+ none → No marker
+
+Example:
+ ul {
+  list-style-type: square;
+ }
+
+HTML:
+ <ul>
+    <li>Home</li>
+    <li>About</li>
+    <li>Contact</li>
+  </ul>
+
+Ordered List
+ For <ol>, list-style-type can change the numbering style
+Common values:
+ decimal              → 1, 2, 3
+ decimal-leading-zero → 01, 02, 03
+ lower-roman          → i, ii, iii
+ upper-roman          → I, II, III
+ lower-alpha          → a, b, c
+ upper-alpha          → A, B, C
+
+Example:
+ ol {
+  list-style-type: upper-roman;
+ }
+
+Output:
+ I.   Home 
+ II.  About 
+ III. Contact
+
+list-style-position
+ The list-style-position property controls where the list marker is positioned
+
+Two main values:
+inside
+ The marker is placed inside the content area
+ ul {
+  list-style-position: inside;
+ }
+
+outside
+ The marker is placed outside the content area 
+ ul {
+  list-style-position: outside;
+ }
+ Outside is the default behavior for normal lists 
+
+Removing List Markers
+ To remove bullets or numbers:
+  ul {
+    list-style-type: none;
+  }
+
+Or using the shorthand:
+ ul {
+  list-style: none;
+ }
+ This is commonly used when creating navigation bars 
+
+Example:
+ ul {
+  list-style: none;
+ }
  
+Using an Image as a list Markers
+ Css can use an image as the marker of a list item
+Property:
+ list-style-image
+
+Example:
+ ul {
+     list-style-image: url("arrow.png");
+ }
+ Now the image is used instead of the normal bullet.
+ 
+Important
+ The image should be placed inside the url() function:
+ url("image.png")
+
+list-style Shorthand
+ Instead of writing multiple list-style properties separately, CSS provides the shorthand:
+ list-style
+
+Example:
+ ul {
+    list-style: square inside;
+ }
+It can combine list-style properties in one declaration
+
+Custom List Markers
+ A custom value can also be used as a list marker.
+Example:
+ul {
+    list-style-type: "🔥";
+ }
+Output idea:
+ 🔥 Home
+ 🔥 About
+ 🔥 Contact
+ This allows custom symbols/emojis to be used as markers
+
+Creating a Navbar Using a List 
+ Lists are commonly used to create navigation bars
+HTML:
+ <nav>
+    <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+ </nav>
+
+First remove the default bullets:
+ ul {
+     list-style: none;
+ }
+
+Then make the list items appear horizontally:
+ li {
+     display: inline;
+ }
+
+Now the items can appear like:
+ Home    About    Contact
+
+Basic Navbar Example
+ ul { 
+    list-style: none;
+ }
+ li { 
+    display: inline;
+    margin: 10px;
+ }
+
+Why Lists are useful for navbars 
+ Lists provide a structured way to group navigation links
+
+Example:
+
+ <nav>
+    <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Services</li>
+        <li>Contact</li>
+    </ul>
+ </nav>
+
+ CSS can then remove the default list markers and arrange the items horizontally
  */
 
     
