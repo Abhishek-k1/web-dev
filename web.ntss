@@ -2482,7 +2482,172 @@ Block vs Inline vs Inline-Block
  Width/Height	           Can set	  Generally not applied as for block   Can set
  Same line	             No	        Yes	                                 Yes
 
+CSS Shadow
+ Css shadows are used to add depth and visual effects to elements and text
+ There are two important shadow properties:
+ box-shadow
+ text-shadow
 
+box-shadow
+ box-shadow adds a shadow around an element's box
+Basic Syntax:
+ box-shadow: offset-x offset-y color;
+Example:
+ .card {
+   box-shadow: 10px 13px green;
+ }
+Here:
+ 10px -> Horizontal offset
+ 13px -> Vertical offset
+ green -> Shadow color
+
+box-shadow with Blur
+ A blur radius can  be addded to make the shadow software
+Syntax:
+ box-shadow: offset-x offset-y blur-redius color;
+Example:
+ .card {
+   box-shadow: 7px 5px 10px green;
+ }
+Here:
+ 7px -> Horixontal offset
+ 5px -> Vertical offset
+ 10px -> Blur radius
+ green -> color
+
+Spread Radius
+ The spread radius controls how much the shadow expands or shrinks
+Syntax:
+ box-shadow: offset-x offset-y blur-radius spread-radius color;
+
+Example:
+ .card {
+  box-shadow: 5px 5px 10px 20px green;
+ }
+Here:
+ 5px -> X offset
+ 5px -> Y offset
+ 10px -> Blur
+ 20px -> Spread
+ green -> Color
+
+inset 
+ The inset keyword makes the shadow appears inside the element instead of outside
+
+Example:
+ .card {
+  box-shadow: inset 3px 5px green;
+ }
+
+Multiple Box shadows
+ Multiple shadows can be applied by separating them with commas
+
+Example:
+ .card {
+  box-shadow:
+   3px 5px green,
+   4px 6px reed;
+ }
+
+ Each shadow is represented by: ,
+
+Negative Shadow Values
+ Negative offset values move the shadow in the opposite direction
+
+Example:
+ .card {
+  box-shadow: -10px -13px green;
+ }
+ The shadow moves towars the left and upward
+
+text-shadow
+ text-shadow is used to add a shadow to text 
+
+Syntax:
+ text-shadow: offset-x offset-y color;
+Example:
+ h2 {
+  text-shadow: 3px 4px red;
+ }
+
+Text Shadow with Blur
+ A blur radius can also be used with text-shadow 
+Example:
+ h2 {
+  text-shadow: 3px 2px 2px white;
+ }
+Syntax:
+ offset-X
+ offset-Y
+ blur-radius
+ color
+
+Multiple Text Shadow
+ Multiple shadows can also be applied to text by separating them with commas 
+Example:
+ h1 {
+  text-shadow:
+   2px 2px 3px red,
+   -2px -2px 3px blue;
+ }
+ This can be used to create different visual effects 
+
+CSS Outline
+ An outline ia a line drawn around an element, outside its border 
+Syntax:
+ outline: width style color;
+
+Example:
+ .box {
+  outline: 2px solid red;
+ }
+
+Outline vs Border
+ Both border and outline draw a line around an element, but they are different
+
+Border 
+ border: 2px solid red;
+ A border  is part of the element's box and can affect its dimensions/layout 
+
+outline
+ Outline: 2px solid red;
+ An outline is drawn outside the element and does not take up space in the normal layout 
+
+Outline styles
+ Outline supports styles such as:
+ solid
+ dashed
+ dotted
+ double
+
+Example:
+ .box {
+  outline: 3px dashed black;
+ }
+
+Outline-offset 
+ outline-offset controls the distance between the element and its outline 
+Example:
+ .box {
+   outline: 3px dashed black;
+   outline-offset: 5px;
+ }
+
+Here:
+ 3px -> Outline width 
+ dashed -> outline style
+ black -> outline color 
+ 5px -> Distance from element 
+
+Outline and Focus
+ Outlines are commonly useful for showing which element currently has keyboard focus 
+Example:
+ buttton:focus {
+   outline: 2px solid blue;
+ }
+ This makes the focused button visually identifiable 
+
+ 
  */
 
     
