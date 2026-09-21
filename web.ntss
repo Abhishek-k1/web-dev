@@ -3203,7 +3203,7 @@ Memory Trick:
 z-index → controls front/back order
 
 Position Comparison 
- Position   	Reference / Behavior	                     Stays during scroll?
+ Position   	Reference / Behavior	                     Stays during scroll
  static	      Normal document flow	                     No
  relative	    Original position                     	   No
  absolute	    Nearest positioned ancestor                No
@@ -3237,7 +3237,296 @@ Absolute
 Relative → moves from its own original position
 Absolute → positioned relative to positioned ancestor
 
+CSS Variable 
+ CSS Variables are custom properties used to store values that can be reused throughout CSS 
+ They are useful when the same value, such as a color, is used many times 
 
+Example:
+ :root {
+  --primary-color: blue;
+ }
+
+Here:
+ --primary-color -> variable name 
+   blue          -> Variable value 
+
+Why Use Css Variable?
+ Suppose a website uses the same color many times:
+ nav {
+  background-color: blue;
+ }
+
+ .button {
+  background-color: blue;
+ }
+
+ .heading {
+    color: blue;
+ }
+
+If we want to change blue to red, we would have to change it in multiple places.
+With a CSS variable:
+
+ :root {
+    --primary-color: blue;
+ }
+
+Use it:
+ nav {
+     background-color: var(--primary-color);
+ }
+
+ .button {
+    background-color: var(--primary-color);
+}
+
+Now changing:
+
+ --primary-color: red;
+
+changes all places using that variable
+
+ Main Benefit
+ One variable
+      ↓
+ Used in many places
+      ↓
+ Change once
+      ↓
+ All related styles update
+
+Declaring a CSS Variable 
+ CSS variables are declared using two hyphens --
+
+Syntax:
+ --variable-name: value;
+Example:
+ :root {
+    --primary-color: blue;
+    --secondary-color: lightblue;
+ }
+
+Using a CSS Variable-- var()
+ The var() function is used to access a CSS variable.
+
+Syntax:
+ var(--variable-name)
+
+Example:
+ :root {
+     --primary-color: blue;
+ }
+ 
+ h1 {
+     color: var(--primary-color);
+ }
+
+Here:
+
+ --primary-color
+        ↓
+      blue
+        ↓
+ var(--primary-color)
+        ↓
+ color: blue
+
+:root 
+ :root represents the root element of the document
+
+CSS variables declared inside :root are commonly used as global variables
+Example:
+ :root {
+     --primary-color: blue;
+     --secondary-color: lightblue;
+ }
+
+These variables can generally be used by elements throughout the document.
+
+Global CSS Variable 
+ A global variable can be used throughout the document.
+
+Example:
+ :root {
+     --main-color: blue;
+ }
+
+ h1 {
+     color: var(--main-color);
+ }
+
+ p {
+     color: var(--main-color);
+ }
+ Both h1 and p can use the same variable
+
+Local CSS Variable 
+ A CSS variable can also be declared inside a specific selector.
+
+Example:
+ .box {
+     --main-color: red;
+ }
+
+The variable is available to the element and its descendants within that scope.
+
+Example:
+ .box { 
+     --main-color: red;
+ }
+
+ .box p {
+     color: var(--main-color);
+ }
+Difference
+ Global Variable
+ → available throughout the document
+
+ Local Variable
+ → available within its scope
+
+Local Variable Can Override Global Variable 
+ A local variable can have the same name as a global variable 
+ 
+Example:
+ :root {
+     --main-color: blue;
+ }
+
+ .box {
+    --main-color: red;
+ }
+
+ .box p {
+     color: var(--main-color);
+ }
+
+Here:
+ Global --main-color → blue
+
+Inside .box:
+ --main-color → red
+
+ So the paragraph inside .box uses:
+ red
+
+CSS Variable Inheritance 
+ CSS custom properties can be inherited by child elements.
+
+Example:
+ .box {
+     --main-color: blue;
+ }
+
+ .box p {
+    color: var(--main-color);
+ }
+
+The child <p> can use the variable defined on its parent .box.
+
+Think:
+ Parent
+   ↓
+ CSS Variable
+   ↓
+ Child
+   ↓
+ Can inherit/use variable
+
+Fallback Value 
+ A fallback value can be provided inside var()
+
+Syntax:
+ var(--variable, fallback-value)
+
+Example:
+ h1 {
+     color: var(--main-color, black);
+ }
+
+Meaning:
+ If --main-color exists
+        ↓
+ Use --main-color
+
+ Otherwise
+         ↓
+ Use black
+
+Example
+ color: var(--primary-color, blue);
+
+Here:
+ --primary-color → preferred value
+ blue            → fallback value
+
+CSS Variables can Store Different Values 
+ CSS variables are not limited to colors
+
+They can store values such as:
+ :root {
+     --main-color: blue;
+     --opacity: 0.5;
+     --font-size: 20px;
+     --spacing: 10px;
+ }
+
+Use them:
+ .box {
+     color: var(--main-color);
+     opacity: var(--opacity);
+     font-size: var(--font-size);
+     padding: var(--spacing);
+ }
+
+Benefits 
+ Reusable values 
+ Easier theme changes 
+ Less repetition 
+ Easier maintenance 
+ Can have global or local scope 
+ Can  be inherited by child elemments
+
+Media Queries 
+ Media Queries are used to apply different CSS styles depending on the characteristics of the device or screen
+ They are mainly used to make websites responsive
+
+Responsive website:
+
+ Desktop
+    ↓
+ Tablet
+    ↓
+ Mobile
+
+ The website automatically adjusts its layout and styling according to the screen size
+
+Why Use Media Queries?
+ Without media queries, a website designed for a large screen may not look good on a mobile screen
+ Media queries allow us to change CSS for different screen sizes
+
+Example:
+ Large screen
+     ↓
+ Normal layout
+
+ Small screen
+     ↓
+ Different layout
+
+Basic Syntax 
+ @media screen and (max-width: 800px)
+ {
+     /* CSS rules */
+ }
+
+Here:
+ @media       → Starts the media query
+ screen       → Media type
+ max-width    → Condition
+ 800px        → Maximum screen width
+
+ The CSS inside the media query is applied when the condition is true
 
 
 
