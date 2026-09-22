@@ -3528,11 +3528,154 @@ Here:
 
  The CSS inside the media query is applied when the condition is true
 
+max-width 
+max-width means:
+ Apply these styles when the  screen width is 800px or less 
 
+Example:
+ @media screen and (max-width: 800px)
+ {
+     body {
+         background-color: lightblue;
+     }
+ }
 
+So:
+ Width ≤ 800px
+       ↓
+ Media query applies
+       ↓
+ Background becomes lightblue
 
+min-width 
+min-width means:
+ Apply these styles when the screen width is at least the specified value.
+
+Example:
+ @media screen and (min-width: 800px)
+ {
+     body {
+        background-color: lightgreen;
+     }
+ }
+
+Changing Layout with Media Queries 
+Suppose we have:
+
+ .container {
+     display: flex;
+ }
+
+For a smaller screen, we can change the layout:
+ @media screen and (max-width: 600px)
+ {
+     .container {
+         flex-direction: column;
+     }
+ }
+
+So:
+ Large screen
+ → Horizontal layout
+
+Small screen
+ → Vertical layout
+
+ This is one of the most common uses of media queries
+
+Changing Font Size 
+ Media queries can also change font sizes
+Example:
+ h1 {
+     font-size: 40px;
+ }
+
+ @media screen and (max-width: 600px)
+ {
+     h1 {
+         font-size: 25px;
+     }
+ }
+
+Result:
+ Large screen → 40px
+ Small screen → 25px
+
+Multiple Conditions 
+ Media queries can contain multiple conditions.
+Example:
+ @media screen and (min-width: 600px) and (max-width: 1000px)
+ {
+     body {
+         background-color: lightblue;
+     }
+ }
+
+The CSS applies when:
+ 600px ≤ screen width ≤ 1000px
+
+Screen 
+ screen is a media type used for screens such as computers, tablets and phones.
+
+Example:
+ @media screen and (max-width: 600px)
+ {
+     /* CSS */
+ }
+ For basic responsive web development, screen is the media type you will commonly encounter
  */
 
+Media Query Example 
+ <!DOCTYPE html> 
+ <html> 
+ <head> 
+ <style>
+ body { 
+    background-color: white; 
+ } 
+
+ h1 { 
+      font-size: 40px; 
+ } 
+ @media screen and (max-width: 600px) 
+ { 
+    body { 
+        background-color: lightblue;
+       } 
+        h1 { 
+          font-size: 25px; 
+    } 
+ }
+  </style>
+  </head> 
+  <body> 
+  <h1>Hello World</h1>
+  </body>
+  </html>
+ 
+Common Media Query Conditions 
+Maximum width
+ @media screen and (max-width: 600px)
+ Used mainly to target smaller screens
+
+Minimum width
+ @media screen and (min-width: 600px)
+ Used to target screens at or above a certain width
+
+Media Queries and Responsive Design 
+            Responsive Website 
+                    ↓ 
+               Media Queries 
+                    ↓ 
+       ┌────────────┼────────────┐ 
+       ↓            ↓            ↓ 
+       Desktop   Tablet        Mobile 
+          ↓        ↓             ↓ 
+        Different CSS styles when needed
+ The goal is to make the same website adapt to different screen sizes rather than 
+ creating completely separate websites
+
+ 
 
     
 
