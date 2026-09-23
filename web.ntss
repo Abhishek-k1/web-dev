@@ -3675,19 +3675,163 @@ Media Queries and Responsive Design
  The goal is to make the same website adapt to different screen sizes rather than 
  creating completely separate websites
 
- 
+float 
+ The CSS float property is used to move an element to the left or right of its containing element.
 
-    
+Syntax:
+ selector {
+     float: value;
+ }
 
+Main values:
+ left
+ right
+ none
 
+float: left 
+ Moves an element to the left side.
 
+Example:
+ img {
+     float: left;
+ }
 
+The content around the image can flow alongside it
+ ┌─────────┐  Text Text Text
+ │  Image  │  Text Text Text
+ │         │  Text Text Text
+ └─────────┘  Text Text Text
 
+float: right  
+ Moves an element to the right side.
 
+Example:
+ img {
+     float: right;
+ }
 
+Text can flow around the left side of the floated element.
+ Text Text Text  ┌─────────┐
+ Text Text Text  │  Image  │
+ Text Text Text  │         │
+ Text Text Text  └─────────┘
 
+float: none 
+ none means the element does not float
+ img {
+     float: none;
+ }
+ none is the default value
 
+Float with Text 
+ One of the original purposes of float was to allow text to wrap around images, similar to layouts commonly seen in newspapers and blogs.
 
+Example:
+ <img src="image.jpg" alt="Example">
 
+ <p>
+    This is some text that can flow around the image
+ </p>
+ img {
+     float: left;
+     margin-right: 10px;
+ }
 
+The image moves left and the text flows around it
+
+Problem with Float 
+ Floated elements can sometimes cause the parent container to collapse or fail to contain the floated content properly
+
+Example:
+ Parent container
+ ┌────────────────────────┐
+ │                        │
+ └────────────────────────┘
+
+     Float
+       ↓
+    ┌──────┐
+    │Image │
+    └──────┘
+The parent may not automatically account for the floated child's height in the way you expect
+
+display: flow-root 
+ flow-root can be used to create a new block formatting context and help the parent properly contain floated children.
+
+Example:
+ .parent {
+     display: flow-root;
+ }
+
+Think:
+ Parent
+  d  ↓
+ display: flow-root
+   ↓
+ Contains floated children
+
+clear 
+ The clear property controls whether an element can appear beside floated elements.
+
+Syntax:
+ selector {
+     clear: value;
+ }
+
+Main values:
+ left
+ right
+ both
+ none
+
+clear: left 
+ Prevents the element from appearing beside a left-floated element
+
+Example:
+ .box {
+     clear: left;
+ }
+ The element moves below the left-floated content when necessary
+
+clear: right 
+ Prevents the element from appearing beside a right-floated element
+
+ .box {
+     clear: right;
+ }
+
+clear: both 
+ Prevents the element from appearing beside both left- and right-floated elements
+
+Example:
+ .footer {
+    clear: both;
+ }
+This is commonly used when you want the next section to start below all floated elements
+
+clear: none 
+ Allows the element to appear beside floated elements
+
+ .box {
+     clear: none;
+ }
+This is the default behavior
+
+Float vs Clear
+ Property	   Purpose
+ float	      Moves an element left or right
+ clear	      Controls whether an element can appear beside floats
+
+Float vs Modern Layout
+ float is important to understand, especially for older websites and for understanding existing CSS
+ However, Flexbox and CSS Grid are generally better suited for creating modern page layouts
+
+Use:
+ Float
+  ↓
+ Mainly text wrapping / legacy layouts
+
+ Flexbox / Grid
+  ↓
+ Modern page layouts
 
