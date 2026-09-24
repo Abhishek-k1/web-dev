@@ -1271,7 +1271,7 @@ Common Pseudo-Classes
    color: blue;
  }
 
-:actice 
+:active 
  Applies while the link is being activated/clicked
  a:active {
      color: green;
@@ -1284,6 +1284,217 @@ Example:
      color: red;
  }
 
+::first-line 
+ ::first-line is a pseudo-element used to style the first line of text inside an element.
+
+Example:
+ p::first-line {
+     color: yellow;
+ }
+
+ Only the first visible line of the paragraph gets the style.
+
+ First line → Yellow
+ Second line → Normal
+ Third line → Normal
+
+Attribute Selector 
+ An attribute selector selects elements based on their attributes
+ Select elements having an attribute
+ [data-color] {
+     border: 2px solid red;
+ }
+ This selects elements that contain the data-color attribute
+Example:
+ <div data-color="primary">Box</div>
+
+Select a Specific Attribute Value 
+ [data-color="primary] {
+ margin-top: 45px;
+}
+This selects elements where:
+ data-color = "primary"
+
+Example:
+ <div data-color="primary">Box 1</div>
+ <div data-color="secondary">Box 2</div>
+Only the first element is selected
+Important:
+Attribute selectors can be used with different attributes, not only data-* attributes
+
+Grouping Selectors 
+ Multiple selectors can be grouped together using a comma ,
+
+Example:
+ p, a, .box, [data-color="primary"] {
+     margin-top: 20px;
+ }
+
+The same CSS rule is applied to all matching elements
+
+Without grouping:
+ p {
+     margin-top: 20px;
+ }
+
+ a {
+     margin-top: 20px;
+ }
+
+ .box {
+     margin-top: 20px;
+ }
+ Grouping makes the CSS shorter 
+
+ selector1, selector2, selector3 
+              ↓ 
+      Same CSS rule
+
+:nth-child()
+ :nth-child() selects an element based on its position among its siblings.
+
+Example:
+ .box:nth-child(2) {
+     background-color: red;
+ }
+This selects the second child
+
+Even Children 
+ .box:nth-child(even) {
+    background-color: blue;
+ }
+
+This selects:
+ 2nd
+ 4th
+ 6th
+ 8th
+ ...
+
+Odd Children 
+ .box:nth-child(odd) {
+    background-color: green;
+}
+This selects:
+ 1st
+ 3rd
+ 5th
+ 7th
+ ...
+
+:nth-last-child()
+ :nth-last-child() works like :nth-child(), but counts from the end.
+
+Example:
+ .box:nth-last-child(1) {
+     background-color: red;
+ }
+
+This selects the last child
+
+Example:
+ .box:nth-last-child(2) {
+     background-color: blue;
+ }
+This selects the second-last child
+
+Difference:
+ :nth-child()
+       ↓
+ Counts from beginning
+
+ :nth-last-child()
+       ↓
+ Counts from end
+
+::before 
+ ::before is a pseudo-element that allows us to insert generated content before an element's content.
+
+Example:
+ .box::before {
+     content: "Hello ";
+ }
+
+The generated content appears before the existing content.
+
+Important:
+ When using ::before, the content property is normally required.
+
+Example:
+ .box::before {
+     content: "→ ";
+     color: red;
+ }
+
+::after 
+ ::after inserts generated content after an element's content.
+
+Example:
+ .box::after {
+     content: " ✓";
+     color: green;
+ }
+
+If:
+ <div class="box">Completed</div>
+
+ It can visually appear like:
+ Completed ✓
+
+::first-letter 
+ ::first-letter selects the first letter of an element's text.
+
+Example:
+ p::first-letter {
+     font-size: 45px;
+    color: purple;
+ }
+
+Only the first letter is styled
+Example:
+ H ello world
+ ↑
+ Styled
+
+::placeholder 
+ ::placeholder is used to style the placeholder text of an input.
+
+Example:
+ input::placeholder {
+     color: blue;
+ }
+
+HTML:
+ <input type="text" placeholder="Enter your name">
+ The placeholder text becomes blue
+
+Pseudo-Class vs Pseudo-Element 
+Pseudo-Class
+ Used to select an element based on its state or position
+
+Examples:
+ :first-child
+ :nth-child()
+ :nth-last-child()
+
+Pseudo-Element
+ Used to style a specific part of an element or generate content
+Examples:
+ ::first-line
+ ::first-letter
+ ::before
+ ::after
+ ::placeholder
+
+Easy Difference:
+ Pseudo-Class
+       ↓
+ Selects based on state/position
+
+ Pseudo-Element
+       ↓
+ Styles a part / generated content
+ 
 CSS Box Model
  The CSS Box Model describes how every HTML element is represented as a rectangular Box
  It consists of four main parts:
