@@ -4418,5 +4418,379 @@ Item Properties
  flex-shrink
  align-self
 
- 
+Grid  
+ CSS Grid is a CSS layout system used to arrange elements in rows and columns
+ It is especially useful for creating two-dimensional layouts
+
+To create a grid:
+ .container {
+     display: grid;
+ }
+
+Example:
+ ┌────────┬────────┬────────┐
+ │ Item 1 │ Item 2 │ Item 3 │
+ ├────────┼────────┼────────┤
+ │ Item 4 │ Item 5 │ Item 6 │
+ └────────┴────────┴────────┘
+
+Flexbox vs Grid
+Flexbox → Mainly one-dimensional
+           Row OR Column
+
+Grid    → Two-dimensional
+           Rows AND Columns
+
+grid-template-columns 
+ grid-template-columns defines the number and size of columns
+
+Example:
+ .container {
+     display: grid;
+     grid-template-columns: 100px 200px 100px;
+ }
+
+This creates:
+ Column 1 → 100px
+ Column 2 → 200px
+ Column 3 → 100px
+
+Example:
+ ┌───────┬────────────┬───────┐
+ │       │            │       │
+ │ 100px │    200px   │ 100px │
+ │       │            │       │
+ └───────┴────────────┴───────┘
+
+Grid Lines 
+ Grid lines are the lines that divide the grid into rows and columns
+
+Example:
+
+ 1       2       3       4
+ │       │       │       │
+ ├───────┼───────┼───────┤
+ │       │       │       │
+ ├───────┼───────┼───────┤
+ │       │       │       │
+
+ For 3 columns, there are 4 vertical grid lines
+ 3 columns → 4 column lines
+
+Grid Cell 
+ A grid cell is a single unit/box in the grid.
+
+Example:
+ ┌────────┬────────┐
+ │ Cell 1 │ Cell 2 │
+ ├────────┼────────┤
+ │ Cell 3 │ Cell 4 │
+ └────────┴────────┘
+
+ Each box is a grid cell
+
+Grid Track 
+ A grid track is the space between two adjacent grid lines.
+
+There are two types:
+ Column Track → vertical space
+ Row Track    → horizontal space
+
+Example:
+ ┌────────┬────────┐
+ │        │        │
+ │        │        │
+ └────────┴────────┘
+    ↑
+ Column Track
+
+Grid Area 
+ A grid area is a rectangular area of one or more grid cells.
+
+Example:
+ ┌────────┬────────┐
+ │        │        │
+ │  Area  │  Area  │
+ ├────────┼────────┤
+ │        │        │
+ └────────┴────────┘
+ A grid area can contain one or multiple cells
+
+grid-row 
+ grid-row controls where a grid item starts and ends across rows
+
+Example:
+ .item {
+     grid-row: 1 / 3;
+ }
+
+ This means the item starts at row line 1 and ends at row line 3
+ Therefore, it occupies:
+ Row 1
+ Row 2
+
+grid-column 
+ grid-column controls where a grid item starts and ends across columns.
+
+Example:
+ .item {
+     grid-column: 1 / 3;
+ }
+
+ The item occupies columns between line 1 and line 3
+ So it spans 2 columns
+
+Example:
+ ┌──────────────────┬────────┐
+ │      Item        │        │
+ │   spans 2 cols   │ Item   │
+ └──────────────────┴────────┘
+
+grid-row + grid-column 
+ We can control both dimensions
+
+ .item {
+     grid-row: 1 / 3;
+     grid-column: 1 / 3;
+ }
+
+ The item spans:
+ 2 rows × 2 columns
+
+Naming Grid Lines 
+ Grid lines can be given names.
+
+Example:
+ .container {
+     display: grid;
+     grid-template-columns:
+         [start] 100px
+         [middle] 100px
+         [end] 100px;
+ }
+
+Now the lines have names:
+ [start]    [middle]    [end]
+    │          │           │
+    ├──────────┼───────────┤
+
+ Named lines can then be used when positioning grid items
+
+grid-template-areas 
+ grid-template-areas allows us to create a layout by giving names to different areas.
+
+Example:
+ .container {
+     display: grid;
+
+     grid-template-areas:
+         "header header"
+         "sidebar main"
+         "footer footer";
+ }
+
+ This creates a layout like:
+ ┌───────────────┐
+ │     header    │
+ ├───────┬───────┤
+ │sidebar│ main  │
+ ├───────┴───────┤
+ │     footer    │
+ └───────────────┘
+
+ Then assign areas to elements:
+
+ .header {
+     grid-area: header;
+ }
+
+ .sidebar {
+     grid-area: sidebar;
+ }
+
+ .main {
+     grid-area: main;
+ }
+
+ .footer {
+     grid-area: footer;
+ }
+
+ This is very useful for webpage layouts
+
+fr Unit 
+ fr means fraction of the available space in the grid container.
+
+Example:
+ .container {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+ }
+
+The available space is divided equally:
+ ┌────────────┬────────────┐
+ │    1fr     │    1fr     │
+ │    50%     │    50%     │
+ └────────────┴────────────┘
+
+Example:
+ grid-template-columns: 1fr 2fr;
+ The available space is divided into 3 parts:
+ 1fr → 1 part
+ 2fr → 2 parts
+
+So approximately:
+ ┌───────┬───────────────┐
+ │  1fr  │      2fr      │
+ └───────┴───────────────┘
+
+gap 
+ gap creates space between grid rows and columns.
+
+Example:
+ .container {
+     display: grid;
+     gap: 20px;
+ }
+
+ There will be 20px space between grid items
+ You can also use:
+ row-gap: 10px;
+ column-gap: 20px;
+
+align-items 
+ align-items controls the alignment of grid items along the block/cross axis within their grid areas.
+
+Example:
+ .container {
+     display: grid;
+     align-items: center;
+ }
+
+Common values:
+ start
+ center
+ end
+ stretch
+
+justify-items 
+ justify-items controls the alignment of grid items along the inline axis within their grid areas
+
+Example:
+ .container {
+     display: grid;
+     justify-items: center;
+ }
+ This can center the items inside their grid cells/areas
+
+repeat() Function 
+ repeat() makes repeated grid tracks easier to write.
+
+Instead of:
+ grid-template-columns: 1fr 1fr 1fr 1fr;
+
+we can write:
+ grid-template-columns: repeat(4, 1fr);
+
+Meaning:
+ 4 columns
+ each = 1fr
+
+Another example:
+ grid-template-columns: repeat(3, 100px);
+
+Meaning:
+ 100px 100px 100px
+
+Syntax
+ repeat(number, value)
+
+Justify-content 
+ justify-content controls the position of the entire grid inside its container when there is extra space available.
+
+Example:
+ .container {
+     display: grid;
+     justify-content: center;
+ }
+
+The whole grid is centered inside the container
+Important
+
+Don't confuse:
+justify-items
+ → positions items inside their grid areas
+
+justify-content
+ → positions the whole grid inside the container
+
+align-content 
+ align-content controls the position of the entire grid along the other axis when there is extra space available.
+
+Example:
+ .container {
+     display: grid;
+     align-content: center;
+ }
+Difference
+align-items
+ → items inside their grid areas
+
+align-content
+ → entire grid inside the container
+
+Grid Properties 
+Container Properties
+ display: grid
+ grid-template-columns
+ grid-template-rows
+ grid-template-areas
+ gap
+ row-gap
+ column-gap
+ align-items
+ justify-items
+ align-content
+ justify-content
+
+Item Properties
+ grid-row
+ grid-column
+ grid-area
+
+Example Grid Layout 
+ .container { 
+  display: grid; 
+  
+  grid-template-columns: 1fr 2fr 1fr; 
+  gap: 10px; 
+  grid-template-areas: 
+  "header header header" 
+  "sidebar main main" 
+  "footer footer footer"; 
+  } 
+  .header { 
+    grid-area: header; 
+  } 
+  .sidebar { 
+      grid-area: sidebar; 
+  } 
+  .main { 
+       grid-area: main; 
+  } 
+  .footer { 
+      grid-area: footer; 
+ }
+
+Layout:
+
+ ┌─────────────────────────────┐
+ │           HEADER            │
+ ├──────────┬──────────────────┤
+ │ SIDEBAR  │       MAIN       │
+ ├──────────┴──────────────────┤
+ │           FOOTER            │
+ └─────────────────────────────┘
+
+
 
