@@ -4045,4 +4045,378 @@ Use:
  Flexbox / Grid
   ↓
  Modern page layouts
+ 
+Flexbox
+ Flexbox (Flexible Box Layout) is a CSS layout system used to arrange elements in a row or column.
+
+It makes it easier to:
+ Arrange elements
+ Align elements
+ Create responsive layouts
+ Control spacing between elements
+
+To use Flexbox, make an element a flex container:
+ .container {
+     display: flex;
+ }
+
+The children of .container become flex items
+ .container
+     ↓
+ display: flex
+     ↓
+ ┌──────┬──────┬──────┐
+ │ Item │ Item │ Item │
+ └──────┴──────┴──────┘
+
+Flex Container and Flex Items 
+ The element with:
+ display: flex;
+ is called the flex container.
+
+ Its direct children are called flex items
+
+Example:
+ <div class="container">
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+ </div>
+ .container {
+     display: flex;
+ }
+
+Here:
+ .container → Flex Container
+ Item 1
+ Item 2
+ Item 3
+     ↓
+ Flex Items
+
+Main Axis and Cross Axis 
+ Flexbox works using two axes:
+
+Main Axis
+    →
+    ─────────────────
+
+Cross Axis
+    ↑
+    │
+    │
+    ↓
+
+By default:
+ flex-direction: row;
+
+So:
+ Main Axis   → Horizontal
+ Cross Axis  ↓ Vertical
+
+justify-content 
+ justify-content controls the alignment of flex items along the main axis.
+
+Example:
+ .container {
+     display: flex;
+     justify-content: center;
+ }
+
+Common values:
+ flex-start
+ flex-end
+ center
+ space-between
+ space-around
+ space-evenly
+
+flex-start
+ Items move toward the start
+ [1][2][3]────────
+
+flex-end
+ Items move toward the end
+ ────────[1][2][3]
+
+center
+ Items are centered
+ ────[1][2][3]────
+
+space-between
+ Equal space is placed between the items
+ [1]────[2]────[3]
+
+space-around
+ Space is placed around each item
+
+space-evenly
+ Equal space is placed between items and at the edges
+
+align-items 
+ align-items controls alignment along the cross axis
+
+Example:
+ .container {
+     display: flex;
+     align-items: center;
+ }
+
+Common values:
+ stretch
+ flex-start
+ flex-end
+ center
+
+For the default row direction:
+ justify-content → Horizontal
+ align-items     → Vertical
+
+Important
+ Don't memorize this as permanently horizontal/vertical
+
+Remember:
+ justify-content → Main Axis
+ align-items     → Cross Axis
+ The direction can change with flex-direction
+
+flex-direction 
+ flex-direction controls the direction in which flex items are arranged
+
+Row
+ flex-direction: row;
+
+Default:
+ [1] [2] [3] →
+
+Row Reverse
+ flex-direction: row-reverse;
+ ← [3] [2] [1]
+
+Column
+ flex-direction: column;
+ [1]
+  ↓
+ [2]
+  ↓
+ [3]
+
+Column Reverse
+ flex-direction: column-reverse;
+ [3]
+  ↑
+ [2]
+  ↑
+ [1]
+
+Flex Axis Changess with Direction 
+ This is important
+For:
+ flex-direction: row;
+ Main Axis  → Horizontal
+ Cross Axis ↓ Vertical
+
+For:
+ flex-direction: column;
+ Main Axis  ↓ Vertical
+ Cross Axis → Horizontal
+
+Therefore:
+ justify-content works on the main axis, and align-items works on the cross axis
+
+flex-wrap 
+ By default, flex items try to stay on one line.
+
+flex-wrap allows items to move to another line when there isn't enough space.
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+Without wrapping:
+
+[1][2][3][4][5][6]
+
+With wrapping:
+
+[1][2][3][4]
+[5][6]
+
+Common values:
+
+nowrap
+wrap
+wrap-reverse
+
+Default:
+
+flex-wrap: nowrap;
+
+wrap-reverse 
+ flex-wrap: wrap-reverse;
+ Items can wrap onto multiple lines, but the cross-axis direction of the lines is reversed
+
+align-content 
+ align-content controls the alignment of multiple flex lines along the cross axis.
+
+It becomes useful when:
+ flex-wrap: wrap;
+ creates multiple rows/columns
+
+Example:
+ .container {
+     display: flex;
+     flex-wrap: wrap;
+     align-content: center;
+ }
+
+Important Difference
+align-items
+ → Aligns items within a flex line
+
+align-content
+ → Aligns multiple flex lines
+
+flex-flow 
+ flex-flow is a shorthand for:
+ flex-direction
+ +
+ flex-wrap
+
+Example:
+ .container {
+     flex-flow: row wrap;
+ }
+
+This is equivalent to:
+ .container {
+     flex-direction: row;
+     flex-wrap: wrap;
+ }
+
+gap 
+ gap creates space between flex items.
+
+Example:
+ .container {
+     display: flex;
+     gap: 20px;
+ }
+
+Result:
+ [1]  20px  [2]  20px  [3]
+
+You can also use:
+ row-gap: 10px;
+ column-gap: 20px;
+
+Common Flexbox Mistake 
+Remember that:
+ justify-content
+and:
+ align-items
+ depend on the flex direction
+
+Don't simply memorize:
+ justify = horizontal
+ align = vertical
+
+Instead remember:
+ justify-content → Main Axis
+ align-items     → Cross Axis
+
+order 
+ order controls the visual order of individual flex items.
+
+Example:
+ .item1 {
+     order: 2;
+ }
+
+ .item2 {
+     order: 1;
+ }
+
+Then item2 appears before item1
+
+Default:
+ order: 0;
+
+Smaller order values appear earlier
+
+Example:
+ order: 1
+ order: 2
+ order: 3
+
+appears as:
+ 1 → 2 → 3
+
+flex-grow 
+ flex-grow controls how much a flex item can grow when extra space is available.
+
+Example:
+ .item1 {
+     flex-grow: 1;
+ }
+
+If two items have:
+ .item1 {
+     flex-grow: 1;
+ }
+
+ .item2 {
+     flex-grow: 2;
+ }
+
+ then, under the same relevant conditions, item 2 receives twice the growth share of item 1
+
+flex-shrink 
+ flex-shrink controls how much a flex item can shrink when there isn't enough space.
+
+Example:
+ .item1 {
+     flex-shrink: 1;
+ }
+
+Default:
+ flex-shrink: 1;
+
+align-self 
+ align-self allows one individual flex item to have its own cross-axis alignment.
+
+Example:
+ .item1 {
+     align-self: flex-end;
+ }
+
+While the container might have:
+ align-items: center;
+ item1 can override that alignment for itself
+
+align-items 
+ → controls all flex items 
+
+align-self 
+ → controls one flex item
+
+Important Flexbox Properties 
+ Container Properties
+ display
+ flex-direction
+ flex-wrap
+ flex-flow
+ justify-content
+ align-items
+ align-content
+ gap
+
+Item Properties
+ order
+ flex-grow
+ flex-shrink
+ align-self
+
+ 
 
