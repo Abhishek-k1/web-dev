@@ -4994,9 +4994,285 @@ The element is:
  Rotate → 20deg
  Scale  → 1.2 times
 
+Transition 
+ A CSS transition makes a change from one CSS state to another happen smoothly instead of instantly.
 
+Example:
+ .box {
+     background-color: blue;
+     transition: background-color 1s;
+ }
 
+ .box:hover {
+     background-color: red;
+ }
 
+Without transition:
+ Blue → Red
+ Instantly
+
+With transition:
+ Blue → gradually → Red
+
+Why Do we Need Transitions?
+ Suppose an element moves when we apply a class or :hover
+
+Without transition:
+ Position 1 ─────────→ Position 2
+           sudden
+
+With transition:
+ Position 1 ──→ ──→ ──→ Position 2
+               smooth
+
+ Transitions make interfaces feel smoother and more interactive
+
+Four Main Transition Properties
+ CSS transitions can be controlled using:
+
+ transition-property
+ transition-duration
+ transition-timing-function
+ transition-delay
+  Transition
+      ↓
+   ┌───────────────┬───────────────┐
+   ↓               ↓               ↓
+  Property      Duration        Timing Function
+                          +
+                        Delay
+
+transition-property 
+ transition-property specifies which CSS property should transition.
+
+Example:
+ .box {
+     transition-property: background-color;
+ }
+
+This means:
+ background-color
+       ↓
+ will change smoothly
+
+Example:
+ .box {
+     transition-property: transform;
+ }
+ Only the transform property is transitioned
+
+transition-duration 
+ transition-duration specifies how long the transition takes.
+
+Example:
+ .box {
+     transition-property: transform;
+     transition-duration: 2s;
+ }
+
+The transformation takes:
+ 2 seconds
+
+Example
+ transition-duration: 500ms;
+
+means:
+ 500 milliseconds
+
+transition-timinng-function 
+ transition-timing-function controls the speed pattern of the transition.
+
+Example:
+ .box {
+     transition-timing-function: ease-in-out;
+ }
+
+Common values:
+ linear
+ ease
+ ease-in
+ ease-out
+ ease-in-out
+
+linear
+ The transition progresses at a constant speed
+ transition-timing-function: linear;
+
+ease-in
+ Starts slowly and becomes faster
+ transition-timing-function: ease-in;
+
+ease-out
+ Starts faster and slows down
+ transition-timing-function: ease-out;
+
+ease-in-out
+ Starts slowly, becomes faster, then slows down again
+ transition-timing-function: ease-in-out;
+
+transition-delay 
+ transition-delay specifies how long to wait before the transition starts.
+
+Example:
+ .box {
+     transition-delay: 1s;
+ }
+
+Meaning:
+ State changes
+       ↓
+ Wait 1 second
+       ↓
+ Transition starts
+
+Commbining All Transition Properties 
+Example:
+ .box {
+     transition-property: transform;
+     transition-duration: 2s;
+     transition-timing-function: ease-in-out;
+     transition-delay: 1s;
+ }
+
+Meaning:
+ Property → transform
+ Duration → 2 seconds
+ Timing   → ease-in-out
+ Delay    → 1 second
+
+Transition on Multiple Properties 
+ You can transition multiple CSS properties.
+
+Example:
+ .box {
+     transition-property: background-color, transform;
+     transition-duration: 1s, 2s;
+ }
+
+Here:
+ background-color → 1 second
+ transform        → 2 seconds
+ Multiple properties can be specified using commas
+
+transition: all
+ You can transition all transitionable properties
+
+Example:
+ .box {
+     transition: all 1s;
+ }
+
+ Now multiple changes can transition smoothly
+ However, in real projects, it is often better to specify the properties you actually want to animate rather than blindly using all
+
+Timing Functions 
+ The timing function controls the speed curve of the transition.
+
+Example:
+ .box {
+     transition: transform 2s ease-in-out;
+ }
+
+Common timing functions:
+ linear
+ ease
+ ease-in
+ ease-out
+ ease-in-out
+
+cubic-bezier()
+ CSS also allows custom timing functions using cubic-bezier().
+
+Example:
+ .box {
+     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+ }
+ This allows more precise control over how the transition changes speed
+
+Transition Shorthand 
+ Instead of writing all properties separately, we can use the transition shorthand property.
+
+Example:
+ .box {
+     transition: transform 2s ease-in-out 1s;
+ }
+
+General form:
+ transition:
+ property
+ duration
+ timing-function
+ delay;
+
+So:
+ transition: transform 2s ease-in-out 1s;
+
+means:
+ transform
+    ↓
+ 2s duration
+    ↓
+ ease-in-out timing
+    ↓
+ 1s delay
+
+Multiple Transitions Usinng Shorthand 
+ Multiple transitions can also be written using commas
+
+Example:
+.box {
+    transition:
+        background-color 1s,
+        transform 2s;
+}
+
+Here:
+ background-color → 1s
+ transform        → 2s
+
+Transition with transform 
+ Transitions are commonly combined with the transform property.
+
+Example:
+ .box {
+     transition: transform 1s;
+ }
+
+ .box:hover {
+     transform: translateX(100px);
+ }
+
+When the mouse moves over the box:
+ Normal
+   ↓
+ Hover
+   ↓
+ translateX(100px)
+   ↓
+ Smooth movement
+
+This combines the concepts from Transform + Transition
+
+Transition vs Transform 
+ These two properties have different jobs.
+
+Transform
+ Changes the visual state:
+
+ transform: scale(1.2);
+
+Transition
+ Controls how smoothly the change happens:
+ transition: transform 1s;
+
+Together:
+ .box {
+     transition: transform 1s;
+ }
+
+ .box:hover {
+     transform: scale(1.2);
+ }
 
 
  
