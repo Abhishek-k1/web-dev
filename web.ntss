@@ -5274,5 +5274,354 @@ Together:
      transform: scale(1.2);
  }
 
+Animation 
+ CSS Animation allows an element to change from one style to another over a period of time
+ Unlike a simple transition, an animation can have multiple stages/keyframes and can repeat automatically
 
+ Animation
+     ↓
+ Multiple style changes
+     ↓
+ Over time
+     ↓
+ Can repeat automatically
+
+@keyframes 
+ @keyframes defines what happens during an animation.
+
+Example:
+ @keyframes moveBox
+ {
+     from {
+         transform: translateX(0);
+     }
+
+     to {
+         transform: translateX(300px);
+     }
+ }
+
+Here:
+ from → Starting state
+ to   → Ending state
+
+Applying Animation to an Element 
+ After creating keyframes, use animation-name to apply them
+
+ .box {
+     animation-name: moveBox;
+ }
+
+Example:
+ .box {
+     animation-name: moveBox;
+     animation-duration: 3s;
+ }
+
+Meaning:
+ moveBox
+    ↓
+ Runs on .box
+    ↓
+ For 3 seconds
+
+animation-duration 
+ animation-duration specifies how long one complete animation cycle takes.
+
+Example:
+ .box {
+     animation-duration: 3s;
+ }
+
+Meaning:
+ One animation cycle = 3 seconds
+ You can also use milliseconds:
+ animation-duration: 500ms;
+
+animation-iteration-count 
+ This property specifies how many times the animation should repeat.
+
+Example:
+ .box {
+     animation-iteration-count: 3;
+ }
+
+ The animation runs:
+ 1 → 2 → 3
+
+For continuous animation:
+ animation-iteration-count: infinite;
+
+Remember
+ 3        → Run 3 times
+ infinite → Keep repeating
+
+animation-timing-function 
+ Controls how the animation changes speed over time.
+
+Common values:
+ linear
+ ease
+ ease-in
+ ease-out
+ ease-in-out
+
+Example:
+ .box {
+     animation-timing-function: ease-in-out;
+ }
+
+Meaning
+ linear      → Constant speed
+ ease-in     → Starts slowly
+ ease-out    → Ends slowly
+ ease-in-out → Slow → Fast → Slow
+
+animation-delay 
+ animation-delay specifies how long to wait before the animation starts.
+
+Example:
+ .box {
+     animation-delay: 2s;
+ }
+
+Meaning:
+ Page loads
+    ↓
+ Wait 2 seconds
+    ↓
+ Animation starts
+
+Difference
+ animation-duration → How long animation runs
+ animation-delay    → How long before animation starts
+
+animation-direction 
+ Controls the direction in which the animation plays.
+
+Common values:
+ normal
+ reverse
+ alternate
+ alternate-reverse
+ normal
+
+Animation plays normally:
+ Start → End
+ reverse
+
+Animation plays backwards:
+ End → Start
+ alternate
+
+Animation changes direction after each cycle:
+ Start → End
+ End → Start
+ Start → End
+ alternate-reverse
+
+ Starts in reverse and then alternates
+
+animation-play-state 
+ Controls whether an animation is running or paused.
+
+Example:
+ .box {
+     animation-play-state: paused;
+ }
+
+Common values:
+ running
+ paused
+
+Example:
+ .box:hover {
+     animation-play-state: paused;
+ }
+
+ The animation pauses when the mouse is over the element
+
+animation-fill-mode 
+ Controls the styles applied to an element before and/or after the animation.
+
+Common values:
+ none
+ forwards
+ backwards
+ both
+
+none
+ Default behavior
+ The element does not retain animation styles before/after the animation.
+
+forwards
+ The element keeps the styles from the final keyframe after the animation finishes.
+ animation-fill-mode: forwards;
+
+backwards
+ The element uses the styles from the first relevant keyframe during the delay.
+
+both
+ Combines the behavior of:
+ backwards + forwards
  
+Animation Using Percentages 
+ Instead of only using:
+ from
+ to
+ we can define multiple stages using percentages
+
+Example:
+ @keyframes moveBox
+ {
+     0% {
+         transform: translateX(0);
+     }
+
+     25% {
+         transform: translateX(100px);
+     }
+
+     50% {
+         transform: translateX(200px);
+     }
+ 
+     100% {
+         transform: translateX(300px);
+     }
+ }
+
+This allows us to create more complex animations
+
+ 0%
+  ↓
+ 25%
+  ↓
+ 50%
+  ↓
+ 100%
+
+Complete Animation Example 
+  @keyframes moveBox
+ {
+     from {
+         transform: translateX(0);
+     }
+ 
+     to {
+         transform: translateX(300px);
+     }
+ }
+
+ .box {
+     animation-name: moveBox;
+     animation-duration: 3s;
+     animation-iteration-count: infinite;
+ }
+
+Here:
+ @keyframes
+      ↓
+ Define animation
+
+ animation-name
+     ↓
+ Choose animation
+
+ animation-duration
+      ↓
+ Set duration
+
+ animation-iteration-count
+      ↓
+ Set repetitions
+
+Animation Shorthand 
+ Instead of writing every property separately, we can use the animation shorthand.
+
+Example:
+ .box {
+     animation: moveBox 3s ease-in-out 1s infinite;
+ }
+
+It can include:
+ name
+ duration
+ timing-function
+ delay
+ iteration-count
+ direction
+ fill-mode
+ play-state
+
+ don't need to memorize every shorthand order immediately. The individual properties are easier to understand first
+
+Multiple Animations 
+ More than one animation can be applied to the same element.
+
+Use commas:
+ .box {
+     animation:
+         moveBox 3s ease-in-out infinite,
+         changeColor 2s linear infinite;
+ }
+
+ Here two animations run on the same element:
+ moveBox
+    +
+ changeColor
+    ↓
+ Same element
+
+ Each animation can have its own properties
+
+Animation vs Transition 
+Transition
+ Best for a relatively simple change between states.
+
+Example:
+ .box {
+     transition: transform 1s;
+ }
+
+ .box:hover {
+    transform: scale(1.2);
+ }
+
+Animation
+Useful when you need:
+ Multiple stages
+ Automatic repetition
+ Delays
+ Direction control
+ Keyframes
+ More complex sequences
+
+Example:
+ @keyframes moveBox
+ {
+     0% {
+         transform: translateX(0);
+     }
+
+     50% {
+         transform: translateX(200px);
+     }
+
+     100% {
+         transform: translateX(0);
+     }
+ }
+
+Easy Difference
+ Transition
+     ↓
+ State A → State B
+
+ Animation
+     ↓
+ Keyframes
+     ↓
+ Multiple stages
+     ↓
+ Can repeat automatically
