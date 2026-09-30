@@ -5625,3 +5625,245 @@ Easy Difference
  Multiple stages
      ↓
  Can repeat automatically
+
+Why do we need object-fit?
+ When an image or video is placed inside a fixed-size container, its original aspect ratio may not match the container
+ This can cause the image to look:
+ Stretched
+ Squashed
+ Cropped
+
+ object-fit controls how replaced elements like <img> and <video> fit inside their container
+
+Example:
+ img {
+     width: 300px;
+     height: 200px;
+     object-fit: cover;
+ }
+
+object-fit 
+ The object-fit property controls how an image or video fits inside its given width and height.
+
+Common values:
+ fill
+ contain
+ cover
+ none
+ scale-down
+
+object-fit: fill 
+ img {
+     object-fit: fill;
+ }
+
+ The image is resized to completely fill the container
+ It may become distorted if the container and image have different aspect ratios
+
+ Image
+   ↓
+ Forced to fit
+   ↓
+ May stretch/squash
+
+object-fit: contain 
+ img {
+     object-fit: contain;
+ }
+
+ The entire image is visible while maintaining its aspect ratio
+
+ Empty space may remain inside the container.
+
+ ┌─────────────────────┐
+ │                     │
+ │      ┌────────┐     │
+ │      │ Image  │     │
+ │      └────────┘     │
+ │                     │
+ └─────────────────────┘
+
+object-fit: cover 
+ img {
+     object-fit: cover;
+ }
+
+ The image fills the entire container while maintaining its aspect ratio
+ Some part of the image may be cropped
+
+ ┌─────────────────────┐
+ │█████████████████████│
+ │████   IMAGE   ██████│
+ │█████████████████████│
+ └─────────────────────┘
+
+object-fit: none 
+  img {
+     object-fit: none;
+ }
+
+ The replaced element keeps its original size rather than being resized to fit the container
+ Parts of the image may therefore be outside the container
+
+object-fit: scale-down 
+ img {
+     object-fit: scale-down;
+ }
+ The browser chooses whichever results in the smaller rendered object size, effectively behaving like none or contain, whichever is smaller 
+
+object-position 
+ object-position controls which part of the image is positioned inside the container
+ It is especially useful with:
+ object-fit: cover;
+
+Example:
+ img {
+     width: 300px;
+     height: 200px;
+
+     object-fit: cover;
+     object-position: center;
+ }
+
+Common object-position values 
+ object-position: center;
+ object-position: top;
+ object-position: bottom;
+ object-position: left;
+ object-position: right;
+
+Example:
+ img {
+     object-fit: cover;
+     object-position: top;
+ }
+ This keeps the top part of the image positioned in the container when cropping occurs
+
+Percentage / Length Values 
+ object-position can also use percentages or lengths.
+
+Example:
+ img {
+     object-position: 50% 50%;
+ }
+
+Here:
+ 50% → Horizontal position
+ 50% → Vertical position
+
+Another example:
+ object-position: 0% 0%;
+ means the object is positioned at the top-left
+
+Complete Example 
+ <img src="image.jpg" class="photo">
+ .photo {
+     width: 300px;
+     height: 200px;
+ 
+     object-fit: cover;
+     object-position: center;
+ }
+
+Meaning:
+ width + height
+       ↓
+ Fixed container
+       ↓
+ object-fit: cover
+       ↓
+ Image covers container
+       ↓
+ object-position: center
+       ↓
+ Center part is shown
+
+background-image 
+ CSS can also be used to set an image as the background of an element.
+
+Example:
+ .box {
+    background-image: url("image.jpg");
+ }
+
+ The image becomes the background of .box
+
+background-size 
+ background-size controls the size of a background image.
+
+cover
+ .box {
+     background-size: cover;
+ }
+
+ The background image covers the entire element
+
+ Some parts may be cropped
+
+contain
+ .box {
+     background-size: contain;
+ }
+
+ The complete background image is visible, but empty space may remain
+
+background-position 
+ Controls the position of the background image.
+
+Example:
+ .box {
+     background-position: center;
+ }
+
+Other values:
+ background-position: top;
+ background-position: bottom;
+ background-position: left;
+ background-position: right;
+
+background-repeat 
+ Controls whether the background image repeats.
+
+Example:
+ .box {
+     background-repeat: no-repeat;
+ }
+
+Common values:
+ repeat
+ no-repeat
+ repeat-x
+ repeat-y
+ Meaning
+ repeat
+ → Repeat in both directions
+
+no-repeat
+ → Do not repeat
+
+repeat-x
+ → Repeat horizontally
+
+repeat-y
+ → Repeat vertically
+
+Background Shorthand 
+ Multiple background properties can be written using the background shorthand
+
+Example:
+ .box {
+     background: url("image.jpg") center / cover no-repeat;
+ }
+ This combines background settings into one declaration
+
+object-fit vs background-size 
+ Both can be used to control how images fit into a container, but they are used differently
+
+ <img> / <video>
+
+Use:
+ object-fit: cover;
+ CSS background image
+
+Use:
+ background-size: cover;
