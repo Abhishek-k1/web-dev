@@ -5867,3 +5867,322 @@ Use:
 
 Use:
  background-size: cover;
+
+Filters
+ CSS filter is used to apply visual effects to an element, especially images
+
+Syntax:
+ img {
+     filter: filter-function(value);
+ }
+
+Example:
+ img {
+     filter: blur(5px);
+ }
+
+blur()
+ Makes an element look blurred
+
+ img {
+     filter: blur(5px);
+ }
+
+ The larger the value, the more blurred the image becomes
+
+ blur(0px) → No blur
+ blur(5px) → Slight blur
+ blur(10px) → More blur
+
+brightness()
+ Controls the brightness of an element
+
+ img {
+     filter: brightness(50%);
+ }
+
+Examples:
+ filter: brightness(50%);
+ filter: brightness(100%);
+ filter: brightness(150%);
+ < 100% → Darker
+ 100%   → Normal
+ > 100% → Brighter
+
+contrast() 
+ Controls the contrast of an element
+
+ img {
+     filter: contrast(150%);
+ }
+
+Examples:
+ filter: contrast(50%);
+ filter: contrast(100%);
+ filter: contrast(150%);
+ < 100% → Lower contrast
+ 100%   → Normal
+ > 100% → Higher contrast
+
+grayscale()
+ Converts an element into grayscale
+
+ img {
+     filter: grayscale(100%);
+ }
+
+Examples:
+ filter: grayscale(0%);
+ filter: grayscale(50%);
+ filter: grayscale(100%);
+ 0%   → Original colors
+ 50%  → Partially grayscale
+ 100% → Completely grayscale
+
+sepia()
+ Applies a sepia/brownish vintage effect
+
+ img {
+     filter: sepia(100%);
+ }
+
+Examples:
+ filter: sepia(50%);
+ filter: sepia(100%);
+
+ 100% gives the maximum sepia effect
+
+invert()
+ Inverts the colors of an element
+ img {
+     filter: invert(100%);
+ }
+
+Example:
+ Black → White
+ White → Black
+
+Common values:
+ filter: invert(0%);
+ filter: invert(100%);
+ 0%   → Normal colors
+ 100% → Fully inverted colors
+
+opacity() 
+ Controls the transparency of an element 
+ img {
+     filter: opacity(50%);
+ }
+
+Examples:
+ filter: opacity(100%);
+ filter: opacity(50%);
+ filter: opacity(0%);
+ 100% → Fully visible
+ 50%  → Half transparent
+ 0%   → Fully transparent
+
+Multiple Filters 
+ Multiple filter functions can be applied to the same element
+
+Example:
+ img {
+     filter: grayscale(100%) blur(2px);
+ }
+
+Another example:
+ img {
+     filter: brightness(120%) contrast(150%);
+ }
+
+ Filters are written one after another in the same filter property
+
+Example 
+ <img src="image.jpg" class="photo">
+ .photo {
+     width: 300px;
+     filter: grayscale(100%);
+ }
+
+ The image will appear completely grayscale
+
+Figma 
+ Figma is a collaborative design tool used to create designs and prototypes for websites, apps, and other digital products
+ It helps developers/designers visualize a website before writing HTML, CSS and JavaScript
+
+Why is Figma useful?
+ Plan the website design before coding
+ Create UI layouts visually
+ Share designs with others
+ Collaborate with team members
+ Get design assets for development
+ Reduce misunderstanding between designer, developer and client
+
+ Figma helps with the design part, while HTML/CSS/JavaScript are used to build the actual website
+
+Figma Community 
+ Figma has a Community section where users can find designs, templates, icons and UI resources created by other users
+ You can search for things related to your project
+
+Example:
+ Search → Blog UI
+ Search → Website UI
+ Search → Icons
+ Search → Dashboard
+ Community resources can help you get inspiration and ready-made UI resources
+
+Creatinng a Design File 
+ A new design can be created using:
+ Figma
+   ↓
+ New Design File
+
+Figma can be used through:
+ Web browser
+ Desktop application
+
+Figma Interface 
+ The Figma workspace provides tools for creating and editing designs
+
+Important things to understand:
+ Canvas
+ Frames
+ Shapes
+ Text
+ Layers
+ Design properties
+ You can create elements using drag and drop and modify their properties
+
+Frames 
+ A Frame acts as a container/work area for designing a screen or part of a UI.
+
+Examples:
+ Desktop Frame
+ Mobile Frame
+ Tablet Frame
+
+A frame can contain:
+ Text
+ Images
+ Shapes
+ Buttons
+ Other design elements
+
+For example:
+ ┌─────────────────────────┐
+ │        Header           │
+ │                         │
+ │   Welcome to Website    │
+ │                         │
+ │       [ Button ]        │
+ │                         │
+ └─────────────────────────┘
+           Frame
+
+Basic Design Tools 
+ Figma provides tools for creating and modifying UI elements
+
+Commonly used tools include:
+ Move
+ Scale
+ Frame
+ Shape
+ Text
+ These tools allow you to create layouts without writing code
+
+Collaboration
+ One of Figma's important features is collaboration
+ Multiple people can work with the same design and give feedback
+
+Comments
+ Comments can be added directly to a design
+
+Shortcut:
+ C
+
+Comments can be used for:
+ Suggestions
+ Feedback
+ Design changes
+ Discussions
+ After a comment is addressed, it can be marked as resolved
+
+Designing a website Prototype
+  Before coding, you can create a visual representation of the website
+
+For example:
+ ┌─────────────────────────────┐
+ │ Logo     Home  About  Login │
+ ├─────────────────────────────┤
+ │                             │
+ │       Main Heading          │
+ │                             │
+ │        [ Button ]           │
+ │                             │
+ └─────────────────────────────┘
+ This makes it easier to understand how the final website should look
+
+Community UI Toolkits 
+ Figma Community also contains UI kits and design resources
+
+These can provide:
+ Icons
+ UI components
+ Templates
+ Design inspiration
+ Ready-made layouts
+
+ Some resources may be free while others may be paid
+
+Exporting 
+ Figma allows design elements/assets to be exported for use outside Figma
+ The export feature is useful when you need assets for your actual website
+
+ Figma Design
+      ↓
+ Select Asset
+      ↓
+ Export
+      ↓
+ Use Asset in Project
+
+Multiple Pages
+ A Figma file can contain multiple pages
+ This helps organize different parts of a project
+
+For example:
+ Figma File
+    │
+    ├── Home Page
+    ├── About Page
+    ├── Login Page
+    └── Contact Page
+
+Using Figma for Real Projects 
+ Figma is especially useful when someone gives you a design and asks you to convert it into a website.
+
+Typical workflow:
+ Design in Figma
+       ↓
+ Understand layout
+       ↓
+ Check colors / fonts / assets
+       ↓
+ Write HTML
+       ↓
+ Write CSS
+       ↓
+ Add JavaScript if required
+       ↓
+ Final Website
+
+ A developer should therefore be comfortable reading and understanding a Figma design
+
+Why Developers Should Learn Figma 
+ Even if you are mainly a developer, knowing basic Figma is useful because:
+ Clients may provide Figma designs
+ Designers may work with developers using Figma
+ You can understand UI layouts more easily
+ You can inspect design assets before coding
+ You can create your own website designs before implementation
+
