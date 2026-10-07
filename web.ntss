@@ -6186,3 +6186,83 @@ Why Developers Should Learn Figma
  You can inspect design assets before coding
  You can create your own website designs before implementation
 
+JavaScript 
+ JavaScript is a programming language mainly used to make webpages interactive and dynamic
+
+HTML ans CSS alone mainly provide:
+ HTML -> Structure
+ CSS -> Styling 
+  
+JavaScript adds:
+ JavaScript → Behaviour / Interactivity
+
+Why Do We Need JavaScript?
+ HTML + CSS can create the design of a website, but JavaScript can make the website respond to user actions.
+
+Examples:
+ Button clicks
+ Form interactions
+ Changing webpage content
+ Changing styles dynamically
+ Showing messages/prompts
+ Creating interactive features
+
+JavaScript on the Frontend 
+ javaScript can run inside the web browser
+
+Example: 
+ <script>
+    console.log("Hello JavaScript");
+ </script>
+
+External JavaScript File 
+ JavaScript can also be written in a separate .js file
+
+Example:
+
+script.js
+ console.log("Hello JavaScript");
+
+console.log()
+ console.log() is used to print/display information in the browser's developer console
+
+Example:
+ console.log("Hello World");
+
+You can also print values:
+ console.log(10);
+ console.log("Hello");
+ The console can be opened using the browser's Developer Tools
+
+JavaScript in Browser vs Node.js 
+ JavaScript can run in different environments
+
+Browser
+ Used mainly for:
+ Frontend
+ ↓
+ Webpage interaction
+ ↓
+ DOM
+ ↓
+ Browser APIs
+
+Node.js
+ Allows JavaScript to run outside the browser, commonly for backend/server-side development.
+
+ JavaScript
+      ↓
+ Node.js
+     ↓
+ Runs outside browser
+      ↓
+ Backend / Server-side development
+
+Node.js 
+ Node.js is a JavaScript runtime environment that allows JavaScript code to run outside the browser.
+
+It is commonly used to build:
+ Backend applications
+ Web servers
+ APIs
+ Command-line tools
