@@ -6266,3 +6266,213 @@ It is commonly used to build:
  Web servers
  APIs
  Command-line tools
+
+JavaScript Variables 
+ A variable is a container used to store data
+
+Example:
+ let age = 20;
+
+Here:
+ let -> variable declaration
+ age -> variable name 
+ 20 -> value 
+
+Declaring Variables 
+ JavaScript provides three keywords for declaring variables:
+ var 
+ let 
+ const 
+
+let 
+ let is used to declare a variable whose value can be changed 
+ let age = 20;
+ age = 21;
+ This is allowed 
+ let is block-scoped 
+
+Example:
+ {
+    let x = 10;
+    console.log(x);
+ }
+ x is available only inside that block 
+
+const 
+ const is used when a variable should not be reassigned after initialization 
+ const pi = 3.14;
+ This is not allowed:
+ pi = 4;
+
+Important:
+ A const variable must be initialized when declared
+ const x = 10;
+
+var 
+ var is an older way of declaring variable in javaScript 
+ 
+Example:
+ var age = 20;
+ age = 21;
+
+ It is function-scoped, unlike let and const, which are block-scoped 
+ let -> value may change 
+ const -> value should not be reassigned 
+ Use var mainly when working with older javascript code 
+
+let vs const vs var 
+ Keyword       Reassign?        Scope
+
+ let            Yes              Block
+
+ const          No               Block
+
+ var            Yes              Function
+
+Rules for Naming Variables 
+ Variable names:
+ Can contain letters, digits, _ and $
+ Cannot start with a digit
+ Cannot contain spaces
+ Cannot use reserved JavaScript keywords
+ Are case-sensitive
+ 
+Primitive Data Types 
+ Javascript  has primitive data types that represent single/simple values 
+ Important primitive types:
+ number
+ String 
+ Boolean 
+ Null
+ Undefined 
+ BigInt 
+ Symbol 
+
+Number 
+ Used for numbers, including integers and floating-point values 
+ int age = 20;
+ let price = 99.5;
+
+String 
+ A string repressents text
+ It can be written using:
+ let name = "Abhishek";
+ let city = 'Bangalore';
+
+Example:
+ console.log("Hello world");
+
+Boolean 
+ A boolean has only two possible values:
+ true
+ false 
+
+Example:
+ let isLoggedIn = true;
+ let is Admin = false;
+ Useful for conditions and decision-making 
+
+Undefined 
+ A variable that has been declared but has not been assigned a value has the value undefined 
+
+Example:
+ let x;
+ console.log(x);
+
+Output:
+ undefined
+
+Null 
+ null represents an intentional absence of a value 
+Example:
+ let value = null;
+
+ It means that the variable intentionally contains no value 
+
+Important:
+ javascript has a historical behavior where:
+ typeof null
+returns:
+ "object"
+ This is a well-known javascript quirk
+
+BigInt 
+ BigInt is used for integers larger than the safe integer range of the normal javascript Number type 
+
+Example:
+ let bigNumber = 1234556789012345678901234567890n;
+ The n at the end indicates a BigInt literal 
+
+Symbol 
+ Symbol creates a unique value 
+Example:
+ let id = symbol("id");
+ Symbols are commonly used when unique property keys are required 
+
+typeof Operator 
+ typeof is used to determine the type of a value 
+
+Example:
+ typeof 10;
+ "number"
+
+ typeof "Hello";
+ "string"
+
+ typeof true;
+ "boolean"
+
+Example:
+ let age = 20;
+ console.log(typeof age);
+
+Output:
+ number 
+
+Objects 
+ An object stores data in key-value pairs 
+
+Example:
+ let student = {
+    name: "Abhishek",
+    age: 20,
+    course: "web Development"
+ };
+
+Here:
+ name -> "Abhishek"
+ age -> 20
+ course -> "web Development" 
+
+Accessing Object Properties 
+ Use the dot(.) operator 
+ console.log(student.name);
+ console.log(student.age);
+
+Output:
+ Abhishek
+ 20
+
+ we can also use bracket notation:
+ console.log(student["name"]);
+
+Changing Object Propertties 
+ Object properties can be changed 
+ student.age = 21;
+Now:
+ student.age = 21
+
+ New properties can also be added:
+ student.city = "Bangalore";
+
+Primitive vs Object 
+ Primitive
+    ↓
+ Stores a single value
+
+ Object
+    ↓
+ Stores multiple related values
+    ↓
+ Key → Value
+ 
