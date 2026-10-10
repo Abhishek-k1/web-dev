@@ -6475,4 +6475,176 @@ Primitive vs Object
  Stores multiple related values
     ↓
  Key → Value
+
+Conditionals 
+ Conditionals are used to execute different blocks of code depending on whether a condition is true or false 
+
+if Statement 
+ Executes code when a condition is true 
+ let age = 20;
+ if (age >= 18) {
+    console.log("You can vote");
+ }
+
+if else Statement 
+ Used when there are two posssible outcomes 
+ let age = 16;
+ if (age >= 18) {
+    console.log("Adult");
+ } else {
+    console.log("Minor");
+ }
+Output:
+ Minor 
+
+else if Ladder 
+ Used when multiple conditions need to be checked 
+ let marks = 75;
+ if (marks >= 90) {
+    console.log("Grade A");
+ } else if (marks >= 75) {
+    console.log("Grade B");
+ } else if (marks >= 50) {
+    console.log("Grade C");
+ }else {
+    console.log("Fail");
+ }
+Output:
+ Grade B 
+
+ Conditions are checked from top to bottom Once a consition is true, its block executes and the remaining branches are skipped 
+
+Comparison Operators 
+ Operator     Meaning 
+ ==           Eqqual value(allows type conversion)
+ ===          Equal value and type 
+ !=           Not equal value (allows type conveersion)
+ !==          Not equal value or type 
+ >            Greater than 
+ <            Less than 
+ >=           Greater than or equal to
+ <=           Less than or equal to 
+
+ prefer === and !== for equality comparisons in modern javaScript 
+
+Logical Operators 
+ Operator   Meaning
+ &&         AND — both conditions must be true
+ ``         OR — at least one condition must be true
+ !          NOT — reverses a Boolean value
+
+Example:
+ let age  = 20;
+ let hasID = true;
+
+ if (age >= 18 && hasID) {
+    console.log("Allowed");
+ }
+
+Nested if 
+ An if Statement inside another if statement is called a nested if 
+ let age =  20
+ let hasID = true;
+
+ if (age >= 18) {
+    if (hasID) {
+        console.log("Entry allowed");
+    }
+ }
+
+Loops
+ A loop is used to execute a block of code repeatedly until a condition is met
+
+Example: Printing numbers from 1 to 5
+ for (let i = 1; i <= 5; i++) {
+     console.log(i);
+ }
+
+Types of loops 
+ JavaScript provides these common loops:
+
+ for loop
+ while loop
+ do...while loop
+ for...in loop
+ for...of loop
+
+for Loop 
+ Used when you want to repeat code with initialization, a condition, and an update
+
+Syntax
+ for (initialization; condition; update) {
+     // code to repeat
+ }
+
+Example
+ for (let i = 1; i <= 5; i++) {
+     console.log(i);
+ }
+
+How it works:
+ let i = 1 — initializes the counter
+ i <= 5 — checks the condition
+ console.log(i) — executes the loop body
+ i++ — increases the counter by 1
+ Repeats until the condition becomes false
+
+while Loop 
+ Repeats code while the condition is true
+ let i = 1;
+ while (i <= 5) {
+     console.log(i);
+     i++;
+ }
+
+do...while Loop 
+ Executes the code block at least once, then checks the condition
+ let i = 1;
+ do {
+     console.log(i);
+     i++;
+ } while (i <= 5);
+
+ Even if the condition is initially false, the body executes once
+
+for...in Loop 
+ Used to iterate over the enumerable property keys of an object
+
+ let student = {
+     name: "Rohan",
+     age: 20
+ };
+
+ for (let key in student) {
+     console.log(key, student[key]);
+ }
+
+for...of Loop 
+ Used to iterate over values from an iterable, such as an array or string
+ let fruits = ["Apple", "Mango", "Banana"];
+ for (let fruit of fruits) {
+     console.log(fruit);
+ }
+
+break 
+ Stops the loop completely
+ for (let i = 1; i <= 5; i++) {
+    if (i === 3) {
+         break;
+     }
+     console.log(i);
+ }
+
+continue 
+ Skips the current iteration and proceeds to the next one
+ for (let i = 1; i <= 5; i++) {
+    if (i === 3) {
+         continue;
+     }
+
+     console.log(i);
+ }
+
+ 
+ 
  
