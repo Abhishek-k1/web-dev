@@ -6645,6 +6645,200 @@ continue
      console.log(i);
  }
 
+Function
+ A function is a reusable block of code that performs a specific task 
+ Functioon help us:
+ Reuse Code 
+ Avoid repetition 
+ Organize programs 
+ Make code easier to maintain
+
+Function Declaration 
+Syntax:
+ function funnctionName() {
+    // code to execute 
+ } 
+
+Example:
+ function greet() {
+     console.log("Hello Abhishek");
+ }
+ Defining a function does not execute it automatically 
+
+Function Calling 
+ A function runs when it is called.
+
+ function greet() {
+     console.log("Hello Rohan");
+ }
+
+ greet();
+ greet();
+
+Output:
+ Hello Rohan
+ Hello Rohan
+
+Parameters and Arguments 
+ Parameters are variables written in the function definition
+ Arguments are the actual values passed when calling the function
+
+Example:
+ function greet(name) {
+     console.log("Hello " + name);
+ }
+ greet("Rohan");
+
+Here:
+ name → Parameter
+ "Abhishek" → Argument
+
+Function with Multiple Parameters 
+ function add(a, b) {
+     console.log(a + b);
+ }
+ add(10, 20);
+ Here, a and b are parameters, while 10 and 20 are arguments
+
+Return Statement
+ The return statement sends a value back to the code that called the function
+ function add(a, b) {
+     return a + b;
+ }
+
+ let result = add(10, 20);
+ console.log(result);
+
+Function with Default Parameters 
+ A default parameter provides a value when an argument is omitted or is undefined
+ function greet(name = "Guest") {
+     console.log("Hello " + name);
+ }
+
+ greet();
+ greet("Rohan");
+
+Arrow Functions 
+ An arrow function is another way to write a function in JavaScript
+
+Example:
+ const greet = () => {
+     console.log("Hello World");
+ };
+
+ greet();
+
+Arrow Function with Parameters 
+ const add = (a, b) => {
+     return a + b;
+ };
+
+ console.log(add(10, 20));
+
+Short Arrow Function 
+ When the function contains a single expression, you can omit the braces and return.
+
+ const square = n => n * n;
+ console.log(square(5));
+
+Output:
+ 25 
+
+Function Declaration vs Arrow Function 
+ Function Declaration         Arrow Function
+ Uses function keyword        Uses =>
+ Can be called before its     A const-assigned arrow function cannot be 
+ declaration in many cases    used before initialization
+ Has its own this behavior    Inherits this from the surrounding scope
+
+String 
+ A string is a data type used to store text.
+
+Example:
+ let name = "Abhishek";
+ let city = 'Bangalore';
+ Strings can use single quotes (' '), double quotes (" "), or backticks (` `)
+
+String Length 
+ The length property returns the number of characters in a string
+ let name = "Abhishek";
+ console.log(name.length);
+Output:
+ 8
+
+Accessing Characters 
+ String indexing starts from 0.
+ let name = "Hello";
+ console.log(name[0]);
+ console.log(name[1]);
+ console.log(name[4]);
+
+ We can also use charAt():
+ console.log(name.charAt(0));
+
+Template Literals 
+ Template literals use backticks They allow variable and expressions to be inserted using ${}
+ let name = "Rohan";
+ let age = 20;
+ console.log(`My name is ${name} and I am ${age} years old.`);
+Output:
+ My name is Abhishek and I am 20 years old 
+
+Common String Methods 
+ Method                         Purpose
  
- 
- 
+ toUpperCase()                 Converts to uppercase
+
+ toLowerCase()                 Converts to lowercase
+
+ slice(start, end)             Extracts part of a string; end is excluded
+
+ includes(value)               Checks whether a string contains a value
+
+ startsWith(value)             Checks the beginning
+
+ endsWith(value)               Checks the ending
+
+ indexOf(value)                Returns the first matching index, or -1
+
+ replace(old, new)             Replaces the first matching occurrence
+
+ trim()                        Removes whitespace from both ends
+
+ concat()                      Joins strings
+
+Examples
+ let text = "Hello JavaScript";
+ console.log(text.toUpperCase());
+ console.log(text.toLowerCase());
+ console.log(text.slice(0, 5));
+ console.log(text.includes("Java"));
+ console.log(text.indexOf("J"));
+
+Output:
+ HELLO JAVASCRIPT
+ hello javascript
+ Hello
+ true
+ 6
+
+Strings are Immutable 
+ Strings are immutable, meaning their characters cannot be changed directly
+
+ let word = "Hello";
+ word[0] = "Y";
+ console.log(word);
+
+Output:
+ Hello
+
+To create a changed string, assign a new string:
+ word = "Yello";
+
+Property vs Method 
+ length is a property, so it has no parentheses
+ text.length
+
+String methods use parentheses:
+ text.toUpperCase()
+ text.slice(0, 5)
