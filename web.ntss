@@ -6842,3 +6842,187 @@ Property vs Method
 String methods use parentheses:
  text.toUpperCase()
  text.slice(0, 5)
+
+Array 
+ An array is a data structure used to store multiple values in a single variable 
+
+Example:
+ let fruits = ["Apple", "Mango", "Banana"];
+ console.log(fruits);
+
+Accesssing Array Elements 
+ let fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits);
+
+2. Accessing Array Elements
+ Array indexing starts from 0
+ let fruits = ["Apple", "Mango", "Banana"];
+ console.log(fruits[0]);
+ console.log(fruits[1]);
+ console.log(fruits[2]);
+
+Output:
+ Apple
+ Mango
+ Banana
+
+Finding Array Length 
+ The length property returns the number of elements in an array
+ let numbers = [10, 20, 30, 40];
+ console.log(numbers.length);
+
+Output:
+ 4
+
+Changing Array Elements 
+ You can modify an element using its index
+ let fruits = ["Apple", "Mango", "Banana"];
+ fruits[1] = "Orange";
+ console.log(fruits);
+
+Output:
+ ["Apple", "Orange", "Banana"]
+
+Converting an Array to s string 
+ The toString() method converts an array into a comma-separated string
+ let fruits = ["Apple", "Mango", "Banana"];
+ console.log(fruits.toString());
+
+Output:
+ Apple,Mango,Banana
+
+Important Array Methods 
+ 
+ Methods             Purpose 
+ push()              Adds an element to the end
+
+ pop()               Removes the last element
+
+ unshift()           Adds an element to the beginning
+
+ shift()             Removes the first element
+
+ join()              Joins elements into a string using a separator
+
+ concat()            Combines arrays into a new array
+
+ slice()             Returns a selected portion without changing the original array
+
+ splice()            Adds, removes, or replaces elements in the original array
+
+ indexOf()           Returns the first matching index, or -1
+
+ includes()          Checks whether an element exists
+
+ sort()              Sorts elements in place
+
+push() and pop()
+ let numbers = [10, 20, 30];
+
+ numbers.push(40);
+ console.log(numbers);
+
+ numbers.pop();
+ console.log(numbers);
+
+Output:
+ [10, 20, 30, 40]
+ [10, 20, 30]
+
+unshift() and shift()
+ let numbers = [20, 30];
+
+ numbers.unshift(10);
+ console.log(numbers);
+
+ numbers.shift();
+ console.log(numbers);
+
+Output:
+ [10, 20, 30]
+ [20, 30]
+
+join()
+ let fruits = ["Apple", "Mango", "Banana"];
+ console.log(fruits.join(" - "));
+
+Output:
+ Apple - Mango - Banana
+
+concat()
+ join()
+
+ let fruits = ["Apple", "Mango", "Banana"];
+ console.log(fruits.join(" - "));
+
+Output:
+ Apple - Mango - Banana
+
+concat()
+ let a = [1, 2];
+ let b = [3, 4];
+
+ let result = a.concat(b);
+ console.log(result);
+
+Output:
+ [1, 2, 3, 4]
+
+slice()
+ The ending index is excluded
+
+ let numbers = [10, 20, 30, 40, 50];
+ console.log(numbers.slice(1, 4));
+
+Output:
+ [20, 30, 40]
+
+splice()
+Syntax:
+ array.splice(start, deleteCount, item1, item2);
+
+Example — remove one element at index 1:
+ let numbers = [10, 20, 30, 40];
+ numbers.splice(1, 1);
+ console.log(numbers);
+
+Output:
+ [10, 30, 40]
+ splice() modifies the original array, whereas slice() does not
+
+indexof() and includes()
+ splice() modifies the original array, whereas slice() does not
+
+indexOf() and includes()
+ let numbers = [10, 20, 30];
+
+ console.log(numbers.indexOf(20));
+ console.log(numbers.includes(40));
+
+Output:
+ 1
+ false
+
+sort()
+ By default, sort() sorts elements as strings, not numerically
+ let numbers = [30, 5, 100, 20];
+
+ numbers.sort((a, b) => a - b);
+ console.log(numbers);
+
+Output:
+ [5, 20, 30, 100]
+
+Array and Loops 
+ Loops can be used to access every element in an array
+
+ let fruits = ["Apple", "Mango", "Banana"];
+ for (let i = 0; i < fruits.length; i++) {
+     console.log(fruits[i]);
+ }
+
+Output:
+ Apple
+ Mango
+ Banana
