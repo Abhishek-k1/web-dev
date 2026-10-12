@@ -7026,3 +7026,93 @@ Output:
  Apple
  Mango
  Banana
+
+DOM 
+ DOM (Document Object Model) is a programming interface that represents an HTML document as a tree of objects 
+ JavaScript can use the Dom to access and change webpage content, styles, and elements 
+ HTML Document
+      ↓
+     DOM
+      ↓
+ JavaScript
+      ↓
+Change HTML / CSS / Content
+
+DOM Tree 
+Example 
+ <html>
+  <body>
+    <h1>Hello</h1>
+    <p>Welcome</p>
+  </body>
+ </html>
+
+Simplified DOM tree:
+ document
+   └── html
+       └── body
+           ├── h1
+           └── p
+ Each HTML element becomes a node in the DOM tree 
+
+Selecting an Element by ID 
+ Use document.getElementById() to select an element by its ID
+
+ <h1 id="title">Hello World</h1>
+ <script>
+     let heading = document.getElementById("title");
+     console.log(heading);
+ </script>
+
+Changing HTML Content 
+ Use the textContent property to change an element's text
+
+ <h1 id="title">Hello World</h1>
+ <script>
+     document.getElementById("title").textContent = "Welcome!";
+ </script>
+
+ The heading now displays Welcome!
+
+Changing CSS Using JavaScript 
+ JavaScript can modify an element's inline styles
+
+ <h1 id="title">Hello World</h1>
+ <script>
+     let heading = document.getElementById("title");
+     heading.style.color = "red";
+     heading.style.backgroundColor = "yellow";
+ </script>
+
+ The heading becomes red with a yellow background
+
+Important DOM Methods 
+ Method                               Purpose
+ document.getElementById()            Selects an element by ID
+
+ document.querySelector()             Selects the first matching CSS selector
+
+ document.querySelectorAll()          Selects all matching elements
+
+ document.getElementsByClassName()    Selects elements by class name
+
+ document.getElementsByTagName()      Selects elements by tag name
+
+Example:
+ document.querySelector(".box");
+ document.querySelector("#title");
+ document.querySelectorAll("p");
+
+ .box selects by class
+ #title selects by ID
+ p selects paragraph elements
+
+textContent vs innerHTML 
+ textContent changes or reads text
+
+ heading.textContent = "Hello";
+
+ innerHTML reads or sets HTML markup
+
+ heading.innerHTML = "<span>Hello</span>";
+
