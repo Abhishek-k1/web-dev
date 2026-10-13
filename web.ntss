@@ -7109,10 +7109,85 @@ Example:
 
 textContent vs innerHTML 
  textContent changes or reads text
-
  heading.textContent = "Hello";
-
  innerHTML reads or sets HTML markup
-
  heading.innerHTML = "<span>Hello</span>";
 
+DOM Tree 
+ The DOM represents HTML elements in a tree structure
+Example:
+ <div id="parent">
+     <h1>Heading</h1>
+     <p>Paragraph</p>
+     <span>Text</span>
+ </div>
+
+DOM structure:
+          div (Parent)
+          /    |    \
+        h1     p    span
+         ↑     ↑      ↑
+           Children
+
+ Parent: The element containing another element
+ Child: An element directly inside another element
+ Sibling: Elements that share the same parent
+ Here, h1, p, and span are children of div and siblings of one another
+
+Selecting the Parent Element 
+ Use parentElement to access an element's parent element
+ let child = document.querySelector("p");
+ console.log(child.parentElement);
+ This returns the paragraph's parent element
+
+Accessing Children
+children
+ Returns the child elements of an element
+ let parent = document.getElementById("parent");
+ console.log(parent.children);
+ console.log(parent.children[0]);
+ parent.children[0] selects the first child element, which is the h1 in this example
+
+firstElementChild
+ Returns the first child element
+ console.log(parent.firstElementChild);
+
+lastElementChild
+ Returns the last child element
+ console.log(parent.lastElementChild);
+
+Accessinng Siblings 
+nextElementSibling
+ Returns the next sibling element
+ let heading = document.querySelector("h1");
+ console.log(heading.nextElementSibling);
+Output: the p element
+
+previousElementSibling
+ Returns the previous sibling element
+ let paragraph = document.querySelector("p");
+ console.log(paragraph.previousElementSibling);
+Output: the h1 element
+
+Element vs Nodes 
+ In the DOM, nodes include elements, text, comments, and other types of content
+ For example, whitespace and line breaks between HTML tags can create text nodes
+
+ Property                 Returns
+ children                 Child elements only
+
+ childNodes               All child nodes, including text nodes
+
+ firstElementChild        First child element
+
+ firstChild               First child node, possibly whitespace text
+
+ lastElementChild         Last child element
+
+ lastChild                Last child node, possibly whitespace text
+
+ parentElement            Parent element
+
+ nextElementSibling      Next sibling element
+
+ previousElementSibling  Previous sibling element
