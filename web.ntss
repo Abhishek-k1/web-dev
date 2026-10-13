@@ -7191,3 +7191,64 @@ Element vs Nodes
  nextElementSibling      Next sibling element
 
  previousElementSibling  Previous sibling element
+
+DOM Selection 
+ DOM selection means selecting HTML elements using JavaScript so that we can read or modify their content and styles
+Example HTML:
+ <h1 id="title">Hello World</h1>
+ <p class="info">Welcome to JavaScript</p>
+ <p class="info">Learn DOM</p>
+
+getElementById()
+ Selects an element using its unique ID
+ let heading = document.getElementById("title");
+ console.log(heading);
+ Remember: Do not use # inside getElementById()
+ document.getElementById("title");
+
+getElementsByClassName()
+ Selects elements that have a particular class name
+ let items = document.getElementsByClassName("info");
+ console.log(items);
+ console.log(items[0]);
+ It returns a live HTMLCollection of matching elements
+
+getElementsByTagName()
+ Selects elements using their HTML tag name
+ let paragraphs = document.getElementsByTagName("p");
+ console.log(paragraphs); 
+ console.log(paragraphs[0]);
+ This also returns a live HTMLCollection
+
+querySelector()
+ Selects the first element matching a CSS selector
+ document.querySelector("#title");  // ID
+ document.querySelector(".info");   // Class
+ document.querySelector("p");       // Tag
+
+Use CSS selector syntax:
+ #title → ID
+ .info → Class
+ p → Tag
+
+querySelectorAll()
+ Selects all elements matching a CSS selector
+ let paragraphs = document.querySelectorAll(".info");
+ console.log(paragraphs);
+ console.log(paragraphs[0]);
+ console.log(paragraphs[1]);
+ It returns a static NodeList 
+
+Comparison of Selection Methods
+
+ Method                       Selects                    Return type
+
+ getElementById()            One element by ID           Element or null
+
+ getElementsByClassName()    Elements by class           Live HTMLCollection
+
+ getElementsByTagName()      Elements by tag             Live HTMLCollection
+
+ querySelector()            First CSS-selector match     Element or null
+
+ querySelectorAll()         All CSS-selector matches     Static NodeList
