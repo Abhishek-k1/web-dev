@@ -7252,3 +7252,74 @@ Comparison of Selection Methods
  querySelector()            First CSS-selector match     Element or null
 
  querySelectorAll()         All CSS-selector matches     Static NodeList
+
+Inserting and Removing 
+Creating an Element 
+ Use document.createElement() to create a new HTML element
+ let div = document.createElement("div");
+ This creates a new div element, but it does not automatically add it to the webpage
+
+Adding Content to an Element
+ Use textContent to add text 
+ let div = document.createElement("div");
+ div.textContent = "Hello world";
+
+Inserting an Element 
+append()
+ Adds content or elements at the end of a parent element
+ <div id="container">
+     <p>First paragraph</p>
+ </div>
+
+ let container = document.getElementById("container");
+ let newPara = document.createElement("p");
+ newPara.textContent = "Second paragraph";
+ container.append(newPara);
+
+prepend()
+ Adds content or elements at the beginning of a parent element.
+ container.prepend(newPara);
+Remember:
+ append() → End
+ prepend() → Beginning
+
+append() vs appendChild() 
+ Both can insert a node at the end of a parent element
+ container.append(newPara);
+ container.appendChild(newPara);
+
+Important differences:
+ append() can accept multiple nodes and text
+ appendChild() accepts a single node and returns the inserted node
+
+Inserting Before or After an Element 
+before()
+ Inserts content before an element
+ let heading = document.querySelector("h1");
+ let para = document.createElement("p");
+ para.textContent = "Before heading";
+ heading.before(para);
+
+after()
+ Inserts content after an element
+ heading.after(para);
+
+Removing an Element 
+ Inserts content after an element
+ heading.after(para);
+ The selected paragraph is removed from the webpage 
+
+Removing a child element 
+ Use removeChild() to remove a child from its parent
+ let parent = document.getElementById("container");
+ let child = parent.firstElementChild;
+ parent.removeChild(child);
+ Here, the first child element is removed from the parent
+
+Replacing an Element 
+ Use replaceWith() to replace an element with another element or content
+ let oldPara = document.querySelector("p");
+ let newPara = document.createElement("p");
+ newPara.textContent = "New paragraph";
+ oldPara.replaceWith(newPara);
+ The old paragraph is replaced by the new paragraph
