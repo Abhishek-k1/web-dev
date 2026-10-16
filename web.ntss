@@ -7423,3 +7423,139 @@ clearInterval()
  Cancel with clearTimeout()               Cancel with clearInterval()
  Example: show a message after 3 seconds  Example: update a clock repeatedly
 
+Synchronous JavaScript 
+ Code executes one statement at a time, in order
+ console.log("First");
+ console.log("Second");
+ console.log("Third");
+
+Output:
+ First
+ Second
+ Third
+
+Asynchronous 
+ Some operations can finish later without blocking the rest of the program
+ console.log("First");
+
+ setTimeout(() => {
+     console.log("Second");
+ }, 2000);
+
+ console.log("Third");
+
+Output:
+ First
+ Third
+ Second
+
+Callback 
+ A callback is a function passed to another function as an argument, so it can be called by that function
+
+Example:
+ function greet(name, callback) {
+    console.log("Hello " + name);
+    callback();
+ }
+
+ function message() {
+     console.log("Welcome!");
+ }
+
+ greet("Rohan", message);
+
+Output:
+ Hello Abhishek
+ Welcome!
+ Here, message is passed as a callback
+ Callbacks can be used for both synchronous and asynchronous operations
+
+Callback with setTimeout()
+ setTimeout(function () {
+     console.log("Task completed");
+ }, 2000);
+ The function passed to setTimeout() is a callback. It executes after the delay
+
+Callback Hell 
+ Callback hell occurs when multiple asynchronous operations are nested inside one another, making code difficult to read and maintain
+ setTimeout(() => {
+     console.log("Task 1");
+
+     setTimeout(() => {
+         console.log("Task 2");
+
+         setTimeout(() => {
+             console.log("Task 3");
+         }, 1000);
+
+     }, 1000);
+
+ }, 1000);
+ Deep nesting can make code harder to understand. Promises and async/await can help manage asynchronous workflows more clearly
+
+Promise
+ A Promise is an object that represents the eventual success or failure of an asynchronous operation
+ A Promise has three states:
+ State            Meaning
+ pending         Operation has not settled yet
+ fulfilled       Operation completed successfully
+ rejected        Operation failed
+ A settled Promise is either fulfilled or rejected 
+
+Creating a Promise 
+ let promise = new Promise((resolve, reject) => {
+     let success = true;
+
+     if (success) {
+         resolve("Task successful");
+     } else {
+         reject("Task failed");
+    }
+ });
+
+ resolve() fulfills the Promise
+ reject() rejects the Promise
+
+Handling a Promise 
+.then()
+ Runs a handler  when the promise is fulfilled 
+
+.catch()
+ Handles rejection 
+
+.finally()
+ Runs after the Promise settles, whether fulfilled or rejected 
+
+promise 
+  .then(result => {
+        console.log(result);
+    })
+    .catch(error => {
+        console.log(error);
+    })
+    .finally(() => {
+        console.log("Promise finished");
+    });
+
+With success = true, the output is:
+ Task successful
+ Promise finished
+
+With success = false, the output is:
+ Task failed
+ Promise finished
+
+Promise with setTimeout()
+ function wait() {
+     return new Promise(resolve => {
+         setTimeout(() => {
+             resolve("Finished waiting");
+         }, 2000);
+     });
+ }
+
+ wait().then(message => {
+     console.log(message);
+ });
+ The Promise is fullfilled after approximately two seconds 
+
