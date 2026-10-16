@@ -7323,3 +7323,103 @@ Replacing an Element
  newPara.textContent = "New paragraph";
  oldPara.replaceWith(newPara);
  The old paragraph is replaced by the new paragraph
+
+Events 
+ An event is an action or occurrence that JavaScript can respond to.
+
+Examples:
+ Clicking a button
+ Moving the mouse
+ Pressing a key
+ Submitting a form
+
+Example: Click Event 
+ <button id="btn">Click Me</button>
+ <script>
+     document.getElementById("btn").addEventListener("click", function () {
+             console.log("Button clicked!");
+     });
+ </script>
+ addEventListener() attaches an event handler to an element
+
+Event Bubbling 
+ Event bubbling means an event triggered on a child element can propagate upward through its parent elements
+
+Example:
+ <div id="parent">
+      <button id="child">Click Me</button>
+ </div>
+
+ <script>
+      document,getElementById("parent").addEventListener("click", function () {
+        console.log("parent clicked");
+      });
+
+      document.getElementById("child").addEventListener("click", function () {
+           console.log("child clicked");
+      });
+ </script>
+
+ When the button is clicked, the output is:
+ Child clicked
+ Parent clicked
+ The click event starts at the button and bubbles up to the parent
+
+event.stopPropagation()
+ Stops an event from propagation further through the DOM
+ document.getElementById("child").addEventListener("click", function (event) { 
+    event.stopPropagation();
+    console.log("child clicked");
+ });
+ Now the parent click handler will not run from that click
+
+setTimeout() 
+ setTimeout() executes a function once after a specified delay 
+
+Syntax:
+ setTimeout(function, delay);
+
+ The delay is measured in milliseconds
+ 1000 ms = 1 second 
+ 2000 ms = 2 seconds 
+
+Example 
+ setTimeout(function () {
+    console.log("Hello after 2 seconds");
+ }, 2000);
+ The message is printed after approximately 2 seconds 
+
+clearTimeout() 
+ Cancels a scheduled timeout if it has not executed yet 
+ let timer = setTimeout(function () {
+    console.log("Hello");
+ }, 3000);
+ clearTimeout(timer);
+ Here, the scheduled message is cancelled 
+
+setInterval() 
+ setInterval() executes a function repeatedly at a specified interval 
+
+Syntax:
+ setInterval(function, delay);
+
+Examle:
+ setInterval(function () {
+    console.log("Hello");
+ }, 2000);
+ The message is printed approximately every 2 seconds until the interval is stopped 
+ or the page/environment ends
+
+clearInterval()
+ Stops a repeating interval 
+  let timer = setInterval(function () {
+    console.log("Hello");
+  }, 1000);
+  clearInterval(timer);
+  The interval is cancelled
+
+ setTimeout()               vs            setInterval()
+ Executes once after a delay              Repeats at an interval
+ Cancel with clearTimeout()               Cancel with clearInterval()
+ Example: show a message after 3 seconds  Example: update a clock repeatedly
+
