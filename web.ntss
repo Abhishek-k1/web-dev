@@ -7661,5 +7661,98 @@ Use:
 
  Represents asynchronous results      Provides syntax for working with Promises
 
-Both approaches work with Promises
+ Both approaches work with Promises 
 
+Error Handling 
+ Error handling is the process of detecting and managing errors that occur while a program runs 
+ It helps prevent unexpected failures and allows us to display meaningful error messages 
+
+The try...catch Statement
+ try -> Contains code that might throw an error 
+ catch -> Handles the error if one is thrown 
+
+Example:
+ try {
+     console.log("Start");
+     throw new Error("Something went wrong");
+ } catch (error) {
+     console.log(error.message);
+ }
+
+ console.log("Program continues");
+
+Output:
+ Start
+ Something went wrong
+ Program continues
+ The error is handled by catch, so execution continues after the try...catch statement
+
+The Error Object 
+ Javascript provides an Error object to represent errors 
+ let error = new Error("Invalid input");
+ console.log(error.message);
+Output:
+ Invalid input
+
+Important properties:
+ error.message → Error description
+ error.name → Error type/name
+ error.stack → Stack trace, useful for debugging
+
+The throw Statement 
+ Use throw to generate an error manually
+
+ let age = 15;
+ try {
+     if (age < 18) {
+         throw new Error("You must be 18 or older");
+     }
+
+     console.log("Access allowed");
+ } catch (error) {
+     console.log(error.message);
+ }
+Output:
+ You must be 18 or older 
+
+The finally Block 
+ The finally block executes after try and catch, whether an error occurs or not.
+
+ try {
+     console.log("Trying code");
+     throw new Error("Example error");
+ } catch (error) {
+     console.log(error.message);
+ } finally {
+     console.log("This always runs");
+ }
+
+Output:
+ Trying code
+ Example error
+ This always runs
+ finally is useful for cleanup tasks, such as releasing resources
+
+try...catch...finally Syntax
+ try {
+     // Code that may throw an error
+ } catch (error) {
+     // Handle the error
+ } finally {
+     // Cleanup code
+ }
+ The catch and finally blocks are optional individually, but at least one of them must follow try
+
+Error Handling with async/await 
+ Use try...catch to handle errors from awaited Promises
+ async function getData() {
+     try {
+         let response = await fetch("https://invalid.example");
+         console.log(response.status);
+     } catch (error) {
+         console.log("Request failed:", error.message);
+     }
+ }
+ getData();
+ 
+ This catches network-level failures. For HTTP errors such as 404 or 500, check response.ok because fetch() does not automatically throw for those status codes
