@@ -7756,3 +7756,111 @@ Error Handling with async/await
  getData();
  
  This catches network-level failures. For HTTP errors such as 404 or 500, check response.ok because fetch() does not automatically throw for those status codes
+
+Object
+ An object is a collection of properties and methods
+ Properties store data
+ Methods are functions associated with an object
+
+Example:
+ let student = {
+     name: "Rohan",
+     age: 20,
+
+     greet() {
+         console.log("Hello!");
+     }
+ };
+
+ console.log(student.name);
+ student.greet();
+
+Output:
+ Rohan
+ Hello!
+ Here, name and age are properties, while greet() is a method
+
+Class
+ A class is a blueprint used to create objects with similar properties and methods.
+
+ class Student {
+     name = "Rohan";
+     age = 20;
+ }
+
+Creating objects:
+ let s1 = new Student();
+ let s2 = new Student();
+
+ console.log(s1.name);
+ console.log(s2.age);
+
+Output:
+ Rohan 
+ 20
+ s1 and s2 are separate instances of the Student class
+
+Constructor 
+ A constructor is a special method that runs automatically when an object is created using new
+ It is commonly used to initialize an object's properties
+ class Student {
+     constructor(name, age) {
+         this.name = name;
+         this.age = age;
+     }
+ }
+
+ let s1 = new Student("Rohan", 20);
+ let s2 = new Student("Mohan", 21);
+
+ console.log(s1.name);
+ console.log(s2.name);
+
+Output:
+ Rohan 
+ Mohan 
+
+ this refers to the current instance in this constructor example
+ this.name = name;
+ this.name → Property of the object
+ name → Value received as a parameter
+
+Methods in a Class 
+ A class can contain methods that define the behavior of its objects
+ class Student {
+     constructor(name) {
+         this.name = name;
+     }
+
+     greet() {
+         console.log("Hello " + this.name);
+     }
+ }
+
+ let s1 = new Student("Rohan");
+ s1.greet();
+
+Output:
+ Hello Rohan 
+
+Updating Object Properties 
+ Properties can be changed after an object is created.
+
+ class Student {
+     constructor(name) {
+         this.name = name;
+     }
+ }
+
+ let s1 = new Student("Rohan");
+ s1.name = "Rahul";
+ console.log(s1.name);
+
+Output:
+ Rahul 
+
+Class                 vs              Object 
+ Blueprint for creating instances     An instance of a class
+ Defines properties and methods       Has its own instance data
+ Declared using class                 Commonly created using new
+ 
