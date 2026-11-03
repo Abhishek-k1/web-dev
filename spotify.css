@@ -149,7 +149,7 @@ body {
 
 .install-btn:hover {
     color: white;
-    transform: translateX(14px) scale(1.04);
+    transform: translateX(34px) scale(1.04);
 }
 
 .install {
@@ -177,7 +177,7 @@ body {
 
 .signup-btn:hover {
     color: white;
-    transform: translateX(10px) scale(1.04);
+    transform: translateX(45px) scale(1.04);
 }
 
 .login-btn {
@@ -194,6 +194,181 @@ body {
 }
 
 .login-btn:hover {
-    transform: scale(1.04);
+    transform: translateX(45PX) scale(1.04);
     background-color: white;
+}
+
+.container{
+    color: white;
+    width: 380px;
+    height: 80vh;
+    gap: 8px;
+    background-color: rgb(18, 18, 18);
+    padding: 16px;
+    border-radius: 8px;
+    gap: 16px;
+    align-items: stretch;
+    flex-direction: column;
+    display: flex;
+     margin-left: 8px; 
+     font-size: 15px;
+     font-family: Arial, Helvetica, sans-serif;
+     transform: translateY(-9px);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
+}
+.plus{   
+    filter: invert(1);
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.create-btn{
+    display: flex;
+    align-items: center;
+    background-color: #262525;
+    cursor: pointer;
+    border-radius: 500px;
+    padding: 7px 18px;
+    gap: 7px;
+    
+
+}
+
+.create {
+    color: rgb(225, 215, 215);
+    font-size: 14px;
+    font-weight: 700;
+}
+.create-btn:hover {
+    background-color: rgb(57, 56, 56);
+}
+
+.firstplay {
+    background-color: rgb(31, 30, 30);
+    color: white;
+    display: flex;
+    padding: 20px;
+    border-radius: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 30px;
+    width: 356px;
+    margin-left: -8px;
+    height: 90px;
+}
+.create-playlist {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 500px;
+    padding: 8px 18px;
+    gap: 7px;
+    margin-top:13px;
+}
+
+.create-playlist:hover {
+    background-color: rgb(248, 243, 243);
+    transform: scale(1.04);
+}
+
+.createclr {
+    color: #000000;
+    font-size: 13px;
+    font-weight: 700;
+}
+.podcasts{
+    background-color:rgb(31, 30, 30);
+    color: white;
+    display: flex;
+    padding: 20px;
+    border-radius: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 10px;
+    width: 356px;
+    margin-left: -8px;
+    height: 90px;
+}
+
+.Browse-podcasts {
+    display: flex;
+    align-items: center;
+    background-color: #e3e2e2;
+    cursor: pointer;
+    border-radius: 500px;
+    padding: 8px 18px;
+    gap: 7px;
+    margin-top: 13px;
+}
+
+.Browse-podcasts:hover {
+    background-color: rgb(244, 242, 242);
+    transform: scale(1.04);
+}
+
+.footer{
+    color: rgb(165, 165, 165);
+    font-family:Arial, Helvetica, sans-serif;
+    margin-top: 90px;
+    font-size: 12px;
+    word-spacing: 19px;
+    line-height: 2;
+    margin-left: 7px;
+}
+
+.footer span {
+    cursor: pointer;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+
+.footer span:hover {
+    color: #ffffff;
+}
+.cookies {
+    margin-left: 7px;
+    font-size: 12px;
+}
+
+.cookies:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.English-btn {
+    display: flex;
+    gap: 8px;
+    color: hsl(0, 9%, 94%);
+    border: 1px solid #838080;
+    padding: 7px 14px;
+    border-radius: 500px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    width: fit-content; 
+    margin-top: 10px;
+    transition: all 0.2s ease;
+}
+
+.eng {
+    width: 16px;
+    height: 16px;
+    filter: invert(1);
+}
+
+.English-btn:hover {
+    border-color: white;
+    transform: scale(1.02);
 }
