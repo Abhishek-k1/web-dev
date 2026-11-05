@@ -7991,3 +7991,160 @@ It helps us handle:
 Install Express:
  npm install express
 
+Module 
+ A module is a separate javaScript file that contains code which can be reused in another javascript file 
+
+Module help us:
+ Divide a large program into smaller files 
+ Reuse code 
+ Organize a project 
+ Maintain code more easily 
+
+Example:
+ my-project/
+ │
+ ├── math.js
+ └── main.js
+Here, math.js can contain functions, and main.js can immport and use them 
+
+Types of JavaScript Modules 
+ There are two important module systems:
+ CommonJS (CJS)
+ ECMAScript Modules (ESM)
+
+ JavaScript Modules
+        |
+    ┌───┴────┐
+    ↓         ↓
+ CommonJS    ES Modules
+    ↓         ↓
+ require()   import
+ module.exports export
+
+CommonJS Modules 
+ CommonJS is a module system traditionally used in Node.js 
+
+It uses:
+ require() to import code 
+ module.exports to export code 
+
+A.Exporting a Value 
+ Create a file named math.js:
+ let a = 10;
+ let b = 20;
+ module.exports = { a, b};
+ Here, module.exports makes the values available to other files 
+
+B.Importing a Value 
+ Create another file named main.js:
+ const values = require("./math.js");
+ console.log(values.a);
+ console.log(values.b);
+
+Output:
+ 10
+ 20
+
+Understanding the code 
+ module.exports = { a,b };
+ Exports an object containg a and b 
+
+ const values = require("./math.js");
+ Imports the exported object from math.js 
+
+ values.a 
+ values.b 
+ Accesses the imported values 
+
+Exporting a Single Value Using CommonJS 
+ We can also export a single value 
+
+in math.js:
+ let  a = 50;
+ module.exports = a;
+
+in main.js:
+ const value = require("./math.js");
+ console.log(value);
+
+Output:
+ 50
+
+ module.exports can be assigned a value, an object, a function, or another suitable value 
+
+ECMAScript Modules (ES Modules)
+ ECMAScript Modules (ESM) are the standardized javaScript module system 
+
+They use:
+ export to make code available 
+ import to use exported code 
+
+A.Named Export 
+in math.js:
+ export let a = 10;
+ export let b = 20;
+
+in main.js:
+ immport { a,b } from "./math.js";
+ console.log(a);
+ console.log(b);
+
+Output:
+ 10
+ 20
+ Here, { a, b } imports the named exports from math.js 
+
+Note:Named imports must use the exported names 
+
+Default Export 
+ A module can also provide one main/default export 
+
+in math.js:
+  let student = {
+     name: "Rahul",
+     age: 20
+ };
+ export default student;
+
+in main.js:
+ import student from "./math.js";
+ console.log(student);
+
+Output:
+ { name: 'Rahul', age: 20 }
+
+Important Points
+ A module can have one default export
+ A default import does not require curly braces
+ You can choose the name used for a default import
+
+Enabling ES Modules in Node.js 
+ To use ES Module syntax in a Node.js project, configure the project 
+ Open package.json and add:
+ {
+    "type": "module"
+ }
+ Now Node.js treats .js files in that pakage as ES modules 
+
+Using Modules in HTML 
+ ES Modules can also be used in browser javaScript 
+
+In an HTML file:
+ <script type="module" src="main.js"></script> 
+ The type="module" attribute tells the browser to treat the JavaScript file as a module 
+
+ CommonJS               vs                ES Modules 
+ Traditional Node.js module system        Standard JavaScript module system
+ Uses require()                           Uses import
+ Uses module.exports                      Uses export
+ Commonly used in older Node.js projects  Commonly used in modern JavaScript projects
+ Loads modules using require()            Uses static import declarations
+
+Node.js Module Wrapper 
+ Node.js wraps the code of each CommonJS module inside a function
+ This is why variables and functions such as these are available in CommonJS files:
+ exports
+ require
+ module
+ __filename
+ __dirname
