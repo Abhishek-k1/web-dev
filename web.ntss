@@ -7864,3 +7864,130 @@ Class                 vs              Object
  Defines properties and methods       Has its own instance data
  Declared using class                 Commonly created using new
  
+Backend Development 
+ Backend development deals with the server-side part of a website or application 
+
+It handles:
+ Processsing user requests 
+ Business logic 
+ Communicating with databases
+ Sending responses to the fronted 
+
+ Frontend          vs     Backend 
+ Client-side              Server-side
+ What users see           What happens behind the scenes
+ HTML, CSS, JavaScript    Node.js, Express, databases
+ User interface           Data processing and server logic
+
+Basic Working 
+ User
+   ↓
+ Frontend (Browser)
+   ↓
+ Backend (Server)
+   ↓
+ Database
+   ↓
+ Backend sends response
+   ↓
+ Frontend displays result
+
+Node.js 
+ Node.js is an open-source JavaScript runtime environment that allows us to execute JavaScript outside the browser
+ It uses Google's V8 JavaScript engine
+
+Why do we use Node.js
+ To run JavaScript on the server
+ To build backend applications
+ To create servers and APIs
+ To work with files and folders
+ To communicate with databases
+
+Important Point 
+ Earlier, we mainly used JavaScript inside the browser
+ With Node.js, we can also execute JavaScript directly on our computer or server
+
+Example:
+ console.log("Hello World");
+ Save this code in server.js
+ Run it using:
+ node server.js
+
+Output:
+ Hello World
+
+npm 
+ npm stands for Node Package Manager
+ It is used to install and manage packages (libraries) required by a Node.js project
+
+Examples of packages:
+ Express — for building web servers
+ Slugify — for converting text into URL-friendly slugs
+ Date-and-time — for working with dates and times
+
+Package 
+ A package is reusable code that provides functionality we can use in our projects
+ Instead of writing everything ourselves, we can install existing packages
+
+Node.js Project 
+ A Node.js project can be initialized using npm
+
+ Open the terminal inside your project folder and run:
+ npm init
+
+ This command creates a package.json file after asking for project details
+ You can also use:
+ npm init -y
+
+ This initializes the project using default settings
+
+package.json 
+ package.json is a configuration file that stores important information about a Node.js project.
+
+It can contain:
+ Project name
+ Version
+ Description
+ Scripts
+ Dependencies
+
+Node modules 
+ node_modules is the folder where npm installs the packages and their dependencies.
+
+Example project structure:
+ my-project/
+ │
+ ├── node_modules/
+ │
+ ├── package.json
+ │
+ ├── package-lock.json
+ │
+ └── server.js
+
+ node_modules contains installed packages
+ package.json records project information and dependencies
+ package-lock.json records the exact dependency versions and installation details
+
+Important: If node_modules is deleted, you can recreate it by running:
+ npm install
+ npm installs the dependencies recorded in the project files
+
+Installing Packages Using npm 
+Syntax:
+ npm install package-name 
+
+Example:
+ npm install express 
+
+Express.js 
+ Express.js is a web framework for Node.js that makes it easier to build web servers and backend applications
+It helps us handle:
+ HTTP requests
+ HTTP responses
+ Routes
+ Middleware
+
+Install Express:
+ npm install express
+
