@@ -388,6 +388,80 @@ body {
 .container2 {
     color: white;
     background-color: rgb(29, 28, 28);
+    height: 100vh;
+    gap: 8px;
+    padding: 16px;
+    border-radius: 8px;
+    gap: 16px;
+    font-size: 15px;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    flex: 1;
+    transform: translateY(-16px);
+    min-width: 0;
+}
+
+.container h2 {
+    margin-left: 22px;
+    margin-top: 9px;
+}
+
+.cardcontainer {
+    padding: 16px;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.cardcontainer .card {
+    height: auto;
+    min-height: fit-content;
+}
+
+.card {
+    width: 160px;
+    gap: 80px;
+    flex: 0 0 auto;
+    background: rgb(31, 31, 31);
+    padding: 12px;
+    border-radius: 8px;
+    Height: 240px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card:hover {
+    background: #2a2a2a;
+}
+
+.card h2 {
+    font-size: 14px;
+    margin: 4px 0 8px 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card p {
+    font-size: 12px;
+}
+
+.card img {
+    margin-left: 8px;
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    border-radius: 5px; 
+    margin-left: 0;
+}
+
+.container3 {
+    color: white;
+    background-color: rgb(29, 28, 28);
     height: 80vh;
     gap: 8px;
     padding: 16px;
@@ -401,52 +475,24 @@ body {
     min-width: 0;
 }
 
-.container h2{
-    margin-left: 22px;
-    margin-top: 9px; 
-}
-
-.cardcontainer{
+.card2container {
     padding: 16px;
     display: flex;
     gap: 20px;
     overflow-x: auto;
     overflow-y: hidden;
     flex-wrap: nowrap;
-    scroll-behavior: smooth;   
-    flex-wrap: nowrap;       
-    width: 100%; 
-    align-items: flex-start;
-}
-
-.card{
-    width: 160px;
-    gap: 80px;
-    flex: 0 0 auto;           
-    background: rgb(19, 18, 18);     
-    padding: 12px;
-    border-radius: 8px;
-    Height: 240px;
-}
-
-.card h2{
-    font-size: 14px;
-    margin: 4px 0 8px 0;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.card p{
-    font-size: 12px;
-}
-
-.card img {
-    margin-left: 8px;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap;
     width: 100%;
-    border-radius: 5px;
-    object-fit: cover;
-    aspect-ratio: 1 / 1;       
-    border-radius: 5px;
-    margin-left: 0;
+    align-items: flex-start;
+    height: 230px;
 }
 
+.container2 h2:nth-of-type(2) {
+    margin-top: 30px;
+}
 
+.card2container .card img {
+    border-radius: 50%;
+}
