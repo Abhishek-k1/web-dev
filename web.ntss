@@ -8148,3 +8148,141 @@ Node.js Module Wrapper
  module
  __filename
  __dirname
+
+fs Module 
+ fs stands for File System 
+ It is a built-in Node.js module used to work with files and directories
+ Using the fs module, we can:
+ Create files 
+ Read files 
+ Write data into files 
+ Append data to files 
+ Delete files 
+
+Importing the fs Module 
+ Using ES Modules:
+ import fs from "fs";
+ No separate npm installation is required because fs is built into Node.js 
+
+Creating a File 
+ We can create a file and write content using writeFilesync() or writeFile()
+
+writeFilesync()
+ It writes data to a file synchronously 
+
+Example:
+ import fs from "fs";
+ console.log("Starting");
+ fs.writeFileSync("rohan.txt", "Hello Rohan");
+ console.log("Ending");
+
+Output:
+ Starting 
+ Ending 
+
+ The file rohan.txt is created with this content:
+ Hello Rohan 
+ Synchronous operations block further execution untile the operation is completed 
+
+writeFile()
+ It writes data to a file asynchronously
+
+Example:
+ import fs from "fs";
+ console.log("Starting");
+ fs.writeFile("rohan.txt", "Hello Rohan", () => {
+    console.log("File written successfully");
+ });
+ console.log("Ending");
+
+Possible output:
+ Starting 
+ Ending 
+ File written successfully 
+ The callback executes after the file-writing operation completes 
+
+ Synchronous                vs            Asynchronous Operations 
+ Blocks further execution while           Allows other code to continue while the
+ the operation completes                  operation is pending 
+ 
+ Executes in a blocking manner            Executes without blocking the main javaScript flow 
+ Uses methods like writeFileSync()        Uses methods like writeFile()
+ Simpler for small scripts                Useful for non-blockinng file operations 
+
+ Sync -> wait 
+ Async -> Dont block;continue other work 
+
+Reading a File 
+ The readFile() method is used to read the contents of a file
+
+Exampple:
+ import fs from "fs";
+ fs.readFile("rohan.txt", "utf8", (err, data) => {
+    if (err) {
+        console.log(err);
+        return;
+    }
+    console.log(data);
+ });
+
+Output:
+ Hello Rohan 
+
+ "rohan.txt" -> File to read 
+ "utf8" -> Encoding used to read the file as text 
+ err -> Contains an error if the operation fails 
+ data -> Contains the file content 
+
+Note: without specifying an encoding, readFile() returns a Buffer rather than a normal text string  
+
+Callback Hell 
+ Callback Hell occurs when multiple callbacks are nested inside one another, making code difficult to read and maintain
+Example:
+ fs.readFile(file1.txt", (err, data1) => {
+    fs.readFile("file2.txt", (err, data2) => {
+        fs.readFile("file3.txt", (err, data3) => {
+            console.log(data1, data2, data3);
+        });
+    });
+ });
+ As more asynchronous operations are added, the code can become deeply nested
+
+Disadvantages 
+ Difficult to read 
+ Difficult to maintain 
+ Makes debugging harder 
+ Creates deeply nested code 
+
+ Promises and async/await help us write cleaner asynchronous code 
+
+Appendinng Data to a file 
+ The appendFile() method is used to add new content at the end of an existing file without replacing its existing content
+
+Example:
+ import fs from "fs";
+ fs.appendFile("rohan.txt", "\nThis is new content", (err) => {
+    if (err) {
+        console.log(err);
+        return;
+    }
+    console.log("Data appended successfully");
+ });
+
+If the file previously contains:
+ Hello rohan 
+
+After appending:
+ Hello Rohan
+ This is new content 
+
+Using Promises with the fs Module 
+ Promises provide a cleaner way to handle asynchronous file operations 
+ Node.js provides the fs/promises module 
+
+Importing 
+ import fs from "fs/promises";
+
+Example; Writing a file 
+ import fs from "fs/promises";
+ 
+
