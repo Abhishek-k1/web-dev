@@ -8282,7 +8282,443 @@ Using Promises with the fs Module
 Importing 
  import fs from "fs/promises";
 
-Example; Writing a file 
+Example: Writing a file 
  import fs from "fs/promises";
- 
+ const write = async () => {
+    await fs.writeFile("rohan.txt", "Hello from Promises");
+    console.log("File written successfully");
+ };
+ write();
 
+Example: Reading a File
+ import fs from "fs/promises";
+ const read = async () => {
+    const data = await fs.readFile("rohan.txt", "utf8");
+    console.log(data);
+ };
+ read();
+ 
+Example: Appending a File 
+ import fs from "fs/promises";
+ const append = async () => {
+    await fs.appendFile("rohan.txt", "\nNew content added");
+    console.log("Data append Successfully");
+ };
+ append();
+
+Handling Errors with try...catch 
+ import fs from "fs/promises";
+ const read = async () => {
+    try {
+        const data = await fs.readFile("rohan.txt", "utf8");
+        console.log(data);
+    }
+    catch (err) {
+        console.log(err);
+    }
+ };
+ read();
+
+ await waits for the Promise to settle inside the async function, making asynchronous code easier to read
+
+Path Module 
+ The path module is a built-in Node.js module used to work with file and directory paths
+It helps us:
+ Get file extensions
+ Get directory names
+ Get file names
+ Join different path segments
+ Create and normalize paths
+
+Importing the path Module
+ import path from "path";
+ No separate npm installation is required
+
+Methods of the path Module 
+Assume:
+ const myPath = "c:/Users/Abhi/rohan.txt";
+
+A path.extname()
+ Returns the extension of a file 
+ console.log(path.extname(myPath));
+Output:
+ .txt 
+
+B. path.dirname()
+ Returns the directory name of the path 
+ console.log(path.dirname(mypath));
+Output:
+ C:/Users/Abhi 
+
+C. path.basename()
+ Returns the ;ast part of a path, usually the file name 
+ console.log(path.basename(myPath));
+Output:
+ rohan.txt 
+
+D. path.join()
+ Joins multiple path  segments into one path 
+ console.log(path.join("folder1", :folder2", "file.txt));
+Output onWindows:
+ folder1\folder2\file.txt 
+ The exact separator depends on the operating system
+
+Important: path.join() handles path separators and normalizes the resulting path
+ 
+More Useful Path methods
+path.resolve()
+ Creates an absolute path from the given path segments
+ console.log(path.resolve("folder", "file.txt"));
+ The result depends on the current workinng directory 
+
+path.normalize()
+ Normalizes a path by resolving unnecessary . and .. segments and  adjusting separators 
+ console.log(path.normalize("folder/../file.txt"));
+Output:
+ file.txt 
+
+Complete Example:
+ import fs from "fs/promises";
+ import path from "path";
+
+ const main = async () => {
+    try {
+        // Create and write a file 
+        await fs.writeFile("rohan.txt", "Hello Rohan");
+
+        // Read the file 
+        const data = await fs.readFile("rohan.txt", "utf8");
+
+        console.log("File Content:", data);
+
+        // Append new content 
+        await fs.appendFile("rohan.txt", "\nLearning Node.js");
+
+        //Display new content 
+        const mypath = "C:/Users/Abhi/rohan.txt";
+
+        console.log("Extension:", path.extname(myPath));
+        console.log("Extension:", path.extname(myPath));
+        console.log("Extension:", path.extname(myPath));
+    }
+    catch (err) {
+        console.log(err);
+    }
+ };
+ 
+ main();
+
+Express.js 
+ Express.js is a web framework for Node.js used to build web applications and APIs easily 
+
+It simplifies the process of:
+ Creating web servers 
+ Handling HTTP requests and responses 
+ Creating routes 
+ Serving static files 
+ Managing different URLs
+
+Why Do We Need Express.js?
+ Using only Node.js's built-in HTTP module, we have to write more code to handle requests, routes and other server operations
+ Express.js makes these tasks easier and helps us build backend applications efficiently
+
+Nodemon
+ Nodemon is a development tool that automatically restarts the Node.js server whenever we make changes to our code
+ Without Nodemon, we have to stop and restart the server manually after every change
+
+Installing Nodemon 
+ npm install -g nodemon 
+ 
+Here:
+ npm install -> install a package 
+ -g -> installs it globally 
+ nodemon -> Package name 
+
+Running a Server with Nodemon
+ nodemon server.js
+
+ Now, whenever we save changes to server.js Nodemon automatically restarts the server 
+ Nodemon is mainly used during development 
+
+Install Express.js 
+ Open the terminal inside your Node.js project folder
+
+Run 
+ npm install express
+ This installs Express.js and adds it to the project's dependencies 
+
+Creating a Basic Express Server 
+ Create a file named server.js
+
+ import express from "express";
+
+ // Create an Express application
+ const app = express();
+
+ // Select port 
+ const port = 3000;
+
+ // Start the server 
+ app.listen(port, () => {
+    console.log('Server running on port ${port}');
+ });
+
+Run:
+ node server.js 
+  
+Output:
+ Server running on port 3000
+
+Open the browser:
+ http://localhost:3000 
+
+Note: This basic server starts listening, but it does not yet define a route to respond with a webpage
+
+Routing 
+ Routing means defining how a server responds to requests made to different URL paths 
+
+For example:
+ /          → Home page
+ /about     → About page
+ /contact   → Contact page
+ /blog      → Blog page
+
+In Express, we use methods such as:
+ app.get()
+ app.post()
+
+GET Request
+ A GET request is used to request or retrieve data from a server 
+
+Example:
+  app.get("/", (req, res) => {
+    res.send("Welcome to Home Page");
+  });
+
+Here:
+ app.get() → Handles a GET request
+ "/" → Route path
+ req → Request object
+ res → Response object
+ res.send() → Sends a response to the client
+
+Example:
+ import express from "express";
+
+ const app = express();
+ const port = 3000;
+
+ app.get("/". (req, res) => {
+    res.send("Welcome to Home Page");
+ });
+
+ app.listen(port, () => {
+    console.log('Server running on port ${port}');
+ });
+ 
+Open:
+ http://localhost:3000
+
+Output in browser:
+ Welcome to Home Page
+
+Creating Multiple Routes 
+ We can create different routes for different pages
+
+Example:
+ app.get("/", (req, res) => {
+    res.send("Home Page");
+ });
+
+ app.get("/about", (req, res) => {
+    res.send("About Page");
+ });
+
+ app.get("/contact", (req, res) => {
+    res.send("Contact Page");
+ });
+
+ app.get("/blog", (req, res) => {
+    res.send("Blog Page");
+ });
+
+Browser URLs
+ URL                       Response
+
+ localhost:3000/           Home Page
+
+ localhost:3000/about      About Page
+
+ localhost:3000/contact    Contact Page
+
+ localhost:3000/blog       Blog Page
+
+ If we request a route that has not been defined, Express returns a 404 Not Found response by default 
+
+Dynamic Route and URL Parameters 
+ Sometimes we need to handle many similar URLs without creating a separate route for every value 
+ For this, Express Provides route parameters  
+Example:
+ app.get("/blog/:slug", (req, res) => {
+    res.send('Blog: ${req.params.slug}');
+ });
+
+Here:
+ :slug -> Route parameter 
+
+Open:
+ http://localhost:3000/blog/intro-to-js
+
+Output:
+ Blog: intro-to-js 
+
+Another URL:
+ http://localhost:3000/blog/express-tutorial
+
+Output:
+ Blog: express-tutorial
+ The same route handles different values 
+
+Accessing URL Parameters 
+ req.params
+ It contains the parameters received through the route
+
+Example:
+ app.get("/user/:name", (req, res) => {
+    res.send('Hello ${req.params.name}');
+ });
+
+URL:
+ http://localhost:3000/user/rohan 
+
+Output:
+ Hello rohan 
+
+Query Parameters 
+ Query parameters are additional values passed through a URL after the question mark (?)
+
+Example:
+ http://localhost:3000/search?name=rohan&age=20
+
+Here:
+ name=rohan
+ age=20 
+ are query parameters 
+
+Accessing Query Parameters 
+Express provides:
+ req.query 
+
+Example:
+ app.get("/search", (req, res) => {
+    res.send(req.query);
+ });
+
+For the URL:
+ http://localhost:3000/search?name=rahul&age=20
+
+The query object contains:
+ {
+    name: "Rahul";
+    age: "20"
+ }
+
+Important: Query parameter values are generally received as strings
+
+URL Parameters vs Query Parameters 
+ URL Parameters                        Query Parameters 
+ Part of the route path                Added after ? in the URL
+
+ Accessed using req.params             Accessed using req.query
+
+ Example: /user/rahul                  Example: /user?name=rahul
+
+ Often identify a particular resource  Often provide filters or additional options
+
+Serving Static Files 
+ Static files are files that can be sent directly to the browser without generating their content dynamicaally for each request 
+
+Examples:
+ HTML files
+ CSS files 
+ JavaScript files 
+ Images 
+ Fonts 
+
+Express provides built-in middleware called:
+ express.static()
+
+Example:
+ Suppose our project contains:
+ my-project/
+ │
+ ├── public/
+ │   ├── index.html
+ │   ├── style.css
+ │   └── image.png
+ │
+ ├── server.js
+ └── package.json
+
+In server.js:
+ import express from "express";
+ const app = express();
+ app.use(express.static("public"));
+ app.listen(3000);
+
+ Now files inside the public folder can be accessed directly 
+
+For example:
+ http://localhost:3000/index.html
+ http://localhost:3000/style.css
+ http://localhost:3000/image.png
+
+Important Security Point 
+ Do not put sensitive backend files, passwords, configuration files or private data inside a publicly served folder
+ Only put files there that you intend to make accessible to users
+
+Express Server Example:
+ import express from "express";
+
+ const app = express();
+ const port = 3000;
+
+ // Home route 
+ app.get("/", (req, res) => {
+    res.send("Welcome to my website");
+ });
+
+ // About route 
+ app.get("/about", (req, res) => {
+    res.send("This is the About page");
+ });
+
+ // Contact route 
+ app.get("/contact", (req, res) => {
+    res.send("This is the Contact page");
+ });
+
+ // Dynamic route 
+ app.get("/blog/:slug", (req, res) => {
+    res.send('Blog: ${req.params.slug}');
+ });
+
+ //Query parameters 
+ app.get("/search", (req, res) => {
+    res.send(req.query);
+ });
+
+ // Start server 
+ app.listen(port, () => {
+    console.log('server running at http://localhost:${port}`);
+ });
+
+Run:
+ nodemon server.js 
+
+Try these URLs:
+ http://localhost:3000/
+ http://localhost:3000/about
+ http://localhost:3000/contact
+ http://localhost:3000/blog/intro-to-js
+ http://localhost:3000/search?name=rahul&age=20
