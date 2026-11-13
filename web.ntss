@@ -3414,11 +3414,11 @@ Memory Trick:
 z-index → controls front/back order
 
 Position Comparison 
- Position   	Reference / Behavior	                     Stays during scroll
- static	      Normal document flow	                     No
+ Position   	Reference / Behavior	                   Stays during scroll
+ static	      Normal document flow	                       No
  relative	    Original position                     	   No
  absolute	    Nearest positioned ancestor                No
- fixed	      Viewport                                   yes 
+ fixed	      Viewport                                     yes 
  sticky	      Normal until threshold, then sticks	       Yes, within its context
 
 Relative vs Absolute 
@@ -8722,3 +8722,361 @@ Try these URLs:
  http://localhost:3000/contact
  http://localhost:3000/blog/intro-to-js
  http://localhost:3000/search?name=rahul&age=20
+
+HTTP Requests 
+ An HTTP request is a message sent by a client (such as a browser or Postman) to a server to perform an operation
+
+Express supports different HTTP request methods:
+ GET
+ POST 
+ PUT
+ DELETE
+
+Types of HTTP Requests
+ Method      Purpose                Example 
+ GET         Retrieve data          Get user details
+
+ POST       Send or create data     Register a user
+
+ PUT        Update existing data    Update user details
+
+ DELETE     Delete data             Delete a user
+
+Get Request 
+ A GET request is used to retrieve data from a server
+
+Example:
+ app.get("/", (req, res) => {
+    res.send("Hello World GET");
+ });
+
+When a client visits:
+ http://localhost:3000/
+
+The server responds with:
+ Hello World GET 
+
+ -> Used to retrieve data
+ -> Parameters can be included in the URL
+ -> Data is visible in the URL when sent as query parameters
+ -> Not suitable for sending sensitive information
+
+POST Request 
+ A POST request is used to send data to the server, commonly to create a resource
+
+Example:
+  app.post("/", (req, res) => {
+    res.send("Hello World POST");
+  });
+  
+ GET                   VS                POST
+ Retrieves data                          Sends data to the server
+ Parameters often appear in URL          Data is commonly sent in the request body
+ Suitable for fetching information       Suitable for submitting information
+ URL length limits apply                 Can carry larger request bodies, subject to server limits
+
+Important: POST keeps submitted data out of the URL, but it does not automatically make data secure. Use HTTPS to protect data during transmission
+
+PUT Request 
+ A PUT request is used to update or replace an existing resource
+
+Example:
+ app.put("/", (req, res) => {
+    res.send("Hello World PUT");
+ });
+For example, updating a user's profile information
+
+DELETE Request 
+ A DELETE request is used todelete a resource from the server 
+
+Example;
+ app.delete("/", (req, res) => {
+    res.send("Hello World DELETE");
+ });
+For example, deleting a Particular user account 
+
+Complete Example of HTTP Methods 
+ import express from "express";
+ const app = express();
+
+ app.get("/", (req, res) => {
+    res.send("Hello World GET");
+ });
+
+ app.post("/", (req, res) => {
+    res.send("Hello World POST");
+ });
+
+ app.put("/", (req, res) => {
+    res.semd("Hello World PUT");
+ });
+
+ app.delete("/", (req, res) => {
+    res.send("Hello World DELETE");
+ });
+
+ app.listen(3000, () => {
+    console.log("Server running on port 3000");
+ });
+
+Important: The same URL can handle different HTTP methods. The response depends on the request method used by the client
+
+Chaining HTTP Methods 
+ Express allows us to handle multiple HTTP methods for the same route using app.route()
+ This makes the code cleaner and avoids repeating the route path
+
+Example:
+ app.route("/")
+      .get((req, res) => {
+        res.send("Hello World GET");
+      })
+      .post((req, res) => {
+        res.send("Hello World POST");
+      })
+      .put((req, res) => {
+        res.send("Hello World PUT");
+      })
+      .delete((req, res) => {
+        res.send("Hello World DELETE");
+      });
+
+Advantage 
+ Reduce code repetition 
+ Makes routes easier to read 
+ Groups different HTTP methods for the same URL 
+
+Request and Response Objects 
+ Express provides two important objects:
+
+Request Object(req)
+ The request object contains information about the incoming client request 
+Example:
+ app.get("/", (req, res) =? {
+    console.log(req.method);
+    console.log(req.url);
+
+    res.send("Request received");
+ });
+
+Important Properties:
+ req.method -> HTTP method used 
+ req.url -> Requested URL 
+ req.params -> Route parameters 
+ req.query -> Query parameters 
+ req.body -> Data sent in the request body, when the appropiate body-parsing middleware is configured 
+
+Response Object(res)
+ The response object is used to send information back to the client
+
+Common Methods:
+ Method           Purpose
+ res.send()       Sends a response
+
+ res.json()       Sends a JSON response
+
+ res.sendFile()   Sends a file
+
+ res.sendStatus() Sends an HTTP status code and its standard message
+
+ res.download()   Sends a file as a download
+
+
+Sending HTML Files Using Express 
+ We can send an HTML file as a response using res.sendFile() 
+
+Example project structure
+ my-project/
+ │
+ ├── templates/
+ │   └── index.html
+ │
+ ├── server.js
+ └── package.json
+
+In server.js:
+ import express from "express";
+ import path from "path";
+
+ const app = express();
+
+ app.get("/", (req, res) => {
+    res.sendFile(path.resolve("templates/index.html"));
+ });
+
+ app.listen(3000, () => {
+    console.log("Server running on port 3000");
+ }); 
+ 
+Here:
+ res.sendFile() -> Sends the HTML file
+ path.resolve() → Creates an absolute file path
+
+Important: res.sendFile() needs an absolute path unless a root option is provided
+
+Sendinng JSON Data 
+ JSON stands for JavaScript Object Notation
+ It is a commonly used format for exchanging data between clients and servers
+ Express provides res.json() to send JSON responses
+
+Example:
+ app.get("/api", (req, res) => {
+    res.json({
+        name: "Rohan",
+        age: 20,
+        course: "Web Developement"
+    });
+ });
+
+Response:
+ {
+    "name": "Rohan",
+    "age": 20,
+    "course": "Web Development"
+ }
+
+Why Use JSON?
+ Easy to read
+ Lightweight data format
+ Commonly used in APIs
+ Supported by many programming languages
+
+API 
+ API stands for Application Programming Interface
+ An API allows different applications or software systems to communicate with each other
+
+Example: 
+ Frontend
+   |
+   | HTTP Request
+   ↓
+ Backend API
+   |
+   | Response (JSON)
+   ↓
+ Frontend displays data
+
+Example  API route:
+ app.get("/api/users", (req, res) => {
+    res.json([
+        { name: "Rohan", age: 20 },
+        { name: "Aman", age: 21 }
+    ]);
+ });
+
+Postman 
+ Postman is a tool used to test APIs and HTTP requests
+ We can use it to send different types of requests without creating a complete frontend page
+ Using Postman, we can:
+ Send GET requests
+ Send POST requests
+ Send PUT requests
+ Send DELETE requests
+ View server responses
+ Organize requests into collections
+
+How to Test an API Using Postman 
+ Open Postman
+ Create a new request
+ Enter the server URL
+ http://localhost:3000/
+ Select the HTTP method (GET, POST, PUT or DELETE)
+ Click Send
+ Check the response
+
+collection
+ A collection is a group of saved API requests 
+Example:
+ My Express API
+    |
+    ├── GET Home
+    ├── POST Home
+    ├── PUT Home
+    └── DELETE Home
+ Collections help organize and reuse API requests
+
+Express Router 
+ Express Router is a built-in Express feature used to organize routes into separate files
+ It helps keep a project clean and manageable
+ Instead of writing every route inside server.js, we can create separate route files
+
+Without Router 
+ project/
+ │
+ └── server.js
+     ├── Home routes
+     ├── Blog routes
+     ├── Shop routes
+     └── About routes 
+
+ As the application grows, server.js can become very large
+ 
+With Router 
+ project/
+ │
+ ├── server.js
+ │
+ └── routes/
+     ├── blog.js
+     ├── shop.js
+     └── about.js
+ Each files handles a separate group of routes 
+
+Creating Routes Using Express Router
+Step 1: Create routes/blog.js
+ import express from "express";
+
+ const router = express.Router();
+
+ router.get("/", (req, res) => {
+     res.send("Blog Home Page");
+ });
+
+ router.get("/about", (req, res) => {
+     res.send("About Blog");
+ });
+
+ export default router;
+
+Here:
+ express.Router() → Creates a router object
+ router.get() → Defines a GET route
+ export default router → Exports the router
+
+Step 2: Import Router in server.js
+ import express from "express";
+ import blog from "./routes/blog.js";
+
+ const app = express();
+
+ app.use("/blog", blog);
+
+ app.listen(3000, () => {
+    console.log("Server running on port 3000");
+ });
+
+Here:
+ app.use("/blog", blog);
+ Mounts the blog router at the /blog path
+
+Step 3: Test in Browser
+Open:
+ http://localhost:3000/blog/
+
+Response:
+ Blog Home Page
+
+Open:
+ http://localhost:3000/blog/about
+
+Response:
+ About Blog
+
+Important: The /blog prefix comes from app.use(), while the remaining route paths come from blog.js.
+
+Advantages of Express Router 
+ Organizes routes into separate files
+ Makes code easier to understand
+ Reduces the size of the main server file
+ Improves code reusability
+ Makes large applications easier to maintain
+
