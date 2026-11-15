@@ -9080,3 +9080,264 @@ Advantages of Express Router
  Improves code reusability
  Makes large applications easier to maintain
 
+Middleware 
+ Middleware is a dunction that executes during the request-response cycle of an Express application 
+
+It can:
+ Execute code
+ Read or modify the request object 
+ Read or modify the response object 
+ Pass control to the text middleware using next()
+
+ Middleware works like a checkpoint between the client request and the server response 
+
+Middleware Flow 
+  Client Request
+       ↓
+   Middleware 1
+       ↓
+   Middleware 2
+      ↓
+   Middleware 3
+       ↓
+   Route Handler
+       ↓
+  Server Response
+
+Middleware Function 
+ A middleware function generally receives three arguments:
+ (req, res, next)
+
+Here:
+ req -> Request object 
+ res -> Response object 
+ next -> Function that passes control to the next middleware 
+
+Syntax:
+ function myMiddleware(req, res, next) {
+    // Middleware code
+
+    next();
+ }
+
+Example:
+ function myMiddleware(req, res, next) {
+    console.log("Middleware executed");
+
+    next();
+ }
+
+Here, next() allows the request to continue to the next middleware or route handler 
+
+Important: If middleware neither sends a response nor calls next(), the request may remain pending
+
+Using Middleware with app.use()
+ Express provides app.use() to register middleware
+
+Example:
+ import express from "express";
+
+ const app = express();
+ app.use((req, res, next) => {
+    console.log("Middleware running");
+
+    next();
+ });
+
+ app.get("/", (req, res) => {
+    res.send("Home Page");
+ });
+
+ app.listen(3000);
+
+Order of Middleware 
+ The order in which middleware is registered is important.
+ Express executes middleware in the order in which it is registered, when it matches the request
+
+Example:
+ app.use((req, res, next) => {
+    console.log("First Middleware");
+    next();
+ });
+
+ app.use((req, res, next) => {
+    console.log("Second Middleware");
+    next();
+ });
+
+ app.get("/", (req, res) => {
+    res.send("Home Page");
+ });
+
+Terminal output:
+ First Middleware
+ Second Middleware
+
+Browser output:
+ Home Page
+
+Middleware Can Modify the Request 
+ Middleware can add new properties to the request object
+
+Example:
+ app.use((req, res, next) => {
+    req.username = "Rohan";
+
+    next();
+});
+
+app.get("/", (req, res) => {
+    res.send(`Hello ${req.username}`);
+});
+
+Output:
+ Hello Rohan 
+
+ adds a custom property to the request object
+ The next middleware or route handler can access it
+
+Types of Middleware 
+ Express middleware can be classified into different types:
+ Application-level middleware
+ Router-level middleware
+ Built-in middleware
+ Third-party middleware
+ Error-handling middleware
+
+A.Application-Level Middleware 
+ Middleware registered using the Express application object
+ 
+Example:
+ app.use((req, res, next) => {
+    console.log("Application Middleware");
+    next();
+ });
+ It can be applied to all matchoing requests or to a specific path 
+
+B.Router-Level Middleware 
+ Middleware associated with an Express Router instance
+
+Example:
+ const router = express.Router();
+
+router.use((req, res, next) => {
+    console.log("Router Middleware");
+    next();
+ });
+ It is useful when we want middleware to apply only to a particular group of routes
+
+C.Built-in Middleware 
+ Express provides built-in middleware for common tasks
+
+Example:
+ app.use(express.json());
+ app.use(express.urlencoded({ extended: true }));
+ app.use(express.static("public"));
+
+ express.json() → Parses incoming JSON request bodies
+ express.urlencoded() → Parses URL-encoded form data
+ express.static() → Serves static files
+
+D.Third-Party Middleware 
+ Third-party middleware is created by external developers and installed using npm.
+
+Examples include:
+ Morgan → HTTP request logging
+ CORS → Controls cross-origin access
+ Cookie-parser → Parses cookies
+
+Example of installing Morgan:
+ npm install morgan
+
+Using it:
+ import morgan from "morgan";
+ app.use(morgan("dev"));
+
+E. Error-Handling Middleware 
+ Error-handling middleware handles errors that occur during request processing.
+
+ It uses four parameters:
+ (err, req, res, next)
+
+Example:
+ app.use((err, req, res, next) => {
+    console.error(err.message);
+
+    res.status(500).send("Something went wrong");
+ });
+
+Route-Specific Middleware 
+ Middleware can also be applied to a particular route instead of the entire application
+
+Example:
+ const checkUser = (req, res, next) => {
+    console.log("Checking user");
+
+    next();
+ };
+
+ app.get("/profile", checkUser, (req, res) => {
+    res.send("Profile Page");
+ });
+
+ Here, checkUser  runs only when the profile route is requested 
+
+Using Multiple Middleware Functions 
+ We can apply multiple middleware functions to a single route.
+
+Example:
+ const first = (req, res, next) => {
+    console.log("First Middleware");
+    next();
+ };
+
+ const second = (req, res, next) => {
+    console.log("Second Middleware");
+    next();
+ };
+
+ app.get("/", first, second, (req, res) => {
+    res.send("Home Page");
+ });
+
+Terminal Output:
+ First Middleware
+ Second Middleware 
+
+Middleware with a Specific Path 
+ We can also apply middleware to all requests beginning with a particular path
+
+Example:
+ app.use("/admin", (req, res, next) => {
+    console.log("Admin middleware");
+
+    next();
+ });
+
+Complete Middleware Example 
+ import express from "express";
+
+ const app = express();
+
+ // Application-level middleware
+ app.use((req, res, next) => {
+    console.log("Request received");
+
+    req.username = "Abhishek";
+
+    next();
+ });
+
+ // Home route
+ app.get("/", (req, res) => {
+    res.send(`Welcome ${req.username}`);
+ });
+
+ // About route
+ app.get("/about", (req, res) => {
+    res.send("About Page");
+ });
+
+ app.listen(3000, () => {
+    console.log("Server running on port 3000");
+ });
