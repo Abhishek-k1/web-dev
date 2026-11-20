@@ -22,7 +22,7 @@ nav ul{
 }
 
 .maincontainer {
-    background-color: aliceblue;
+
     display: flex;
     justify-content: center;
     margin-top: 70px;
@@ -51,5 +51,30 @@ nav ul{
 
 .welcome{
     padding: 0 74px;
-    
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+.imgbox img{
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+
+.br-0{
+    border-right: 0;
+}
+
+.bl-0{
+    border-left: 0;
+}
+
+.bt-0{
+    border-top: 0;
+}
+
+.bb-0{
+    border-bottom: 0;
+}
+
+
+
