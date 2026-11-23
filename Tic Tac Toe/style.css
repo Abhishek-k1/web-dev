@@ -16,13 +16,12 @@ nav{
     font-family: "Martel Sans", sans-serif;
     font-weight: 800;
 }
-
 nav ul{
     list-style-type: none;
 }
 
 .maincontainer {
-
+    
     display: flex;
     justify-content: center;
     margin-top: 70px;
@@ -34,10 +33,12 @@ nav ul{
     grid-template-rows: repeat(3, 10vw);
     font-family: "Martel Sans", sans-serif;
     margin-top: 40px;
+    position: relative;
+    
 }
 
 .box{
-    border: 2px solid black;
+    border: 2px solid rgb(0, 1, 2);
     font-size: 6vw;
     cursor: pointer;
     display: flex;
@@ -46,7 +47,7 @@ nav ul{
 }
 
 .box:hover{
-    background-color:blanchedalmond;
+    background-color:rgb(188, 227, 245);
 }
 
 .welcome{
@@ -54,6 +55,17 @@ nav ul{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.info{
+    display: inline-block;
+    font-size: 22px;
+    margin-top: 10px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.gameinfo h1{
+    font-size: 2.5rem;
+
+}
 .imgbox img{
     width: 0;
     transition: width 1s ease-in-out;
@@ -76,5 +88,41 @@ nav ul{
     border-bottom: 0;
 }
 
+#reset{
+    margin: 0 23px;
+    padding: 6px 14px;
+    background: rgb(148, 23, 23);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.line{
+    background-color: black;
+    height: 3px;
+    width: 0;
+    position: absolute;
+    transition: width 1s ease-in-out;
+    z-index: 10;
+}
+
+@media screen and (max-width: 950px)
+{
+    .maincontainer{
+        width:90%;
+        flex-wrap: wrap;
+    }
+    .welcome{
+        margin-top: 34px;
+    }
+    .welcome h1{
+        font-size: 1.5rem;
+    }
+    .container {
+        grid-template-rows: repeat(3, 20vw);
+        grid-template-columns: repeat(3, 20vw);
+    }
 
 
+}
