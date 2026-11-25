@@ -9341,3 +9341,188 @@ Complete Middleware Example
  app.listen(3000, () => {
     console.log("Server running on port 3000");
  });
+
+Template Engine 
+ A template engine is a tool that allows us to generate dynamic HTML pages by combining HTML with data from the server
+ For example, instead of writing a separate HTML page for every user, we can create one template and pass different user information to it
+
+Example:
+ Backend Data
+      ↓
+ Template Engine
+      ↓
+ HTML Page
+      ↓
+ Browser
+
+Why do We Need a Template Enginne?
+ To create dynamic webpages 
+ To display data received from the backend 
+ To reuse HTML templates
+ To reduce repeated HTML code 
+ To combine javascript logic with HTML 
+
+EJS 
+ EJS stands for Embedded JavaScript 
+ It is a template engine that allows us to  write jaavaScript inside HTML templates 
+ EJS is commonly used with Express.js to generate dynamic HTML pages 
+
+Installing EJS
+ Run this command inside your project folder:
+ npm install ejs
+
+Setting Up EJS in Express 
+ To use EJS, we need to tell Express that EJS is our template engine
+
+Example:
+ import express from "express";
+ const app = express();
+
+ // Set  EJS as the template engine
+ app.set("view engine", "ejs");
+
+ app.listen(3000, () => {
+    console.log("Server running on port 3000");
+ });
+
+Here:
+ app.set("view engine", "ejs");
+
+Creating the views Folder 
+ EXpress uses a folder named views by default to find template files 
+
+Our project structure:
+  my-project/
+ │
+ ├── views/
+ │   └── index.ejs
+ │
+ ├── server.js
+ └── package.json
+ The .ejs extension identifies an EJS template file 
+
+Rendering an EJS File 
+ Express provides res.render() to render an EJS template and send the generated HTML to the browse
+
+Step 1: Create views/index.ejs 
+ <!DOCTYPE html>
+ <html>
+ <head>
+     <title>My Website</title>
+ </head>
+ <body>
+     <h1>Welcome to EJS</h1>
+     <p>This is my first EJS page.</p>
+ </body>
+ </html>
+
+Step 2: Render the template in server.js 
+ import express from "express";
+
+ const app = express();
+
+ app.set("view engine", "ejs");
+
+ app.get("/", (req, res) => {
+     res.render("index");
+ });
+
+ app.listen(3000);
+
+Passing Data from Express to EJS 
+We can pass variables from the Express server to an EJS template.
+
+In server.js
+ app.get("/", (req, res) => {
+     res.render("index", {
+         title: "Home Page",
+         name: "Abhishek"
+     });
+ });
+
+In views/index.ejs 
+ <!DOCTYPE html>
+ <html>
+ <body>
+
+    <h1><%= title %></h1>
+
+    <h2>Welcome <%= name %></h2>
+
+ </body>
+ </html>
+
+EJS Tags 
+ EJS provides special tags to write JavaScript and display data inside HTML
+
+A. <%= %> — Output Tag
+ Used to display a value in HTML  
+Example:
+ <h1><%= name %></h1>
+  It outputs the value of name and escapes HTML Characters
+
+B. <% %>= name %></h1>
+ Used to execute JavaScript code without directly displaying its result
+Example:
+ <%
+    let age = 20;
+ %>
+ <p>My age is <%= age %></p>
+
+Output:
+ My age is 20
+
+C. <%- %> — Unescaped Output Tag
+ Used to output content without HTML escaping
+Example:
+ <%- htmlContent %>
+ Important: Use this carefully. Untrusted HTML can introduce cross-site scripting (XSS) security risks
+
+ EJS Tag            Purpose
+
+ <%= value %>       Outputs escaped HTML
+ <% code %>         Executes JavaScript without output
+ <%- value %>       Outputs unescaped HTML
+
+Using  JavaScript Conditions in EJS 
+ we can use JavaScript conditions inside EJS templates 
+Eample:
+ <%
+    let age = 20;
+ %>
+
+ <% if (age >= 18) { %>
+    <h2>You are an adult</h2>
+
+ <% } else { %>
+     <h2>You are a minor</h2>
+ <% } %>
+
+Output:
+ You are an Adult
+
+Using Loops in EJS 
+ We can use loops to display multiple values dynamically.
+
+Example:
+
+In server.ejs
+ app.get("/", (req, res) => {
+    const subjects = ["HTML", "CSS", "JavaScript", "Node.js"];
+    res.render("index", { subjects });
+ });
+
+In views/index.ejs
+ <h1>My Subjects</h1>
+ <ul>
+     <% subjects.forEach((subject) => { %>
+         <li><%= subject %></li>
+     <% }) %>
+ </ul>
+
+Output:
+ HTML
+ CSS
+ JavaScript
+ Node.js
+ Important: The loop runs inside <% %>, and <%= %> displays each subject
